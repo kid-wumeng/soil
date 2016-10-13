@@ -1,5 +1,5 @@
 <template lang="pug">
-  div ppp
+  ListX
 </template>
 
 <script lang="coffee">

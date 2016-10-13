@@ -3,6 +3,12 @@ VueRouter = require 'vue-router'
 App = require './App'
 
 
+require 'normalize.css'
+
+
+Vue.component 'ListX', require './components/ListX'
+
+
 Vue.use VueRouter
 router = new VueRouter
   mode: 'history'
