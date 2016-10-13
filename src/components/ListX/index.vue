@@ -1,6 +1,5 @@
 <template lang="pug">
-  div
-    router-view
+  div ListX
 </template>
 
 <script lang="coffee">
