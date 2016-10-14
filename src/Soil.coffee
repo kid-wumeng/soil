@@ -37,15 +37,14 @@ _convertComponentName = (name, mode, format) ->
 
 Soil.init = (option={}) ->
 
-  nameMode = option.nameMode ? 'AaBb'
-  nameFormat = option.nameFormat ? '*'
   registerAllComponentsInGlobal = option.registerAllComponentsInGlobal ? false
 
-  for name, Component of Soil
-    if name isnt 'install'
-      Component.name = _convertComponentName name, nameMode, nameFormat
-      if registerAllComponentsInGlobal
-        Vue.component Component.name, Component
+  for name, Component of Soil when name isnt 'init'
+    # For example, ListX -> 'soil-list-x'
+    Component.name = _convertComponentName name, 'aa-bb', 'soil-*'
+    # If auto-register
+    if registerAllComponentsInGlobal
+      Vue.component Component.name, Component
 
 
 

@@ -1,6 +1,6 @@
 <template lang="pug">
   .playground
-    ListX()
+    soil-list-x
       .d1
       .d2
       .d3

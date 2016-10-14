@@ -29,8 +29,7 @@
         children = this._combineItemsAndSep()
       else
         children = this._getItems()
-      attrs = class: 'soil-list-x'
-      return createElement 'div', {attrs}, children
+      return createElement 'div', {class: 'soil-list-x'}, children
 
 
 
