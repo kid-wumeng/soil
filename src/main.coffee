@@ -1,15 +1,17 @@
 Vue = require 'vue'
 VueRouter = require 'vue-router'
+Soil = require './Soil'
 App = require './App'
 
 
 require 'normalize.css'
 
 
-Vue.component 'ListX', require './components/ListX'
-
+Soil.init
+  registerAllComponentsInGlobal: true
 
 Vue.use VueRouter
+
 router = new VueRouter
   mode: 'history'
   routes: [{

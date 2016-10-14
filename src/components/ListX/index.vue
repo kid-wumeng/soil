@@ -6,33 +6,6 @@
 
 
 <script lang="coffee">
-
-  convertMode = (name, mode) ->
-    # For example, ListX -> ['List', 'X']
-    nameParts = name.match /[A-Z][a-z0-9]*/g
-    switch mode
-      when 'AaBb' then return name
-      when 'aabb' then return nameParts.join('').toLowerCase()
-      when 'AABB' then return nameParts.join('').toUpperCase()
-      when 'Aa-Bb' then return nameParts.join('-')
-      when 'aa-bb' then return nameParts.join('-').toLowerCase()
-      when 'AA-BB' then return nameParts.join('-').toUpperCase()
-      when 'Aa_Bb' then return nameParts.join('_')
-      when 'aa_bb' then return nameParts.join('_').toLowerCase()
-      when 'AA_BB' then return nameParts.join('_').toUpperCase()
-      else throw "Mode [#{mode}] is not a pre-value"
-
-
-
-  convertFormat = (name, format) ->
-    return format.replace /\*/g, name
-
-  $convertComponentName = (name, mode='aa-bb', format) ->
-    name = convertMode name, mode
-    return convertFormat name, format
-
-  console.log $convertComponentName 'MainSide', null, 'soil-*'
-
   module.exports =
 
     props:
@@ -105,18 +78,14 @@
         last = children.length-1
         for i in [0..last-1]
           children[i].style.marginRight = @padding
-
 </script>
 
 
 
 <style lang="less">
-
-  .soil-list-x
-  {
+  .soil-list-x {
     background-color: #ccc;
     display: inline-flex;
     align-items: center;
   }
-
 </style>
