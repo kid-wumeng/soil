@@ -1,6 +1,6 @@
 <!--
-  list-x
-    item, sep, item, sep, ..., item
+  .soil-list-x
+    slot, slot(sep), slot, slot(sep), ..., slot
 -->
 
 
@@ -18,7 +18,7 @@
       #   item-1 |8| item-2 |8| item-3
       'padding':
         type: String
-        default: '8px'
+        default: '4px'
 
 
 
@@ -51,40 +51,46 @@
 
       _getItems: ->
         return this.$slots.default
-        # VNode-Array
 
 
       _getSep: ->
         return this.$slots.sep[0]
-        # VNode
 
 
       _combineItemsAndSep: ->
         nodes = []
         items = this._getItems()
         sep = this._getSep()
-        last = items.length - 1
-        for i in [0..last-1]
-          nodes.push items[i]
-          nodes.push sep
-        nodes.push items[last]
+        len = items.length
+        if len is 1
+          # If one item,
+          # nodes = [item]
+          nodes = items
+        else
+          # If multiple items,
+          # nodes = [item-1, sep, item-2, sep, ..., item-n]
+          last = len - 1
+          for i in [0..last-1]
+            nodes.push items[i]
+            nodes.push sep
+          nodes.push items[last]
         return nodes
-        # VNode-Array - [ item-1, sep, item-2, sep, item-3, ..., item-n ]
 
 
       _handlePadding: ->
         children = this.$el.childNodes
-        last = children.length-1
-        for i in [0..last-1]
-          children[i].style.marginRight = @padding
+        len = children.length
+        if len > 1
+          last = len - 1
+          for i in [0..last-1]
+            children[i].style.marginRight = @padding
 </script>
 
 
 
 <style lang="less">
   .soil-list-x {
-    background-color: #ccc;
-    display: inline-flex;
+    display: flex;
     align-items: center;
   }
 </style>

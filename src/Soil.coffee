@@ -1,9 +1,11 @@
 Vue = require 'vue'
+require './assets/reset.css'
 
 
 
 Soil =
   ListX: require './components/ListX'
+  FlowX: require './components/FlowX'
 
 
 

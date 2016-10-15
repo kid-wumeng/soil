@@ -4,9 +4,6 @@ Soil = require './Soil'
 App = require './App'
 
 
-require 'normalize.css'
-
-
 Soil.init
   registerAllComponentsInGlobal: true
 

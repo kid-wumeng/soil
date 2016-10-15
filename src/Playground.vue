@@ -1,10 +1,11 @@
 <template lang="pug">
   .playground
-    soil-list-x
-      .d1
+    soil-flow-x
+      .d1(slot="left")
       .d2
-      .d3
-      .sep1(slot="sep")
+      .d2
+      .d2
+      .d3(slot="right")
 </template>
 
 <script lang="coffee">
@@ -12,18 +13,18 @@
 
 <style lang="less">
   .d1 {
-    width: 200px;
-    height: 200px;
+    width: 48px;
+    height: 48px;
     background-color: red;
   }
   .d2 {
-    width: 300px;
-    height: 100px;
+    width: 48px;
+    height: 48px;
     background-color: blue;
   }
   .d3 {
-    width: 100px;
-    height: 150px;
+    width: 48px;
+    height: 48px;
     background-color: green;
   }
   .sep1 {
@@ -36,7 +37,7 @@
     height: 50px;
     background-color: #fff;
   }
-  .list-x {
+  .soil-flow-x {
     background-color: yellow;
   }
 </style>

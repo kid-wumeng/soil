@@ -6,5 +6,5 @@
 <script lang="coffee">
 </script>
 
-<style>
+<style lang="less">
 </style>
