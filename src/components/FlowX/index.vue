@@ -18,7 +18,7 @@
 
 
 
-<style>
+<style lang="less">
   .soil-flow-x
   {
     display: flex;
