@@ -1,7 +1,10 @@
 <template lang="pug">
   .playground
-    soil-flow-x
+    soil-flow-x(padding="4px")
       .d1(slot='left') 1
+      .d1(slot='left') 1
+      .d1(slot='left') 1
+      .d2 2
       .d2 2
       .d3(slot='right') 3
       .d3(slot='right') 3
@@ -10,6 +13,7 @@
       .d3(slot='right') 3
       .d3(slot='right') 3
       .d3(slot='right') 3
+      .sep1(slot="sep")
 </template>
 
 <script lang="coffee">
