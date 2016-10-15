@@ -1,4 +1,4 @@
-<template lang="pug">
+<template lang="jade">
 
   .soil-flow-x
 
