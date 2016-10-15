@@ -28,7 +28,8 @@
         return createElement 'div', {class: 'item'}, [item]
 
       _createItems = =>
-        return this.$slots.default.map _createItem
+        items = this.$slots.default ? []
+        return items.map _createItem
 
       _existSep = =>
         return this.$slots.sep isnt undefined

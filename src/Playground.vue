@@ -1,13 +1,15 @@
 <template lang="pug">
   .playground
-    soil-bar-x
-      .d1
-      .d2
-      .d3
-      .d1
-      .d2
-      .sep1(slot="sep")
-      .sep2(slot="sep")
+    soil-flow-x
+      .d1(slot='left') 1
+      .d2 2
+      .d3(slot='right') 3
+      .d3(slot='right') 3
+      .d3(slot='right') 3
+      .d3(slot='right') 3
+      .d3(slot='right') 3
+      .d3(slot='right') 3
+      .d3(slot='right') 3
 </template>
 
 <script lang="coffee">
@@ -21,7 +23,7 @@
   }
   .d2 {
     width: 48px;
-    height: 48px;
+    height: 88px;
     background-color: blue;
   }
   .d3 {
