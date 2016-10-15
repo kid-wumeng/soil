@@ -1,11 +1,11 @@
 <template lang="pug">
   .playground
-    soil-flow-x
-      .d1(slot="left")
+    soil-list-x
+      .sep1(slot="sep")
+      .sep2(slot="sep")
+      .d1
       .d2
-      .d2
-      .d2
-      .d3(slot="right")
+      .d3
 </template>
 
 <script lang="coffee">
@@ -28,16 +28,18 @@
     background-color: green;
   }
   .sep1 {
+    display: inline;
     width: 3px;
-    height: 50px;
+    height: 100px;
     background-color: #000;
   }
   .sep2 {
+    display: inline-block;
     width: 3px;
-    height: 50px;
+    height: 100px;
     background-color: #fff;
   }
-  .soil-flow-x {
+  .soil-list-x {
     background-color: yellow;
   }
 </style>

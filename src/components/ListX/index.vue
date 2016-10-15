@@ -1,10 +1,3 @@
-<!--
-  .soil-list-x
-    slot, slot(sep), slot, slot(sep), ..., slot
--->
-
-
-
 <script lang="coffee">
   module.exports =
 
@@ -16,6 +9,7 @@
       #   item-1 |8| sep |8| item-2 |8| sep |8| item-3
       # else
       #   item-1 |8| item-2 |8| item-3
+
       'padding':
         type: String
         default: '4px'
@@ -24,11 +18,39 @@
 
     # The reason why use the `render` function to generate the template
     # is inserting the separator between the items.
+
     render: (createElement) ->
-      if this._isExistSep()
-        children = this._combineItemsAndSep()
+
+      _countItems = =>
+        return this.$slots.default.length
+
+      _createItem = (item) =>
+        return createElement 'div', {class: 'item'}, [item]
+
+      _createItems = =>
+        return this.$slots.default.map _createItem
+
+      _existSep = =>
+        return this.$slots.sep isnt undefined
+
+      _createSep = =>
+        return createElement 'div', {class: 'sep'}, this.$slots.sep
+
+      _combine = (items, sep) =>
+        nodes = []
+        last = items.length - 1
+        for i in [0..last-1]
+          nodes.push items[i]
+          nodes.push sep
+        nodes.push items[last]
+        return nodes
+
+      items = _createItems()
+      if !_existSep() or _countItems() is 1
+        children = items
       else
-        children = this._getItems()
+        sep = _createSep()
+        children = _combine(items, sep)
       return createElement 'div', {class: 'soil-list-x'}, children
 
 
@@ -45,45 +67,13 @@
 
     methods:
 
-      _isExistSep: ->
-        return this.$slots.sep isnt undefined
-
-
-      _getItems: ->
-        return this.$slots.default
-
-
-      _getSep: ->
-        return this.$slots.sep[0]
-
-
-      _combineItemsAndSep: ->
-        nodes = []
-        items = this._getItems()
-        sep = this._getSep()
-        len = items.length
-        if len is 1
-          # If one item,
-          # nodes = [item]
-          nodes = items
-        else
-          # If multiple items,
-          # nodes = [item-1, sep, item-2, sep, ..., item-n]
-          last = len - 1
-          for i in [0..last-1]
-            nodes.push items[i]
-            nodes.push sep
-          nodes.push items[last]
-        return nodes
-
-
       _handlePadding: ->
-        children = this.$el.childNodes
-        len = children.length
+        nodes = this.$el.childNodes
+        len = nodes.length
         if len > 1
           last = len - 1
           for i in [0..last-1]
-            children[i].style.marginRight = @padding
+            nodes[i].style.marginRight = @padding
 </script>
 
 

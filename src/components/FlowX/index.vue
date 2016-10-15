@@ -1,15 +1,3 @@
-<!--
-  .soil-flow-x
-    .soil-list-x
-      slot(left)
-    .soil-list-x
-      slot
-    .soil-list-x
-      slot(right)
--->
-
-
-
 <template lang="pug">
   .soil-flow-x
     soil-list-x
