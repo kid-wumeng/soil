@@ -37,6 +37,12 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+        test: /\.less/,
+        loader: 'less',
+        include: projectRoot,
+        exclude: /node_modules/
+      },
+      {
         test: /\.json$/,
         loader: 'json'
       },

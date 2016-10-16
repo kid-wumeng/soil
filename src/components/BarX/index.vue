@@ -20,6 +20,8 @@
 
 <style lang="less">
 
+  @import "../../assets/common";
+
   .soil-bar-x > .item {
     flex-grow: 1;
     display: flex;

@@ -1,5 +1,6 @@
 Vue = require 'vue'
 require './assets/reset.css'
+require './assets/common.less'
 
 
 

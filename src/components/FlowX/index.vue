@@ -47,7 +47,6 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
-    background-color: pink;
   }
 
   .soil-flow-x > .center-area {

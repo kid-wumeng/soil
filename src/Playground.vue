@@ -38,6 +38,5 @@
     background-color: #fff;
   }
   .soil-bar-x > .item {
-     background-color: #ccc;
   }
 </style>
