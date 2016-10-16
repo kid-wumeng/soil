@@ -1,4 +1,5 @@
 <script lang="coffee">
+
   module.exports =
 
     props:
@@ -75,13 +76,21 @@
           last = len - 1
           for i in [0..last-1]
             nodes[i].style.marginRight = @padding
+
 </script>
 
 
 
 <style lang="less">
+
   .soil-list-x {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .soil-list-x > .item {
     display: flex;
     align-items: center;
   }
+
 </style>

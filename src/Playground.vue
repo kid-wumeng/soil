@@ -1,19 +1,9 @@
 <template lang="pug">
   .playground
-    soil-flow-x(padding="4px")
-      .d1(slot='left') 1
-      .d1(slot='left') 1
-      .d1(slot='left') 1
+    soil-bar-x(padding="4px")
+      .d1 1
       .d2 2
-      .d2 2
-      .d3(slot='right') 3
-      .d3(slot='right') 3
-      .d3(slot='right') 3
-      .d3(slot='right') 3
-      .d3(slot='right') 3
-      .d3(slot='right') 3
-      .d3(slot='right') 3
-      .sep1(slot="sep")
+      .d3 3
 </template>
 
 <script lang="coffee">
