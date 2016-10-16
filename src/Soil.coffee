@@ -8,6 +8,7 @@ Soil =
   ListX: require './components/ListX'
   FlowX: require './components/FlowX'
   BarX: require './components/BarX'
+  Label: require './components/Label'
 
 
 

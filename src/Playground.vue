@@ -1,12 +1,12 @@
 <template lang="pug">
   .playground
-    soil-bar-x(padding="4px")
-      .d1 1
-      .d2 2
-      .d3 3
+    soil-label( :text="text", ellipsis )
 </template>
 
 <script lang="coffee">
+  module.exports =
+    data: ->
+      text: '很高的知名度。'
 </script>
 
 <style lang="less">
@@ -37,6 +37,6 @@
     height: 100px;
     background-color: #fff;
   }
-  .soil-bar-x > .item {
+  .soil-label {
   }
 </style>
