@@ -1,9 +1,7 @@
 <template lang="jade">
 
   .playground
-    soil-button( text="编辑资料" @click="say" color="blue" )
-    soil-button( text="编辑资料" type="border" @click="say" color="green" )
-    soil-button( text="编辑资料" type="nude" @click="say" color="red" )
+    soil-line-x
 
 </template>
 
@@ -45,8 +43,7 @@
     height: 100px;
     background-color: #fff;
   }
-  .soil-button {
-    margin-left: 50px;
+  .soil-line-x {
     margin-top: 50px;
   }
 
