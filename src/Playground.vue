@@ -1,15 +1,23 @@
-<template lang="pug">
+<template lang="jade">
+
   .playground
-    soil-label( :text="text", ellipsis )
+    soil-button( text="编辑资料" @click="say" color="blue" )
+    soil-button( text="编辑资料" type="border" @click="say" color="green" )
+    soil-button( text="编辑资料" type="nude" @click="say" color="red" )
+
 </template>
 
 <script lang="coffee">
+
   module.exports =
-    data: ->
-      text: '很高的知名度。'
+    methods:
+      'say': ->
+        console.log 'say a word'
+
 </script>
 
 <style lang="less">
+
   .d1 {
     width: 48px;
     height: 48px;
@@ -37,6 +45,9 @@
     height: 100px;
     background-color: #fff;
   }
-  .soil-label {
+  .soil-button {
+    margin-left: 50px;
+    margin-top: 50px;
   }
+
 </style>

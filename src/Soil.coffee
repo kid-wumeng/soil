@@ -9,6 +9,7 @@ Soil =
   FlowX: require './components/FlowX'
   BarX: require './components/BarX'
   Label: require './components/Label'
+  Button: require './components/Button'
 
 
 
@@ -40,16 +41,30 @@ _convertComponentName = (name, mode, format) ->
 
 
 
+_setDevicePixelRatio = ->
+  isAndroid = window.navigator.appVersion.match /android/gi
+  isIPhone  = window.navigator.appVersion.match /iphone/gi
+  dpr = window.devicePixelRatio
+  if isIPhone
+    switch true
+      when dpr >= 3 then dpr = 3
+      when dpr is 2 then dpr = 2
+      else dpr = 1
+  else
+    dpr = 1
+  document.documentElement.setAttribute 'soil-dpr', dpr
+
+
+
 Soil.init = (option={}) ->
-
   registerAllComponentsInGlobal = option.registerAllComponentsInGlobal ? false
-
   for name, Component of Soil when name isnt 'init'
     # For example, ListX -> 'soil-list-x'
     Component.name = _convertComponentName name, 'aa-bb', 'soil-*'
     # If auto-register
     if registerAllComponentsInGlobal
       Vue.component Component.name, Component
+  _setDevicePixelRatio()
 
 
 
