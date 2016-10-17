@@ -32,9 +32,9 @@
     computed:
 
       'classObject': ->
-        '-solid':  @type is 'solid'
-        '-border': @type is 'border'
-        '-nude':   @type is 'nude'
+        '-solid': @type is 'solid'
+        '-ghost': @type is 'ghost'
+        '-nude':  @type is 'nude'
         '-red':    @color is 'red'
         '-green':  @color is 'green'
         '-blue':   @color is 'blue'
@@ -108,7 +108,7 @@
     > .soil-label { color: white }
   }
 
-  .soil-button.-border {
+  .soil-button.-ghost {
     background-color: transparent;
   }
 

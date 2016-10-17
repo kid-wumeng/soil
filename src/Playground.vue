@@ -3,7 +3,7 @@
   .playground
     soil-list-x( padding="0" )
       soil-switch( v-model="like" )
-      soil-button( text="喜欢吗" @click="say" )
+      soil-button( text="喜欢吗" type="ghost" @click="say" )
 
 </template>
 
