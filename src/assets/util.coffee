@@ -1,6 +1,9 @@
 cloneVNode = (createElement, vnode) ->
-  { data } = vnode
-  { tag, children } = vnode.componentOptions
+  if vnode.componentOptions
+    tag = vnode.componentOptions.tag
+  else
+    tag = vnode.tag
+  { data, children } = vnode
   return createElement tag, data, children
 
 

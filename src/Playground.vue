@@ -1,13 +1,10 @@
 <template lang="jade">
 
   .playground
-    soil-list-y(padding="0")
+    soil-list-x(padding="0")
       .d1
       .d2
       .d3
-      soil-line-x(slot="sep")
-      soil-line-x(slot="sep")
-      soil-line-x(slot="sep")
       soil-line-x(slot="sep")
 
 </template>
@@ -39,8 +36,8 @@
     background-color: green;
   }
   .sep1 {
-    width: 100px;
-    height: 3px;
+    width: 4px;
+    height: 40px;
     background-color: #000;
   }
   .sep2 {
@@ -50,6 +47,7 @@
     background-color: #fff;
   }
   .soil-line-x {
+    width: 40px;
   }
 
 </style>

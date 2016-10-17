@@ -34,7 +34,7 @@
         sep = util.cloneVNodes createElement, this.$slots.sep
         return createElement 'div', {class: 'sep'}, sep
 
-      _combine = (items, sep) =>
+      _combineWithSep = (items) =>
         nodes = []
         last = items.length - 1
         for i in [0..last-1]
@@ -48,7 +48,7 @@
         children = items
       else
         sep = _createSep()
-        children = _combine(items, sep)
+        children = _combineWithSep items
       return createElement 'div', {class: 'soil-list-y'}, children
 
 
@@ -78,11 +78,5 @@
 
 
 <style lang="less">
-
-  .soil-list-y {
-  }
-
-  .soil-list-y > .item {
-  }
 
 </style>
