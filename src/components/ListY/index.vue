@@ -1,5 +1,7 @@
 <script lang="coffee">
 
+  util = require '../../assets/util'
+
   module.exports =
 
     props:
@@ -29,14 +31,15 @@
         return this.$slots.sep isnt undefined
 
       _createSep = =>
-        return createElement 'div', {class: 'sep'}, this.$slots.sep
+        sep = util.cloneVNodes createElement, this.$slots.sep
+        return createElement 'div', {class: 'sep'}, sep
 
       _combine = (items, sep) =>
         nodes = []
         last = items.length - 1
         for i in [0..last-1]
           nodes.push items[i]
-          nodes.push sep
+          nodes.push _createSep()
         nodes.push items[last]
         return nodes
 
@@ -46,7 +49,7 @@
       else
         sep = _createSep()
         children = _combine(items, sep)
-      return createElement 'div', {class: 'soil-list-x'}, children
+      return createElement 'div', {class: 'soil-list-y'}, children
 
 
 
@@ -68,7 +71,7 @@
         if len > 1
           last = len - 1
           for i in [0..last-1]
-            nodes[i].style.marginRight = @padding
+            nodes[i].style.marginBottom = @padding
 
 </script>
 
@@ -76,14 +79,10 @@
 
 <style lang="less">
 
-  .soil-list-x {
-    display: flex;
-    align-items: stretch;
+  .soil-list-y {
   }
 
-  .soil-list-x > .item {
-    display: flex;
-    align-items: center;
+  .soil-list-y > .item {
   }
 
 </style>

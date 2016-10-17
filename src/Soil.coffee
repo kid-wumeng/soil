@@ -6,6 +6,7 @@ require './assets/common.less'
 
 Soil =
   ListX: require './components/ListX'
+  ListY: require './components/ListY'
   FlowX: require './components/FlowX'
   BarX: require './components/BarX'
   LineX: require './components/LineX'
