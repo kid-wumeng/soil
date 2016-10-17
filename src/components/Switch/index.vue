@@ -13,12 +13,18 @@
   module.exports =
 
     props:
+
+      'value':
+        type: null
+
       'color':
         type: String
         default: 'blue'
 
+
     data: ->
       'active': false
+
 
     computed:
       'classObject': ->
@@ -26,12 +32,14 @@
         '-green':  @color is 'green'
         '-blue':   @color is 'blue'
         '-yellow': @color is 'yellow'
-        '-on': @active
+        '-on':   @active
         '-off': !@active
+
 
     methods:
       'onClick': ->
         @active = !@active
+        this.$emit('input', @active)
 
 </script>
 

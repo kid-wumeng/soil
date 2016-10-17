@@ -1,32 +1,33 @@
 <template lang="jade">
 
   .playground
-    soil-switch(color="red")
-    soil-switch(color="green")
-    soil-switch(color="blue")
-    soil-switch(color="yellow")
+    soil-list-x( padding="0" )
+      soil-switch( v-model="like" )
+      soil-button( text="喜欢吗" @click="say" )
 
 </template>
 
 <script lang="coffee">
 
   module.exports =
+    data: ->
+      like: false
     methods:
       'say': ->
-        console.log 'say a word'
+        console.log @like
 
 </script>
 
 <style lang="less">
 
   .d1 {
-    width: 48px;
+    width: 348px;
     height: 48px;
     background-color: red;
   }
   .d2 {
     width: 48px;
-    height: 88px;
+    height: 48px;
     background-color: blue;
   }
   .d3 {
@@ -46,8 +47,6 @@
     background-color: #fff;
   }
   .soil-switch {
-    margin-top: 50px;
-    margin-left: 50px;
   }
 
 </style>
