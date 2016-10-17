@@ -1,11 +1,10 @@
 <template lang="jade">
 
   .playground
-    soil-list-x(padding="0")
-      .d1
-      .d2
-      .d3
-      soil-line-x(slot="sep")
+    soil-switch(color="red")
+    soil-switch(color="green")
+    soil-switch(color="blue")
+    soil-switch(color="yellow")
 
 </template>
 
@@ -46,8 +45,9 @@
     height: 100px;
     background-color: #fff;
   }
-  .soil-line-x {
-    width: 40px;
+  .soil-switch {
+    margin-top: 50px;
+    margin-left: 50px;
   }
 
 </style>

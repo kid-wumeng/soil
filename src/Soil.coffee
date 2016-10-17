@@ -12,6 +12,7 @@ Soil =
   LineX: require './components/LineX'
   Label: require './components/Label'
   Button: require './components/Button'
+  Switch: require './components/Switch'
 
 
 
