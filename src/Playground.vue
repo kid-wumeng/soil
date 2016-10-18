@@ -1,6 +1,7 @@
 <template lang="jade">
 
   .playground
+    .icon-star-solid
     soil-list-x( padding="0" )
       soil-switch( v-model="like" )
       soil-button( text="喜欢吗" type="ghost" @click="say" )
