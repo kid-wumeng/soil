@@ -14,6 +14,7 @@
         @input="onInput",
         @change="onChange"
       )
+    .error-message( v-show="errorMessage", v-html="errorMessage" )
 
 </template>
 
@@ -36,14 +37,18 @@
 
       'label':
         type: String
-        default: 'null'
+        default: null
 
       'hint':
         type: String
         default: ''
 
       'format':
-        type: [ String, Function ]
+        type: [String, Function]
+        default: null
+
+      'format-error-message':
+        type: String
         default: null
 
       'type':
@@ -69,10 +74,14 @@
 
 
     data: ->
-      _value: @value
+
+      '_value': @value
+
+      '_hasFormatError': false
 
 
     computed:
+
       'nativeType': ->
         if @password
           return 'password'
@@ -88,43 +97,53 @@
         '-passive':  @passive
         '-disabled': @disabled
 
+      'errorMessage': ->
+        messages = []
+        if this.$data._hasFormatError
+          messages.push util.n2br(@formatErrorMessage)
+        return messages.join('<br/>')
+
 
     methods:
 
       'onClick': (event) ->
         this.$emit('click')
 
+
       'onFocus': (event) ->
         this.$emit('focus')
+
 
       'onInput': (event) ->
         value = event.target.value
         if @noTrim
-          this._value = value
+          this.$data._value = value
           this.$emit('input', value)
         else
           value = value.replace /(^\s+)|(\s+$)/g, ''
-          if value isnt this._value
-            this._value = value
+          if value isnt this.$data._value
+            this.$data._value = value
             this.$emit('input', value)
 
 
       'onChange': ->
-        value = this._value
-        if not @validateFormat()
-          this.$emit('validate-format-fail', value)
+        value = this.$data._value
+        if value is '' or @validateFormat(value)
+          this.$data._hasFormatError = false
+        else
+          this.$data._hasFormatError = true
+          this.$emit('format-error', value)
         this.$emit('change', value)
 
 
-      'validateFormat': ->
-        if @format
-          value = this._value
-          switch @format
-            when 'email' then valid = util.isEmailAddress(value)
-            else valid = @format(value)
-          return valid is true
+      'validateFormat': (value) ->
+        return true if not @format
+        if @format is 'email'
+          return true if util.isEmailAddress(value)
         else
-          return true
+          return true if @format(value)
+        return false
+
 </script>
 
 
@@ -134,6 +153,8 @@
   @import "../../assets/common";
 
   .soil-input {
+    display: inline-block;
+    width: 300px;
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -143,6 +164,7 @@
     box-sizing: border-box;
     padding-left: 8px;
     padding-right: 8px;
+    width: 100%;
     height: 32px;
     border-width: 1px;
     border-style: solid;
@@ -169,13 +191,23 @@
   }
 
   .soil-input > .box > .paper {
-    display: inline-block;
+    flex-grow: 1;
     height: 16px;
     line-height: 16px;
     font-size: 14px;
     overflow: hidden;
     background-color: transparent;
     border: none;
+  }
+
+  .soil-input > .error-message {
+    margin-top: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    width: 100%;
+    line-height: 1.5;
+    font-size: 12px;
+    color: @soil-red;
   }
 
   .soil-input.-border {

@@ -1,7 +1,7 @@
 <template lang="jade">
 
   .playground
-    soil-input( icon="search", label="昵称", @click="onButton", hint="中文、英文", v-model="msg", type="dark", passive, :format="format", @validate-format-fail="onValidateFail" )
+    soil-input( ref="input", icon="search", label="昵称", hint="中文、英文", v-model="msg", type="light", :format="format", @format-error="onFormatError", :format-error-message="formatErrorMessage" )
     //- pre "{{msg}}"
     //- soil-button( label="设置", @click="onButton" )
 
@@ -11,7 +11,11 @@
 
   module.exports =
     data: ->
-      msg: '吴蒙 KID'
+      msg: ''
+      formatErrorMessage: '验证失败，不是 6000'
+
+    mounted: ->
+
     methods:
       'format': (value) ->
         return value is '6000'
@@ -19,8 +23,7 @@
       'onButton': ->
         alert('弹出日期选择器')
 
-      'onValidateFail': (value) ->
-        console.log "验证失败：#{value}"
+      'onFormatError': (value) ->
 
 </script>
 
@@ -29,7 +32,7 @@
   @import "assets/common.less";
 
   body {
-    background-color: white;
+    background-color: @soil-gray-3;
   }
 
   .d1 {

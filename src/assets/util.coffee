@@ -18,6 +18,12 @@ isEmailAddress = (value) ->
 
 
 
+n2br = (text) ->
+  return text.replace /\n/g, '<br/>'
+
+
+
 exports.cloneVNode = cloneVNode
 exports.cloneVNodes = cloneVNodes
 exports.isEmailAddress = isEmailAddress
+exports.n2br = n2br

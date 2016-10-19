@@ -29,6 +29,7 @@
         type: String
         default: 'blue'
 
+
     computed:
 
       'classObject': ->
@@ -40,6 +41,7 @@
         '-blue':   @color is 'blue'
         '-yellow': @color is 'yellow'
         '-disabled': @disabled
+
 
     methods:
 
