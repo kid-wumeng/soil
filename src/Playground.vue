@@ -1,10 +1,7 @@
 <template lang="jade">
 
   .playground
-    soil-list-y( padding="16px" )
-      soil-input( ref="input", icon="search", label="昵称", hint="中文、英文", v-model="msg", type="light", :format="format", @format-error="onFormatError", :format-error-message="formatErrorMessage", error-message-fly )
-      //- pre "{{msg}}"
-      soil-button( label="设置", @click="onButton" )
+    soil-icon(name="search", label="搜索", color="red")
 
 </template>
 
@@ -33,7 +30,7 @@
   @import "assets/common.less";
 
   body {
-    background-color: @soil-gray-3;
+    background-color: white;
   }
 
   .d1 {
