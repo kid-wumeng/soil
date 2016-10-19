@@ -1,0 +1,209 @@
+<template lang="jade">
+
+  .soil-input( :class="classObject" )
+    .box
+      soil-icon.icon( v-if="icon", :name="icon" )
+      soil-label.label( v-if="label", :text="label" )
+      input.paper(
+        spellcheck="false",
+        :type="nativeType",
+        :placeholder="hint",
+        @input="onInput",
+        @change="onChange"
+      )
+
+</template>
+
+
+
+<script lang="coffee">
+
+  util = require '../../assets/util'
+
+  module.exports =
+
+    props:
+
+      'value':
+        type: String
+
+      'icon':
+        type: String
+        default: null
+
+      'label':
+        type: String
+        default: 'null'
+
+      'hint':
+        type: String
+        default: ''
+
+      'format':
+        type: [ String, Function ]
+        default: null
+
+      'type':
+        # border | underscore | light | dark
+        type: String
+        default: 'border'
+
+      'password':
+        type: Boolean
+        default: false
+
+      'no-trim':
+        type: Boolean
+        default: false
+
+
+    data: ->
+      _value: @value
+
+
+    computed:
+      'nativeType': ->
+        if @password
+          return 'password'
+        else
+          return 'text'
+
+      'classObject': ->
+        '-border':     @type is 'border'
+        '-underscore': @type is 'underscore'
+        '-dark':       @type is 'dark'
+        '-light':      @type is 'light'
+        '-password': @password
+
+
+    methods:
+
+      'onInput': (event) ->
+        value = event.target.value
+        if @noTrim
+          this._value = value
+          this.$emit('input', value)
+        else
+          value = value.replace /(^\s+)|(\s+$)/g, ''
+          if value isnt this._value
+            this._value = value
+            this.$emit('input', value)
+
+
+      'onChange': ->
+        value = this._value
+        if not @validateFormat()
+          this.$emit('validate-format-fail', value)
+        this.$emit('change', value)
+
+
+      'validateFormat': ->
+        if @format
+          value = this._value
+          switch @format
+            when 'email' then valid = util.isEmailAddress(value)
+            else valid = @format(value)
+          return valid is true
+        else
+          return true
+</script>
+
+
+
+<style lang="less">
+
+  @import "../../assets/common";
+
+  .soil-input {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .soil-input > .box {
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: 32px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+  }
+
+  [soil-dpr="2"] .soil-input > .box,
+  [soil-dpr="3"] .soil-input > .box {
+    border-width: 0.5px;
+  }
+
+  .soil-input > .box > .icon {
+    margin-right: 8px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 14px;
+  }
+
+  .soil-input > .box > .label {
+    margin-right: 8px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 14px;
+  }
+
+  .soil-input > .box > .paper {
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+    font-size: 14px;
+    overflow: hidden;
+    background-color: transparent;
+    border: none;
+  }
+
+  .soil-input.-border {
+    > .box {
+      border-color: @soil-gray-5;
+      background-color: white;
+      > .icon  { color: @soil-gray-7 }
+      > .label { color: @soil-gray-7 }
+      > .paper { color: @soil-black-light }
+      > .paper::placeholder { color: @soil-gray-4 }
+    }
+  }
+
+  .soil-input.-underscore {
+    > .box {
+      border-left-color:  transparent;
+      border-right-color: transparent;
+      border-top-color:   transparent;
+      border-bottom-color: @soil-gray-3;
+      background-color: white;
+      > .icon  { color: @soil-gray-7 }
+      > .label { color: @soil-gray-7 }
+      > .paper { color: @soil-black-light }
+      > .paper::placeholder { color: @soil-gray-4 }
+    }
+  }
+
+  .soil-input.-light {
+    > .box {
+      border-color: transparent;
+      background-color: white;
+      > .icon  { color: @soil-gray-7 }
+      > .label { color: @soil-gray-7 }
+      > .paper { color: @soil-black-light }
+      > .paper::placeholder { color: @soil-gray-4 }
+    }
+  }
+
+  .soil-input.-dark {
+    > .box {
+      border-color: transparent;
+      background-color: @soil-gray-2;
+      > .icon  { color: @soil-gray-8 }
+      > .label { color: @soil-gray-8 }
+      > .paper { color: @soil-black-light }
+      > .paper::placeholder { color: @soil-gray-5 }
+    }
+  }
+
+</style>

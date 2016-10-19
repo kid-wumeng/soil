@@ -29,7 +29,7 @@
   .soil-icon {
     display: inline-block;
     font-size: 24px;
-    color: @soil-black;
+    color: @soil-gray;
   }
 
 </style>

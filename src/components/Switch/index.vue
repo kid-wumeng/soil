@@ -39,7 +39,7 @@
     methods:
       'onClick': ->
         @active = !@active
-        this.$emit('input', @active)
+        this.$emit 'input', @active
 
 </script>
 

@@ -1,7 +1,7 @@
 <template lang="jade">
 
   .soil-button( :class="classObject", @click="onClick" )
-    soil-label( :text="text" )
+    soil-label( :text="label" )
 
 </template>
 
@@ -13,7 +13,7 @@
 
     props:
 
-      'text':
+      'label':
         type: String
         required: true
 

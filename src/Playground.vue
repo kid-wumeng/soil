@@ -1,7 +1,8 @@
 <template lang="jade">
 
   .playground
-    soil-icon(name="bookmark-ghost")
+    soil-input( icon="search", label="昵称", hint="中文、英文", v-model="msg", type="underscore", @validate-format-fail="onValidateFail" )
+    //- pre "{{msg}}"
 
 </template>
 
@@ -9,14 +10,20 @@
 
   module.exports =
     data: ->
-      like: false
+      msg: ''
     methods:
-      'say': ->
-        console.log @like
+      'onValidateFail': (value) ->
+        console.log "#{value} 不是手机或邮箱"
 
 </script>
 
 <style lang="less">
+
+  @import "assets/common.less";
+
+  body {
+    background-color: white;
+  }
 
   .d1 {
     width: 348px;
@@ -44,7 +51,9 @@
     height: 100px;
     background-color: #fff;
   }
-  .soil-switch {
+  .soil-input {
+    margin-left: 50px;
+    margin-top: 50px;
   }
 
 </style>
