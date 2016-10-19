@@ -10,6 +10,8 @@
 
 <script lang="coffee">
 
+  util = require '../../assets/util'
+
   module.exports =
 
     props:
@@ -32,10 +34,10 @@
         return "soil-icon-#{@name}"
 
       'iconStyleObject': ->
-        color: @color
+        color: util.color(@color)
 
       'labelStyleObject': ->
-        color: @color
+        color: util.color(@color)
 
 </script>
 

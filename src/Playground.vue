@@ -1,7 +1,7 @@
 <template lang="jade">
 
   .playground
-    soil-icon(name="search", label="搜索", color="red")
+    soil-icon(name="search", label="搜索", color="soil-blue")
 
 </template>
 
