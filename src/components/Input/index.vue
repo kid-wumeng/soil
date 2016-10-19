@@ -51,6 +51,10 @@
         type: String
         default: null
 
+      'error-message-fly':
+        type: Boolean
+        default: false
+
       'type':
         # border | underscore | light | dark
         type: String
@@ -96,6 +100,7 @@
         '-password': @password
         '-passive':  @passive
         '-disabled': @disabled
+        '-error-message-fly': @errorMessageFly
 
       'errorMessage': ->
         messages = []
@@ -156,6 +161,7 @@
     display: inline-block;
     width: 300px;
     -webkit-tap-highlight-color: transparent;
+    position: relative;
   }
 
   .soil-input > .box {
@@ -201,6 +207,7 @@
   }
 
   .soil-input > .error-message {
+    box-sizing: border-box;
     margin-top: 8px;
     padding-left: 8px;
     padding-right: 8px;
@@ -208,6 +215,10 @@
     line-height: 1.5;
     font-size: 12px;
     color: @soil-red;
+  }
+
+  .soil-input.-error-message-fly > .error-message {
+    position: absolute;
   }
 
   .soil-input.-border {

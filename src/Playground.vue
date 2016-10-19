@@ -1,9 +1,10 @@
 <template lang="jade">
 
   .playground
-    soil-input( ref="input", icon="search", label="昵称", hint="中文、英文", v-model="msg", type="light", :format="format", @format-error="onFormatError", :format-error-message="formatErrorMessage" )
-    //- pre "{{msg}}"
-    //- soil-button( label="设置", @click="onButton" )
+    soil-list-y( padding="16px" )
+      soil-input( ref="input", icon="search", label="昵称", hint="中文、英文", v-model="msg", type="light", :format="format", @format-error="onFormatError", :format-error-message="formatErrorMessage", error-message-fly )
+      //- pre "{{msg}}"
+      soil-button( label="设置", @click="onButton" )
 
 </template>
 
@@ -61,7 +62,7 @@
     height: 100px;
     background-color: #fff;
   }
-  .soil-input {
+  .soil-list-y {
     margin-left: 50px;
     margin-top: 50px;
   }
