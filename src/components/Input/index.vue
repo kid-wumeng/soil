@@ -6,8 +6,10 @@
       soil-label.label( v-if="label", :text="label" )
       input.paper(
         spellcheck="false",
+        :value="value",
         :type="nativeType",
         :placeholder="hint",
+        :disabled="disabled",
         @input="onInput",
         @change="onChange"
       )
@@ -52,6 +54,10 @@
         type: Boolean
         default: false
 
+      'disabled':
+        type: Boolean
+        default: false
+
       'no-trim':
         type: Boolean
         default: false
@@ -73,7 +79,8 @@
         '-underscore': @type is 'underscore'
         '-dark':       @type is 'dark'
         '-light':      @type is 'light'
-        '-password': @password
+        '-password':   @password
+        '-disabled':   @disabled
 
 
     methods:
@@ -203,6 +210,36 @@
       > .label { color: @soil-gray-8 }
       > .paper { color: @soil-black-light }
       > .paper::placeholder { color: @soil-gray-5 }
+    }
+  }
+
+  .soil-input.-disabled {
+    &.-border,
+    &.-underscore,
+    &.-light,
+    &.-dark {
+      > .box {
+        background-color: white;
+        cursor: not-allowed;
+        > .icon  { color: @soil-gray-2 }
+        > .label { color: @soil-gray-2 }
+        > .paper { color: @soil-gray-4; cursor: not-allowed; }
+        > .paper::placeholder { color: @soil-gray-1 }
+      }
+    }
+    &.-border,
+    &.-light,
+    &.-dark {
+      > .box {
+        border-style: dashed;
+        border-color: @soil-gray-2;
+      }
+    }
+    &.-underscore {
+      > .box {
+        border-bottom-style: dashed;
+        border-bottom-color: @soil-gray-2;
+      }
     }
   }
 

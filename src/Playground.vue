@@ -1,7 +1,7 @@
 <template lang="jade">
 
   .playground
-    soil-input( icon="search", label="昵称", hint="中文、英文", v-model="msg", type="underscore", @validate-format-fail="onValidateFail" )
+    soil-input( icon="search", label="昵称", hint="中文、英文", v-model="msg", type="underscore", disabled, :format="format", @validate-format-fail="onValidateFail" )
     //- pre "{{msg}}"
 
 </template>
@@ -10,10 +10,13 @@
 
   module.exports =
     data: ->
-      msg: ''
+      msg: '吴蒙 KID'
     methods:
+      'format': (value) ->
+        return value is '6000'
+
       'onValidateFail': (value) ->
-        console.log "#{value} 不是手机或邮箱"
+        console.log "验证失败：#{value}"
 
 </script>
 
