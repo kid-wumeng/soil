@@ -1,7 +1,7 @@
 <template lang="jade">
 
   .soil-input( :class="classObject" )
-    .box
+    .box( @click="onClick" )
       soil-icon.icon( v-if="icon", :name="icon" )
       soil-label.label( v-if="label", :text="label" )
       input.paper(
@@ -9,7 +9,8 @@
         :value="value",
         :type="nativeType",
         :placeholder="hint",
-        :disabled="disabled",
+        :disabled="passive || disabled",
+        @focus="onFocus",
         @input="onInput",
         @change="onChange"
       )
@@ -54,6 +55,10 @@
         type: Boolean
         default: false
 
+      'passive':
+        type: Boolean
+        default: false
+
       'disabled':
         type: Boolean
         default: false
@@ -79,11 +84,18 @@
         '-underscore': @type is 'underscore'
         '-dark':       @type is 'dark'
         '-light':      @type is 'light'
-        '-password':   @password
-        '-disabled':   @disabled
+        '-password': @password
+        '-passive':  @passive
+        '-disabled': @disabled
 
 
     methods:
+
+      'onClick': (event) ->
+        this.$emit('click')
+
+      'onFocus': (event) ->
+        this.$emit('focus')
 
       'onInput': (event) ->
         value = event.target.value

@@ -1,8 +1,9 @@
 <template lang="jade">
 
   .playground
-    soil-input( icon="search", label="昵称", hint="中文、英文", v-model="msg", type="underscore", disabled, :format="format", @validate-format-fail="onValidateFail" )
+    soil-input( icon="search", label="昵称", @click="onButton", hint="中文、英文", v-model="msg", type="dark", passive, :format="format", @validate-format-fail="onValidateFail" )
     //- pre "{{msg}}"
+    //- soil-button( label="设置", @click="onButton" )
 
 </template>
 
@@ -14,6 +15,9 @@
     methods:
       'format': (value) ->
         return value is '6000'
+
+      'onButton': ->
+        alert('弹出日期选择器')
 
       'onValidateFail': (value) ->
         console.log "验证失败：#{value}"
