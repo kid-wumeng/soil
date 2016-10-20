@@ -1,20 +1,21 @@
 <template lang="jade">
 
   .playground
-    soil-bar-x(ref="barx")
-      soil-icon(name="loading")
-      .sep1(slot="sep")
-
+    div {{msg}}
 </template>
 
 <script lang="coffee">
 
   module.exports =
     data: ->
-      msg: ''
+      msg: 'none'
       formatErrorMessage: '验证失败，不是 6000'
 
     mounted: ->
+      hammer = new Hammer document
+      hammer.on 'pan', (event) =>
+        now = new Date
+        @msg = now.getTime()
 
     methods:
       'format': (value) ->
