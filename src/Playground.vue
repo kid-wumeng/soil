@@ -1,7 +1,12 @@
 <template lang="jade">
 
   .playground
-    soil-icon(name="search", label="搜索", color="soil-blue")
+    soil-bar-x(ref="barx")
+      soil-icon(name="circle")
+      soil-icon(name="search")
+      soil-icon(name="message")
+      soil-icon(name="people")
+      .sep1(slot="sep")
 
 </template>
 
@@ -34,7 +39,7 @@
   }
 
   .d1 {
-    width: 348px;
+    width: 48px;
     height: 48px;
     background-color: red;
   }
@@ -49,19 +54,21 @@
     background-color: green;
   }
   .sep1 {
-    width: 4px;
+    display: inline-block;
+    width: 1px;
     height: 40px;
-    background-color: #000;
+    background-color: #ccc;
   }
   .sep2 {
     display: inline-block;
-    width: 3px;
-    height: 100px;
-    background-color: #fff;
+    width: 20px;
+    height: 40px;
+    background-color: #ccc;
   }
-  .soil-list-y {
-    margin-left: 50px;
+  .soil-bar-x {
     margin-top: 50px;
+    height: 80px;
+    background-color: #000;
   }
 
 </style>
