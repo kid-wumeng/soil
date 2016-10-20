@@ -2,10 +2,7 @@
 
   .playground
     soil-bar-x(ref="barx")
-      soil-icon(name="circle")
-      soil-icon(name="search")
-      soil-icon(name="message")
-      soil-icon(name="people")
+      soil-icon(name="loading")
       .sep1(slot="sep")
 
 </template>

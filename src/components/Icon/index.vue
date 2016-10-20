@@ -1,7 +1,7 @@
 <template lang="jade">
 
   .soil-icon
-    .icon(:class="iconClass", :style="iconStyleObject")
+    .icon(:class="iconClassName", :style="iconStyleObject")
     soil-label.label(v-if="label", :text="label", :style="iconStyleObject")
 
 </template>
@@ -15,6 +15,10 @@
   module.exports =
 
     props:
+
+      'family':
+        type: String
+        default: 'soil'
 
       'name':
         type: String
@@ -30,8 +34,8 @@
 
     computed:
 
-      'iconClass': ->
-        return "soil-icon-#{@name}"
+      'iconClassName': ->
+        return "icon-#{@family}-#{@name}"
 
       'iconStyleObject': ->
         color: util.color(@color)
