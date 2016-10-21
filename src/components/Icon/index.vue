@@ -47,8 +47,9 @@
 
 
 
-<style lang="less">
+<style lang="less" scoped>
 
+  @import "../../assets/styles/color";
   @import "../../assets/common";
 
   .soil-icon {

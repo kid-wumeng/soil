@@ -3,6 +3,8 @@
   .playground
     soil-drawer(ref="drawer")
       .d1
+    soil-drawer(ref="drawer")
+      .d2
     soil-button.show(label="打开抽屉", @click="show")
     soil-button.hide(label="关闭抽屉", @click="hide", color="red")
 </template>
@@ -25,9 +27,9 @@
 
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 
-  @import "assets/common.less";
+  @import "./assets/styles/color";
 
   body {
     background-color: @soil-green;

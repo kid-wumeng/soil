@@ -18,8 +18,8 @@
 
 
 
-<style lang="less">
+<style lang="less" scoped>
 
-  @import "../../assets/common";
+  @import "../../assets/styles/color";
 
 </style>

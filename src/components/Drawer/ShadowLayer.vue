@@ -25,18 +25,16 @@
 
 
 
-<style lang="less">
+<style lang="less" scoped>
 
-  @import "../../assets/common";
+  @import "../../assets/styles/color";
 
-  .soil-drawer > .shadow-layer {
+  .shadow-layer {
     width: 100%;
     height: 100%;
     transition: background-color 0.3s ease;
   }
 
-  .soil-drawer.-drawing > .shadow-layer {
-    transition: none;
-  }
+  .-drawing > .shadow-layer { transition: none }
 
 </style>

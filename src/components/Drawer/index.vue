@@ -97,9 +97,9 @@
 
 
 
-<style lang="less">
+<style lang="less" scoped>
 
-  @import "../../assets/color";
+  @import "../../assets/styles/color";
 
   .soil-drawer {
     background-color: @soil-blue;

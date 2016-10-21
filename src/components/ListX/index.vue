@@ -77,7 +77,7 @@
 
 
 
-<style lang="less">
+<style lang="less" scoped>
 
   .soil-list-x {
     display: flex;

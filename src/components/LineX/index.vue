@@ -12,9 +12,9 @@
 
 
 
-<style lang="less">
+<style lang="less" scoped>
 
-  @import "../../assets/common";
+  @import "../../assets/styles/color";
 
   .soil-line-x {
     border-bottom-width: 1px;

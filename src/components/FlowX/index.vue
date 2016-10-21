@@ -40,7 +40,7 @@
 
 
 
-<style lang="less">
+<style lang="less" scoped>
 
   .soil-flow-x {
     display: flex;
