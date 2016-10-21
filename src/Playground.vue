@@ -1,30 +1,27 @@
 <template lang="jade">
 
   .playground
-    div {{msg}}
+    soil-drawer(ref="drawer")
+      .d1
+    soil-button.show(label="打开抽屉", @click="show")
+    soil-button.hide(label="关闭抽屉", @click="hide", color="red")
 </template>
 
 <script lang="coffee">
 
   module.exports =
+
     data: ->
-      msg: 'none'
-      formatErrorMessage: '验证失败，不是 6000'
+      open: true
 
     mounted: ->
-      hammer = new Hammer document
-      hammer.on 'pan', (event) =>
-        now = new Date
-        @msg = now.getTime()
+      this.$refs.drawer.show()
 
     methods:
-      'format': (value) ->
-        return value is '6000'
-
-      'onButton': ->
-        alert('弹出日期选择器')
-
-      'onFormatError': (value) ->
+      'show': ->
+        this.$refs.drawer.show()
+      'hide': ->
+        this.$refs.drawer.hide()
 
 </script>
 
@@ -33,13 +30,13 @@
   @import "assets/common.less";
 
   body {
-    background-color: white;
+    background-color: @soil-green;
   }
 
   .d1 {
-    width: 48px;
-    height: 48px;
-    background-color: red;
+    width: 300px;
+    height: 100%;
+    background-color: @soil-blue;
   }
   .d2 {
     width: 48px;
@@ -63,10 +60,15 @@
     height: 40px;
     background-color: #ccc;
   }
-  .soil-bar-x {
-    margin-top: 50px;
-    height: 80px;
-    background-color: #000;
+  .soil-button {
+    position: absolute;
+    right: 100px;
+    &.show {
+      top: 50px;
+    }
+    &.hide {
+      top: 150px;
+    }
   }
 
 </style>

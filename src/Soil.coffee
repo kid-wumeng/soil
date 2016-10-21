@@ -17,6 +17,7 @@ Soil =
   Button: require './components/Button'
   Switch: require './components/Switch'
   Input: require './components/Input'
+  Drawer: require './components/Drawer'
 
 
 
