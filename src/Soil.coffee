@@ -1,8 +1,8 @@
 Vue = require 'vue'
 require './assets/hammer.min'
 require './assets/hammer-time.min'
-require './assets/reset.css'
-require './assets/common.less'
+require './assets/styles/reset'
+require './assets/styles/common'
 
 
 

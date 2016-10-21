@@ -49,8 +49,8 @@
 
 <style lang="less" scoped>
 
+  @import "../../assets/styles/icon";
   @import "../../assets/styles/color";
-  @import "../../assets/common";
 
   .soil-icon {
     display: inline-flex;
