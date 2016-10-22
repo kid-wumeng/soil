@@ -36,8 +36,7 @@
   }
 
   .d1 {
-    width: 360px;
-    height: 50%;
+    height: 300px;
     background-color: @soil-blue;
   }
   .d2 {

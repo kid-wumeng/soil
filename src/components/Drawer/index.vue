@@ -7,7 +7,7 @@
       @click.native.self="onClickShadow"
     )
 
-    right-panel(
+    bottom-panel(
       ref="panel",
       :hide-on-draw="hideOnDraw",
       :hide-on-swipe="hideOnSwipe",
@@ -36,6 +36,8 @@
       'shadow-layer': require './ShadowLayer'
       'left-panel': require './LeftPanel'
       'right-panel': require './RightPanel'
+      'top-panel': require './TopPanel'
+      'bottom-panel': require './BottomPanel'
 
 
     props:
@@ -129,7 +131,6 @@
   .soil-drawer > .panel {
     position: absolute;
     display: inline-block;
-    height: 100%;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;

@@ -1,3 +1,4 @@
+
 <template lang="jade">
 
   .panel(:style="styleObject")
@@ -25,14 +26,14 @@
 
 
     data: ->
-      'width': null
-      'x': '100%'
+      'height': null
+      'y': '100%'
       'bySwipe': false
 
 
     computed:
       'styleObject': ->
-        'transform': "translate3d(#{@x}, 0, 0)"
+        'transform': "translate3d(0, #{@y}, 0)"
 
 
     mounted: ->
@@ -49,49 +50,48 @@
         hammer.on 'panend',    @onDrawEnd
 
       if @hideOnSwipe
-        hammer.on 'swiperight', @onSwipe
-        hammer.on 'panend',     @onSwipeEnd
+        hammer.on 'swipedown', @onSwipe
+        hammer.on 'panend',    @onSwipeEnd
 
-      @width = panel.offsetWidth
-      this.$emit('ready', @width)
+      @height = panel.offsetHeight
+      this.$emit('ready', @height)
 
 
     methods:
 
       'show': ->
-        @x = '0'
+        @y = '0'
         this.$emit('show-start')
 
       'hide': ->
-        @x = '100%'
+        @y = '100%'
         @bySwipe = false
         this.$emit('hide-start')
 
       'move': (distance) ->
-        @x = "#{distance}px"
+        @y = "#{distance}px"
         this.$emit('draw', distance)
 
       'nearEdge': (distance) ->
-        return distance > @width / 2
+        return distance > @height / 2
 
       'onDrawStart': (event) ->
         this.$emit 'draw-start'
 
       'onDraw': (event) ->
-        if event.offsetDirection is Hammer.DIRECTION_RIGHT
+        if event.offsetDirection is Hammer.DIRECTION_DOWN
           @move event.distance
 
       'onDrawEnd': (event) ->
         if not @bySwipe
-          if event.offsetDirection is Hammer.DIRECTION_RIGHT
+          if event.offsetDirection is Hammer.DIRECTION_DOWN
             if @nearEdge event.distance
               @hide()
             else
               @show()
           this.$emit('draw-end')
 
-      'onSwipe': ->
-        console.log 111
+      'onSwipe': (event)->
         @bySwipe = true
 
       'onSwipeEnd': ->
@@ -100,11 +100,11 @@
           this.$emit('swipe-end')
 
       'onShowEnd': () ->
-        if @x is '0'
+        if @y is '0'
           this.$emit('show-end')
 
       'onHideEnd': () ->
-        if @x is '100%'
+        if @y is '100%'
           this.$emit('hide-end')
 
 </script>
@@ -116,9 +116,9 @@
   @import "../../assets/styles/color";
 
   .panel {
-    right: 0;
-    top: 0;
-    height: 100%;
+    left: 0;
+    bottom: 0;
+    width: 100%;
   }
 
 </style>
