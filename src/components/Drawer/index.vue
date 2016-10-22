@@ -7,7 +7,7 @@
       @click.native.self="onClickShadow"
     )
 
-    left-panel(
+    right-panel(
       ref="panel",
       :hide-on-draw="hideOnDraw",
       :hide-on-swipe="hideOnSwipe",
@@ -15,6 +15,7 @@
       @draw-start="onDrawStart",
       @draw="onDraw"
       @draw-end="onDrawEnd",
+      @swipe-end="onSwipeEnd",
       @show-start="onShowStart",
       @hide-start="onHideStart",
       @hide-end="onHideEnd",
@@ -34,6 +35,7 @@
     components:
       'shadow-layer': require './ShadowLayer'
       'left-panel': require './LeftPanel'
+      'right-panel': require './RightPanel'
 
 
     props:
@@ -89,6 +91,9 @@
       'onDrawEnd': ->
         @drawing = false
 
+      'onSwipeEnd': ->
+        @drawing = false
+
       'onShowStart': ->
         @dynamicAlpha = @alpha
 
@@ -126,6 +131,7 @@
     display: inline-block;
     height: 100%;
     background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
   }
 

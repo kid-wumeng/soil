@@ -1,7 +1,9 @@
 <template lang="jade">
 
   .playground
-    soil-drawer(ref="drawer", :hide-on-swipe="true", :hide-on-draw="false", :alpha="0")
+    soil-drawer(
+      ref="drawer",
+    )
       .d1
     soil-button.show(label="打开抽屉", @click="show")
     soil-button.hide(label="关闭抽屉", @click="hide", color="red")
@@ -34,7 +36,7 @@
   }
 
   .d1 {
-    width: 250px;
+    width: 360px;
     height: 50%;
     background-color: @soil-blue;
   }

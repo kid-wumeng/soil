@@ -26,7 +26,7 @@
 
     data: ->
       'width': null
-      'x': '-100%'
+      'x': '100%'
       'bySwipe': false
 
 
@@ -49,8 +49,8 @@
         hammer.on 'panend',    @onDrawEnd
 
       if @hideOnSwipe
-        hammer.on 'swipeleft', @onSwipe
-        hammer.on 'panend',    @onSwipeEnd
+        hammer.on 'swiperight', @onSwipe
+        hammer.on 'panend',     @onSwipeEnd
 
       @width = panel.offsetWidth
       this.$emit('ready', @width)
@@ -63,12 +63,12 @@
         this.$emit('show-start')
 
       'hide': ->
-        @x = '-100%'
+        @x = '100%'
         @bySwipe = false
         this.$emit('hide-start')
 
       'move': (distance) ->
-        @x = "-#{distance}px"
+        @x = "#{distance}px"
         this.$emit('draw', distance)
 
       'nearEdge': (distance) ->
@@ -78,19 +78,20 @@
         this.$emit 'draw-start'
 
       'onDraw': (event) ->
-        if event.offsetDirection is Hammer.DIRECTION_LEFT
+        if event.offsetDirection is Hammer.DIRECTION_RIGHT
           @move event.distance
 
       'onDrawEnd': (event) ->
         if not @bySwipe
-          if event.offsetDirection is Hammer.DIRECTION_LEFT
+          if event.offsetDirection is Hammer.DIRECTION_RIGHT
             if @nearEdge event.distance
               @hide()
             else
               @show()
           this.$emit('draw-end')
 
-      'onSwipe': (event)->
+      'onSwipe': ->
+        console.log 111
         @bySwipe = true
 
       'onSwipeEnd': ->
@@ -103,7 +104,7 @@
           this.$emit('show-end')
 
       'onHideEnd': () ->
-        if @x is '-100%'
+        if @x is '100%'
           this.$emit('hide-end')
 
 </script>
@@ -115,7 +116,7 @@
   @import "../../assets/styles/color";
 
   .panel {
-    left: 0;
+    right: 0;
     top: 0;
   }
 
