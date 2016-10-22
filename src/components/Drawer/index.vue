@@ -47,6 +47,14 @@
         type: String
         default: 'left'
 
+      'shadow':
+        type: Boolean
+        default: true
+
+      'alpha':
+        type: Number
+        default: 0.6
+
       'hideOnDraw':
         type: Boolean
         default: true
@@ -58,10 +66,6 @@
       'hideOnClickShadow':
         type: Boolean
         default: true
-
-      'alpha':
-        type: Number
-        default: 0.4
 
 
     data: ->
@@ -76,6 +80,7 @@
       'panelType': -> "#{@from}-panel"
 
       'classObject': ->
+        '-shadow': @shadow
         '-drawing': @drawing
 
       'styleObject': ->
@@ -129,7 +134,9 @@
 
   .soil-drawer {
     position: fixed;
-    z-index: 1;
+    left: 0;
+    top: 0;
+    z-index: 100;
     width: 100%;
     height: 100%;
     -webkit-tap-highlight-color: transparent;
@@ -138,9 +145,11 @@
   .soil-drawer > .panel {
     position: absolute;
     display: inline-block;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
+  }
+
+  .soil-drawer.-shadow > .panel {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
 
   .soil-drawer.-drawing > .panel { transition: none }

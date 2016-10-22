@@ -1,15 +1,28 @@
 cloneVNode = (createElement, vnode) ->
   if vnode.componentOptions
     tag = vnode.componentOptions.tag
+    propsData = vnode.componentOptions.propsData
   else
     tag = vnode.tag
+    propsData = {}
   { data, children } = vnode
+  data.props = merge data.props, propsData
   return createElement tag, data, children
 
 
 
 cloneVNodes = (createElement, vnodes) ->
   return vnodes.map (vnode) -> cloneVNode(createElement, vnode)
+
+
+
+merge = (obj1, obj2) ->
+  newObj = {}
+  for name, value of obj1
+    newObj[name] = obj1[name]
+  for name, value of obj2
+    newObj[name] = obj2[name]
+  return newObj
 
 
 
@@ -61,6 +74,7 @@ color = (value) ->
 
 exports.cloneVNode = cloneVNode
 exports.cloneVNodes = cloneVNodes
+exports.merge = merge
 exports.isEmailAddress = isEmailAddress
 exports.n2br = n2br
 exports.color = color

@@ -1,30 +1,27 @@
 <template lang="jade">
 
   .playground
-    soil-drawer(
-      ref="drawer",
-      from="bottom"
-    )
-      .d1
-    soil-button.show(label="打开抽屉", @click="show")
-    soil-button.hide(label="关闭抽屉", @click="hide", color="red")
+    soil-button(label="您下一步的操作是？", @click="$refs['drawer-menu'].show()")
+    soil-drawer-menu(ref="drawer-menu", cancel-label="取消")
+      soil-drawer-menu-item(label="收藏到精选集", @select="onSelectCollect")
+      soil-drawer-menu-item(label="下载到本地", @select="onSelectDownload")
+      soil-drawer-menu-item(label="分享到微信朋友圈", @select="onSelectShare")
+      soil-drawer-menu-item(label="不再听这首歌", @select="onSelectRemove")
+
 </template>
 
 <script lang="coffee">
 
   module.exports =
 
-    data: ->
-      open: true
-
     mounted: ->
-      this.$refs.drawer.show()
+      this.$refs['drawer-menu'].show()
 
     methods:
-      'show': ->
-        this.$refs.drawer.show()
-      'hide': ->
-        this.$refs.drawer.hide()
+      'onSelectCollect': -> alert 'collect'
+      'onSelectDownload': -> alert 'download'
+      'onSelectShare': -> alert 'share'
+      'onSelectRemove': -> alert 'remove'
 
 </script>
 
@@ -62,16 +59,6 @@
     width: 20px;
     height: 40px;
     background-color: #ccc;
-  }
-  .soil-button {
-    position: absolute;
-    right: 100px;
-    &.show {
-      top: 50px;
-    }
-    &.hide {
-      top: 150px;
-    }
   }
 
 </style>

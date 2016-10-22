@@ -58,9 +58,6 @@
   @import "../../assets/styles/color";
 
   .soil-button {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
     box-sizing: border-box;
     padding: 8px 16px;
     border-width: 1px;

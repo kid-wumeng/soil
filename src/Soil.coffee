@@ -18,6 +18,8 @@ Soil =
   Switch: require './components/Switch'
   Input: require './components/Input'
   Drawer: require './components/Drawer'
+  DrawerMenu: require './components/DrawerMenu'
+  DrawerMenuItem: require './components/DrawerMenuItem'
 
 
 
