@@ -9,13 +9,15 @@
 
     left-panel(
       ref="panel",
-      @ready="onPanelReady",
-      @draw-start="onDrawPanelStart",
-      @show-start="onPanelShowStart",
-      @hide-start="onPanelHideStart",
-      @draw-end="onDrawPanelEnd",
-      @hide-end="onPanelHideEnd",
-      @move="onPanelMove"
+      :hide-on-draw="hideOnDraw",
+      :hide-on-swipe="hideOnSwipe",
+      @ready="onReadyPanel",
+      @draw-start="onDrawStart",
+      @draw="onDraw"
+      @draw-end="onDrawEnd",
+      @show-start="onShowStart",
+      @hide-start="onHideStart",
+      @hide-end="onHideEnd",
     )
       slot
 
@@ -29,13 +31,20 @@
 
   module.exports =
 
-
     components:
-
       'shadow-layer': require './ShadowLayer'
       'left-panel': require './LeftPanel'
 
+
     props:
+
+      'hideOnDraw':
+        type: Boolean
+        default: true
+
+      'hideOnSwipe':
+        type: Boolean
+        default: true
 
       'hideOnClickShadow':
         type: Boolean
@@ -43,13 +52,15 @@
 
       'alpha':
         type: Number
-        default: 0.8
+        default: 0.4
+
 
     data: ->
       'open': false
       'width': null
       'dynamicAlpha': @alpha
       'drawing': @drawing
+
 
     computed:
 
@@ -58,6 +69,7 @@
 
       'styleObject': ->
         'visibility': if @open then 'visible' else 'hidden'
+
 
     methods:
 
@@ -68,25 +80,25 @@
       'hide': ->
         this.$refs.panel.hide()
 
-      'onPanelReady': (width) ->
+      'onReadyPanel': (width) ->
         @width = width
 
-      'onDrawPanelStart': ->
+      'onDrawStart': ->
         @drawing = true
 
-      'onDrawPanelEnd': ->
+      'onDrawEnd': ->
         @drawing = false
 
-      'onPanelShowStart': ->
+      'onShowStart': ->
         @dynamicAlpha = @alpha
 
-      'onPanelHideStart': ->
+      'onHideStart': ->
         @dynamicAlpha = 0
 
-      'onPanelHideEnd': ->
+      'onHideEnd': ->
         @open = false
 
-      'onPanelMove': (distance) ->
+      'onDraw': (distance) ->
         ratio = 1 - distance / @width
         @dynamicAlpha = @alpha * ratio
 
@@ -102,7 +114,6 @@
   @import "../../assets/styles/color";
 
   .soil-drawer {
-    background-color: @soil-blue;
     position: fixed;
     z-index: 1;
     width: 100%;
@@ -112,17 +123,12 @@
 
   .soil-drawer > .panel {
     position: absolute;
-    left: 0;
-    top: 0;
     display: inline-block;
     height: 100%;
     background-color: white;
     transition: transform 0.3s ease;
   }
 
-  .soil-drawer.-drawing > .panel {
-    transition: none;
-  }
-
+  .soil-drawer.-drawing > .panel { transition: none }
 
 </style>
