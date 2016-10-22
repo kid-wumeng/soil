@@ -3,6 +3,7 @@
   .playground
     soil-drawer(
       ref="drawer",
+      from="bottom"
     )
       .d1
     soil-button.show(label="打开抽屉", @click="show")
@@ -36,6 +37,7 @@
   }
 
   .d1 {
+    width: 300px;
     height: 300px;
     background-color: @soil-blue;
   }

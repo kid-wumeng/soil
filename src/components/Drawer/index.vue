@@ -7,8 +7,9 @@
       @click.native.self="onClickShadow"
     )
 
-    bottom-panel(
+    component(
       ref="panel",
+      :is="panelType",
       :hide-on-draw="hideOnDraw",
       :hide-on-swipe="hideOnSwipe",
       @ready="onReadyPanel",
@@ -42,6 +43,10 @@
 
     props:
 
+      'from':
+        type: String
+        default: 'left'
+
       'hideOnDraw':
         type: Boolean
         default: true
@@ -67,6 +72,8 @@
 
 
     computed:
+
+      'panelType': -> "#{@from}-panel"
 
       'classObject': ->
         '-drawing': @drawing
