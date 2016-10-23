@@ -1,27 +1,26 @@
 <template lang="jade">
 
-  .soil-drawer(:class="classObject", :style="styleObject")
+  .soil-drawer(:class="rootClassObject", :style="rootStyleObject")
 
-    shadow-layer(
-      :alpha="dynamicAlpha",
-      @click.native.self="onClickShadow"
+    .mask(
+      :style="maskStyleObject",
+      @click.self="onClickShadow"
     )
-
-    component(
-      ref="panel",
-      :is="panelType",
-      :hide-on-draw="hideOnDraw",
-      :hide-on-swipe="hideOnSwipe",
-      @ready="onReadyPanel",
-      @draw-start="onDrawStart",
-      @draw="onDraw"
-      @draw-end="onDrawEnd",
-      @swipe-end="onSwipeEnd",
-      @show-start="onShowStart",
-      @hide-start="onHideStart",
-      @hide-end="onHideEnd",
-    )
-      slot
+      component(
+        ref="panel",
+        :is="panelType",
+        :hide-on-draw="hideOnDraw",
+        :hide-on-swipe="hideOnSwipe",
+        @ready="onReadyPanel",
+        @draw-start="onDrawStart",
+        @draw="onDraw"
+        @draw-end="onDrawEnd",
+        @swipe-end="onSwipeEnd",
+        @show-start="onShowStart",
+        @hide-start="onHideStart",
+        @hide-end="onHideEnd",
+      )
+        slot
 
 </template>
 
@@ -34,7 +33,6 @@
   module.exports =
 
     components:
-      'shadow-layer': require './ShadowLayer'
       'left-panel': require './LeftPanel'
       'right-panel': require './RightPanel'
       'top-panel': require './TopPanel'
@@ -79,12 +77,16 @@
 
       'panelType': -> "#{@from}-panel"
 
-      'classObject': ->
+      'rootClassObject': ->
         '-shadow': @shadow
         '-drawing': @drawing
 
-      'styleObject': ->
+      'rootStyleObject': ->
         'visibility': if @open then 'visible' else 'hidden'
+
+      'maskStyleObject': ->
+        'backgroundColor': "rgba(0, 0, 0, #{@dynamicAlpha})"
+
 
 
     methods:
@@ -140,18 +142,39 @@
     width: 100%;
     height: 100%;
     -webkit-tap-highlight-color: transparent;
+
+    .mask {
+      width: 100%;
+      height: 100%;
+      transition: background-color 0.3s ease;
+
+      // @REVIEW
+      // Fix the bug in the Safari ( macOS and iOS ),
+      // which can't display mask in the second time.
+      // I haven't found the reason yet.
+      // I'm not sure if it is related to the transition of mask
+      // or transform ( translate3d ) of panel.
+      transform: translate3d(0, 0, 1px);
+
+      .panel {
+        position: absolute;
+        display: inline-block;
+        transition: transform 0.3s ease;
+      }
+    }
   }
 
-  .soil-drawer > .panel {
-    position: absolute;
-    display: inline-block;
-    transition: transform 0.3s ease;
+
+  .soil-drawer.-drawing {
+    .mask {
+      transition: none;
+      .panel { transition: none }
+    }
   }
 
-  .soil-drawer.-shadow > .panel {
+
+  .soil-drawer.-shadow {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
-
-  .soil-drawer.-drawing > .panel { transition: none }
 
 </style>
