@@ -58,7 +58,6 @@
     border-radius: 16px;
     cursor: pointer;
     user-select: none;
-    -webkit-tap-highlight-color: transparent;
     overflow: hidden;
     position: relative;
     transition: background-color 0.3s ease, border-color 0.3s ease;

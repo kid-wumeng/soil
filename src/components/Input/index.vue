@@ -160,7 +160,6 @@
   .soil-input {
     display: inline-block;
     width: 300px;
-    -webkit-tap-highlight-color: transparent;
     position: relative;
   }
 

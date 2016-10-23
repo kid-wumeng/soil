@@ -65,7 +65,6 @@
     border-radius: 2px;
     cursor: pointer;
     user-select: none;
-    -webkit-tap-highlight-color: transparent;
   }
 
   [soil-dpr="2"] .soil-button,
