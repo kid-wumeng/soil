@@ -1,7 +1,13 @@
 <template lang="jade">
 
   .playground
-    soil-file-picker(data-url, @load-data-url="onLoadImage")
+    soil-file-picker(
+      data-url,
+      :maxSize="100",
+      @load-data-url="onLoadImage",
+      @min-size-error="onMinSizeError",
+      @max-size-error="onMaxSizeError"
+    )
       .d1
     //- soil-button(label="您下一步的操作是？", @click="$refs['drawer-menu'].show()")
     //- soil-drawer-menu(ref="drawer-menu", cancel-label="取消")
@@ -22,6 +28,10 @@
     methods:
       'onLoadImage': ({ dataURL, file }) ->
         console.log file
+      'onMinSizeError': ({ file, minSize }) ->
+        console.log "文件#{file.name}过小，不应该低于#{minSize/1024}KB"
+      'onMaxSizeError': ({ file, maxSize }) ->
+        console.log "文件#{file.name}过大，不应该低于#{maxSize/1024}KB"
 
     #   'onSelectCollect': -> alert 'collect'
     #   'onSelectDownload': -> alert 'download'
