@@ -13,6 +13,7 @@ Soil =
   BarX: require './components/BarX'
   LineX: require './components/LineX'
   Label: require './components/Label'
+  Image: require './components/Image'
   Icon: require './components/Icon'
   Button: require './components/Button'
   Switch: require './components/Switch'

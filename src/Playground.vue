@@ -3,12 +3,11 @@
   .playground
     soil-file-picker(
       data-url,
-      :maxSize="100",
       @load-data-url="onLoadImage",
       @min-size-error="onMinSizeError",
       @max-size-error="onMaxSizeError"
     )
-      .d1
+      soil-image(:src="src", width="150px", height="150px")
     //- soil-button(label="您下一步的操作是？", @click="$refs['drawer-menu'].show()")
     //- soil-drawer-menu(ref="drawer-menu", cancel-label="取消")
     //-   soil-drawer-menu-item(label="收藏到精选集", @select="onSelectCollect")
@@ -25,13 +24,16 @@
     # mounted: ->
     #   this.$refs['drawer-menu'].show()
 
+    data: ->
+      'src': 'http://pic.sc.chinaz.com/files/pic/pic9/201508/apic14052.jpg'
+
     methods:
       'onLoadImage': ({ dataURL, file }) ->
-        console.log file
+        @src = dataURL
       'onMinSizeError': ({ file, minSize }) ->
-        console.log "文件#{file.name}过小，不应该低于#{minSize/1024}KB"
+        console.log "文件#{file.name}太小，不应该小于#{minSize/1024}KB"
       'onMaxSizeError': ({ file, maxSize }) ->
-        console.log "文件#{file.name}过大，不应该低于#{maxSize/1024}KB"
+        console.log "文件#{file.name}太大，不应该大于#{maxSize/1024}KB"
 
     #   'onSelectCollect': -> alert 'collect'
     #   'onSelectDownload': -> alert 'download'
@@ -77,6 +79,8 @@
     width: 20px;
     height: 40px;
     background-color: #ccc;
+  }
+  .soil-image {
   }
 
 </style>

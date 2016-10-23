@@ -40,7 +40,6 @@
 
 
     methods:
-
       'loadDataURL': (file) ->
         reader = new FileReader
         reader.readAsDataURL file
@@ -52,8 +51,11 @@
         size = file.size
         if size < @minSize
           this.$emit('min-size-error', { file, minSize: @minSize })
+          return false
         if size > @maxSize
           this.$emit('max-size-error', { file, maxSize: @maxSize })
+          return false
+        return true
 
       'onClick': ->
         this.$refs.input.click()
