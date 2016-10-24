@@ -1,6 +1,6 @@
 <template lang="jade">
 
-  .soil-image(:style="styleObject")
+  .soil-image(:class="classObject", :style="styleObject")
 
 </template>
 
@@ -22,9 +22,15 @@
       'height':
         type: String
         default: null
+      # @TODO Automatically set to square
+      'circle':
+        type: Boolean
+        default: false
 
 
     computed:
+      'classObject': ->
+        '-circle': @circle
       'styleObject': ->
         backgroundImage: "url(#{@src})"
 
@@ -58,6 +64,9 @@
     background-position: center;
     background-size: cover;
     transition: width 0.5s ease, height 0.5s ease;
+    &.-circle {
+      border-radius: 100%;
+    }
   }
 
 </style>

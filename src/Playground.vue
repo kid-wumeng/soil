@@ -7,7 +7,7 @@
       @min-size-error="onMinSizeError",
       @max-size-error="onMaxSizeError"
     )
-      soil-image(:src="src", width="150px", height="150px")
+      soil-image(:src="src", width="150px", height="150px", circle)
     //- soil-button(label="您下一步的操作是？", @click="$refs['drawer-menu'].show()")
     //- soil-drawer-menu(ref="drawer-menu", cancel-label="取消")
     //-   soil-drawer-menu-item(label="收藏到精选集", @select="onSelectCollect")
