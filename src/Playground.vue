@@ -3,9 +3,11 @@
   .playground
     soil-file-picker(
       data-url,
+      :mimes="['image/jpeg', 'image/png']",
       @load-data-url="onLoadImage",
       @min-size-error="onMinSizeError",
-      @max-size-error="onMaxSizeError"
+      @max-size-error="onMaxSizeError",
+      @mimes-error="onMimesError",
     )
       soil-image(:src="src", width="150px", height="150px", circle)
     //- soil-button(label="您下一步的操作是？", @click="$refs['drawer-menu'].show()")
@@ -31,9 +33,11 @@
       'onLoadImage': ({ dataURL, file }) ->
         @src = dataURL
       'onMinSizeError': ({ file, minSize }) ->
-        console.log "文件#{file.name}太小，不应该小于#{minSize/1024}KB"
+        alert "文件#{file.name}太小，不应该小于#{minSize/1024}KB"
       'onMaxSizeError': ({ file, maxSize }) ->
-        console.log "文件#{file.name}太大，不应该大于#{maxSize/1024}KB"
+        alert "文件#{file.name}太大，不应该大于#{maxSize/1024}KB"
+      'onMimesError': ({ file, mimes }) ->
+        alert "文件#{file.name}类型不符合要求，只能是#{mimes.join(', ')}其中之一"
 
     #   'onSelectCollect': -> alert 'collect'
     #   'onSelectDownload': -> alert 'download'

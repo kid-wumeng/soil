@@ -16,26 +16,21 @@
   module.exports =
 
     props:
-
       'mimes':
         type: Array
         default: -> []
-
       'minSize':
         type: Number
         default: 0
-
       'maxSize':
         type: Number
-        default: 1024 * 1024  # 1 MB
-
+        default: 1024 * 1024 * 1024  # 1 MB
       'dataUrl':
         type: Boolean
         default: false
 
 
     computed:
-
       'accept': -> @mimes.join(', ')
 
 
@@ -47,22 +42,48 @@
           dataURL = event.target.result
           this.$emit('load-data-url', { file, dataURL })
 
-      'validate': (file) ->
-        size = file.size
-        if size < @minSize
-          this.$emit('min-size-error', { file, minSize: @minSize })
+      'valid': (file) ->
+        try
+          @validMimes(file)
+          @validMinSize(file)
+          @validMaxSize(file)
+          return true
+        catch error
+          this.$emit(error.type, error)
           return false
-        if size > @maxSize
-          this.$emit('max-size-error', { file, maxSize: @maxSize })
-          return false
-        return true
+
+      'validMimes': (file) ->
+        if @mimes.length > 0
+          include = @mimes.some (mime) -> file.type is mime
+          if not include
+            error = {}
+            error.type = 'mime-error'
+            error.file = file
+            error.mimes = @mimes
+            throw error
+
+      'validMinSize': (file) ->
+        if file.size < @minSize
+          error = {}
+          error.type = 'min-size-error'
+          error.file = file
+          error.minSize = @minSize
+          throw error
+
+      'validMaxSize': (file) ->
+        if file.size > @maxSize
+          error = {}
+          error.type = 'max-size-error'
+          error.file = file
+          error.maxSize = @maxSize
+          throw error
 
       'onClick': ->
         this.$refs.input.click()
 
       'onChange': (event) ->
         file = event.target.files[0]
-        if not @validate file
+        if not @valid file
           return
         if @dataUrl
           @loadDataURL file
