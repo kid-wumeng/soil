@@ -11,6 +11,9 @@
       'matchParent':
         type: Boolean
         default: false
+      'padding':
+        type: String
+        default: '0'
 
 
     computed:
@@ -41,12 +44,25 @@
 
 
     mounted: ->
-      cells  = this.$el.querySelectorAll '.cell'
-      width  = cells[0].offsetWidth
-      height = cells[0].offsetHeight
-      for cell in cells
-        cell.style.width  = "#{width}px"
-        cell.style.height = "#{height}px"
+      initSize = =>
+        cells  = this.$el.querySelectorAll '.cell'
+        width  = cells[0].offsetWidth
+        height = cells[0].offsetHeight
+        for cell, i in cells
+          cell.style.width  = "#{width}px"
+          cell.style.height = "#{height}px"
+      initPadding = =>
+        rows  = this.$el.querySelectorAll '.row'
+        cells = this.$el.querySelectorAll '.cell'
+        for row, i in rows
+          if i isnt 0
+            row.style.marginTop = "#{@padding}"
+        for cell, i in cells
+          if i % @colCount isnt 0
+            cell.style.marginLeft = "#{@padding}"
+      # ---
+      initSize()
+      initPadding()
 
 </script>
 

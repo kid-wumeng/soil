@@ -1,7 +1,7 @@
 <template lang="jade">
 
   .playground
-    soil-grid()
+    soil-grid(match-parent, padding="8px")
       .d1
       .d3
       .d1
