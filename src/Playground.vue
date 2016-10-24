@@ -1,7 +1,7 @@
 <template lang="jade">
 
   .playground
-    soil-grid
+    soil-grid()
       .d1
       .d3
       .d1
@@ -55,15 +55,15 @@
   }
 
   .d1 {
-    width: 108px;
-    height: 68px;
+    width: 48px;
+    height: 48px;
     background-color: red;
     &:hover {
       background-color: red;
     }
   }
   .d2 {
-    width: 148px;
+    width: 48px;
     height: 48px;
     background-color: blue;
   }

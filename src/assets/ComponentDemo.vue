@@ -18,7 +18,7 @@
 
 
 
-<style lang="less" scoped>
+<style lang="less">
 
   @import "../../assets/styles/color";
 

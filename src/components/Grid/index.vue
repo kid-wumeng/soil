@@ -39,8 +39,9 @@
       allItems = this.$slots.default
       return createElement 'div', {class: @classObject}, createRows(allItems)
 
+
     mounted: ->
-      cells = this.$el.querySelectorAll '.cell'
+      cells  = this.$el.querySelectorAll '.cell'
       width  = cells[0].offsetWidth
       height = cells[0].offsetHeight
       for cell in cells
@@ -51,26 +52,35 @@
 
 
 
-<style lang="less" scoped>
+<style lang="less">
 
   @import "../../assets/styles/color";
 
-  .soil-grid.-match-parent {
-    .row {
-      display: table;
-      table-layout: fixed;
-      width: 100%;
-      .cell {
-        display: table-cell;
+  .soil-grid.-match-content {
+    display: inline-flex;
+    flex-direction: column;
+    > .row {
+      display: flex;
+      > .cell {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
       }
     }
   }
 
-  .soil-grid.-match-content {
-    .row {
-      overflow: hidden;
-      .cell {
-        float: left;
+  .soil-grid.-match-parent {
+    display: flex;
+    flex-direction: column;
+    > .row {
+      display: flex;
+      justify-content: space-between;
+      > .cell {
+        flex: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         overflow: hidden;
       }
     }
