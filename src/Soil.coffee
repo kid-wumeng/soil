@@ -11,6 +11,7 @@ Soil =
   ListY: require './components/ListY'
   FlowX: require './components/FlowX'
   BarX: require './components/BarX'
+  Grid: require './components/Grid'
   LineX: require './components/LineX'
   Label: require './components/Label'
   Image: require './components/Image'

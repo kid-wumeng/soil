@@ -53,6 +53,7 @@
           return false
 
       'validMimes': (file) ->
+        # @TODO Match the wildcard, such as 'image', 'image/*' ...
         if @mimes.length > 0
           include = @mimes.some (mime) -> file.type is mime
           if not include

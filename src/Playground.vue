@@ -1,15 +1,15 @@
 <template lang="jade">
 
   .playground
-    soil-file-picker(
-      data-url,
-      :mimes="['image/jpeg', 'image/png']",
-      @load-data-url="onLoadImage",
-      @min-size-error="onMinSizeError",
-      @max-size-error="onMaxSizeError",
-      @mimes-error="onMimesError",
-    )
-      soil-image(:src="src", width="150px", height="150px", circle)
+    soil-grid
+      .d1
+      .d3
+      .d1
+      .d2
+      .d2
+      .d3
+      .d1
+      .d2
     //- soil-button(label="您下一步的操作是？", @click="$refs['drawer-menu'].show()")
     //- soil-drawer-menu(ref="drawer-menu", cancel-label="取消")
     //-   soil-drawer-menu-item(label="收藏到精选集", @select="onSelectCollect")
@@ -55,15 +55,15 @@
   }
 
   .d1 {
-    width: 300px;
-    height: 300px;
-    background-color: @soil-blue;
+    width: 108px;
+    height: 68px;
+    background-color: red;
     &:hover {
-      background-color: @soil-red;
+      background-color: red;
     }
   }
   .d2 {
-    width: 48px;
+    width: 148px;
     height: 48px;
     background-color: blue;
   }

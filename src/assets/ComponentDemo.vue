@@ -12,7 +12,7 @@
 
   module.exports =
 
-    props: []
+    mounted: ->
 
 </script>
 
