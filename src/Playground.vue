@@ -1,15 +1,7 @@
 <template lang="jade">
 
   .playground
-    soil-grid(match-parent, padding="8px")
-      .d1
-      .d3
-      .d1
-      .d2
-      .d2
-      .d3
-      .d1
-      .d2
+    soil-date-picker
     //- soil-button(label="您下一步的操作是？", @click="$refs['drawer-menu'].show()")
     //- soil-drawer-menu(ref="drawer-menu", cancel-label="取消")
     //-   soil-drawer-menu-item(label="收藏到精选集", @select="onSelectCollect")

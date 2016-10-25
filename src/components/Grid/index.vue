@@ -39,7 +39,7 @@
           rows.push createRow(items)
         return rows
       # ---
-      allItems = this.$slots.default
+      allItems = this.$slots.default ? []
       return createElement 'div', {class: @classObject}, createRows(allItems)
 
 

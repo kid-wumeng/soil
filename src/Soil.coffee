@@ -22,6 +22,7 @@ Soil =
   Drawer: require './components/Drawer'
   DrawerMenu: require './components/DrawerMenu'
   DrawerMenuItem: require './components/DrawerMenuItem'
+  DatePicker: require './components/DatePicker'
   FilePicker: require './components/FilePicker'
 
 

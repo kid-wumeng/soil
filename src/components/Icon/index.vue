@@ -1,6 +1,6 @@
 <template lang="jade">
 
-  .soil-icon
+  .soil-icon(@click="onClick")
     .icon(:class="iconClassName", :style="iconStyleObject")
     soil-label.label(v-if="label", :text="label", :style="iconStyleObject")
 
@@ -38,10 +38,13 @@
         return "icon-#{@family}-#{@name}"
 
       'iconStyleObject': ->
-        color: util.color(@color)
+        color: util.color @color
 
       'labelStyleObject': ->
-        color: util.color(@color)
+        color: util.color @color
+
+    methods:
+      'onClick': -> this.$emit 'click'
 
 </script>
 
