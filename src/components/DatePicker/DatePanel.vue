@@ -33,6 +33,9 @@
         match-parent,
         :col-count="7"
       )
+        .day(
+          v-for="dayLabel in dayLabels"
+        ) {{ dayLabel }}
         .date(
           v-for="date in dates",
           @click="onSelectDate(date)"
@@ -48,29 +51,28 @@
 
   module.exports =
 
+    props:
+      'dayLabels':
+        type: Array
+        required: true
+
     data: ->
-      'open': false
-      'year': null
+      'open':  false
+      'year':  null
       'month': null
 
     computed:
-      'yearLabel': -> "#{@year}"
+      'yearLabel':  -> "#{@year}"
       'monthLabel': -> "#{@month}"
-      'dates': -> [1..new Date(@year, @month, 0).getDate()]
+      'dates': ->
+        return [1..new Date(@year, @month, 0).getDate()]
 
     methods:
-      'show': (year, month) ->
-        @year = year
-        @month = month
-        @open = true
-      'hide': ->
-        @open = false
-      'onSwitchYearPanel': ->
-        this.$emit 'switch-year-panel', @year
-      'onSwitchMonthPanel': ->
-        this.$emit 'switch-month-panel', @year
-      'onSelectDate': (date) ->
-        this.$emit 'select-date', @year, @month, date
+      'show': (@year, @month) -> @open = true
+      'hide':                 -> @open = false
+      'onSwitchYearPanel':    -> this.$emit 'switch-year-panel', @year
+      'onSwitchMonthPanel':   -> this.$emit 'switch-month-panel', @year
+      'onSelectDate': (date)  -> this.$emit 'select-date', @year, @month, date
 
 </script>
 

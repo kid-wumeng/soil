@@ -7,16 +7,17 @@
     )
     month-panel(
       ref="monthPanel",
-      @switch-year-panel="onSwitchYearPanel"
+      @switch-year-panel="onSwitchYearPanel",
       @select-month="onSelectMonth"
     )
     date-panel(
       ref="datePanel",
-      @switch-year-panel="onSwitchYearPanel"
-      @switch-month-panel="onSwitchMonthPanel"
+      :day-labels="dayLabels",
+      @switch-year-panel="onSwitchYearPanel",
+      @switch-month-panel="onSwitchMonthPanel",
       @select-date="onSelectDate"
     )
-    {{year}} 年 {{month}} 月 {{date}} 日
+    //- {{year}} 年 {{month}} 月 {{date}} 日
 
 </template>
 
@@ -37,6 +38,9 @@
       'initDecade':
         type: Number
         default: 2000
+      'dayLabels':
+        type: Array
+        default: -> ['Sun', 'Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat']
 
     data: ->
       'year':  null
@@ -80,6 +84,7 @@
 
   .soil-date-picker {
     width: 300px;
+    height: 300px;
   }
 
 </style>

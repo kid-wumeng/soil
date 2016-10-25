@@ -42,15 +42,10 @@
       'label': -> "#{@year}"
 
     methods:
-      'show': (year) ->
-        @year = year
-        @open = true
-      'hide': ->
-        @open = false
-      'onSwitchYearPanel': ->
-        this.$emit 'switch-year-panel', @year
-      'onSelectMonth': (month) ->
-        this.$emit 'select-month', @year, month
+      'show': (@year) -> @open = true
+      'hide':         -> @open = false
+      'onSwitchYearPanel':     -> this.$emit 'switch-year-panel', @year
+      'onSelectMonth': (month) -> this.$emit 'select-month', @year, month
 
 </script>
 
