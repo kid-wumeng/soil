@@ -8,7 +8,8 @@
           @click="year--"
         )
         soil-label(
-          :text="yearLabel"
+          :text="yearLabel",
+          @click="onSwitchYearPanel"
         )
         soil-icon(
           name="arrow-right",
@@ -20,7 +21,8 @@
           @click="month--"
         )
         soil-label(
-          :text="monthLabel"
+          :text="monthLabel",
+          @click="onSwitchMonthPanel"
         )
         soil-icon(
           name="arrow-right",
@@ -29,7 +31,7 @@
     .body
       soil-grid(
         match-parent,
-        :col-count="4"
+        :col-count="7"
       )
         .date(
           v-for="date in dates",
@@ -63,6 +65,10 @@
         @open = true
       'hide': ->
         @open = false
+      'onSwitchYearPanel': ->
+        this.$emit 'switch-year-panel', @year
+      'onSwitchMonthPanel': ->
+        this.$emit 'switch-month-panel', @year
       'onSelectDate': (date) ->
         this.$emit 'select-date', @year, @month, date
 
@@ -78,18 +84,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .year {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    .year,
     .month {
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-    .soil-icon {
-      cursor: pointer;
+      .soil-label {
+        cursor: pointer;
+      }
+      .soil-icon {
+        cursor: pointer;
+      }
     }
   }
 

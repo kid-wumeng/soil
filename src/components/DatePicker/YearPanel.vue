@@ -62,8 +62,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .soil-icon {
-      cursor: pointer;
+    .head {
+      .soil-icon {
+        cursor: pointer;
+      }
     }
   }
 

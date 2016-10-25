@@ -7,7 +7,8 @@
         @click="year--"
       )
       soil-label(
-        :text="label"
+        :text="label",
+        @click="onSwitchYearPanel"
       )
       soil-icon(
         name="arrow-right",
@@ -46,6 +47,8 @@
         @open = true
       'hide': ->
         @open = false
+      'onSwitchYearPanel': ->
+        this.$emit 'switch-year-panel', @year
       'onSelectMonth': (month) ->
         this.$emit 'select-month', @year, month
 
@@ -61,8 +64,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .soil-icon {
-      cursor: pointer;
+    .head {
+      .soil-label {
+        cursor: pointer;
+      }
+      .soil-icon {
+        cursor: pointer;
+      }
     }
   }
 

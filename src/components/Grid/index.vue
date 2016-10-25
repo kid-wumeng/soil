@@ -44,14 +44,22 @@
 
 
     mounted: ->
-      initSize = =>
+      @initSize()
+      @initPadding()
+
+    updated: ->
+      @initSize()
+      @initPadding()
+
+    methods:
+      'initSize': ->
         cells  = this.$el.querySelectorAll '.cell'
         width  = cells[0].offsetWidth
         height = cells[0].offsetHeight
         for cell, i in cells
           cell.style.width  = "#{width}px"
           cell.style.height = "#{height}px"
-      initPadding = =>
+      'initPadding': ->
         rows  = this.$el.querySelectorAll '.row'
         cells = this.$el.querySelectorAll '.cell'
         for row, i in rows
@@ -60,9 +68,7 @@
         for cell, i in cells
           if i % @colCount isnt 0
             cell.style.marginLeft = "#{@padding}"
-      # ---
-      initSize()
-      initPadding()
+
 
 </script>
 
