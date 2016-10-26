@@ -1,7 +1,8 @@
 <template lang="jade">
 
   .playground
-    soil-date-picker
+    soil-date-picker(v-model="birthday")
+    h1 生日 {{ birthday.year }} 年 {{ birthday.month }} 月 {{ birthday.date }} 日
     //- soil-button(label="您下一步的操作是？", @click="$refs['drawer-menu'].show()")
     //- soil-drawer-menu(ref="drawer-menu", cancel-label="取消")
     //-   soil-drawer-menu-item(label="收藏到精选集", @select="onSelectCollect")
@@ -19,6 +20,7 @@
     #   this.$refs['drawer-menu'].show()
 
     data: ->
+      birthday: {}
       'src': 'http://pic.sc.chinaz.com/files/pic/pic9/201508/apic14052.jpg'
 
     methods:
@@ -38,12 +40,18 @@
 
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 
   @import "./assets/styles/color";
 
+  html, body {
+    width: 100%;
+    height: 100%;
+  }
   body {
-    background-color: @soil-green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .d1 {
@@ -76,7 +84,7 @@
     height: 40px;
     background-color: #ccc;
   }
-  .soil-image {
+  .soil-date-picker {
   }
 
 </style>

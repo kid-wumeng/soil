@@ -1,27 +1,24 @@
 <template lang="jade">
 
-  .year-panel(v-if="open")
-    .head
-      soil-icon(
-        name="arrow-left",
-        @click="yearStart -= 10"
-      )
-      soil-label(
-        :text="label"
-      )
-      soil-icon(
-        name="arrow-right",
-        @click="yearStart += 10"
-      )
-    .body
-      soil-grid(
-        match-parent,
-        :col-count="4"
-      )
-        .year(
-          v-for="year in years",
-          @click="onSelectYear(year)"
-        ) {{ year }}
+  div.panel.year-panel(v-if="open")
+
+    div.head
+      div.range-control
+        soil-icon.prev(
+          name="arrow-left",
+          @click="yearStart -= 10"
+        )
+        div.label.-disabled {{ label }}
+        soil-icon.next(
+          name="arrow-right",
+          @click="yearStart += 10"
+        )
+        
+    soil-grid.body(match-parent, :col-count="4")
+      div.point.-enabled(
+        v-for="year in years",
+        @click="onSelectYear(year)"
+      ) {{ year }}
 
 </template>
 
@@ -53,20 +50,8 @@
 </script>
 
 
-
 <style lang="less">
 
   @import "../../assets/styles/color";
-
-  .head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .head {
-      .soil-icon {
-        cursor: pointer;
-      }
-    }
-  }
 
 </style>

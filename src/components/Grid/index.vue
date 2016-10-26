@@ -78,12 +78,11 @@
 
   @import "../../assets/styles/color";
 
-  .soil-grid.-match-content {
-    display: inline-flex;
-    flex-direction: column;
-    > .row {
+  .soil-grid.-match-content{
+    display: inline-block;
+    >.row{
       display: flex;
-      > .cell {
+      >.cell{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -92,14 +91,18 @@
     }
   }
 
-  .soil-grid.-match-parent {
+  .soil-grid.-match-parent{
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    > .row {
+    justify-content: space-between;
+    >.row{
+      flex: auto;
       display: flex;
       justify-content: space-between;
-      > .cell {
-        flex: auto;
+      align-items: stretch;
+      >.cell{
         display: flex;
         justify-content: center;
         align-items: center;

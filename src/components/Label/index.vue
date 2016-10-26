@@ -41,10 +41,6 @@
   @import "../../assets/styles/color";
 
   .soil-label {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 14px;
     color: @soil-black;
     white-space: nowrap;

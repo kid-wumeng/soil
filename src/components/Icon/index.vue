@@ -50,27 +50,25 @@
 
 
 
-<style lang="less" scoped>
+<style lang="less">
 
   @import "../../assets/styles/icon";
   @import "../../assets/styles/color";
 
   .soil-icon {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    color: inherit;
   }
 
   .soil-icon > .icon {
-    display: inline-block;
-    font-size: 24px;
-    color: @soil-gray-8;
+    width: 100%;
   }
 
   .soil-icon > .label {
     margin-top: 6px;
+    width: 100%;
     font-size: 12px;
-    color: @soil-gray-8;
   }
 
 </style>
