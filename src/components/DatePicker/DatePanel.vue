@@ -1,9 +1,7 @@
 <template lang="jade">
 
   div.panel.date-panel(v-if="open")
-
     div.head
-
       div.range-control
         soil-icon(
           name="arrow-left",
@@ -16,7 +14,6 @@
           name="arrow-right",
           @click="year++"
         )
-
       div.range-control
         soil-icon(
           name="arrow-left",
@@ -29,22 +26,17 @@
           name="arrow-right",
           @click="onSelectNextMonth"
         )
-
     soil-grid.body(match-parent, :col-count="7")
-
       div.point.day-label(
         v-for="dayLabel in dayLabels"
       ) {{ dayLabel }}
-
       div.point.-disabled(
         v-for="date in datesInPrevWeek"
       ) {{ date }}
-
       div.point.-enabled(
         v-for="date in dates",
         @click="onSelectDate(date)"
       ) {{ date }}
-
       div.point.-disabled(
         v-for="date in datesInNextWeek"
       ) {{ date }}
