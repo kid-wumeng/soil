@@ -15,6 +15,7 @@
     # The reason why use the `render` function to generate the template
     # is inserting the separator between the items.
 
+    # @TODO Recode the struct
     render: (createElement) ->
 
       _countItems = =>

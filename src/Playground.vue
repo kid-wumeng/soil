@@ -1,8 +1,11 @@
 <template lang="jade">
 
   .playground
-    soil-date-picker(v-model="birthday")
-    h1 生日 {{ birthday.year }} 年 {{ birthday.month }} 月 {{ birthday.date }} 日
+    soil-flow-x
+      .d1
+      .d2(slot="left")
+      .d3
+      .sep1(slot="sep")
     //- soil-button(label="您下一步的操作是？", @click="$refs['drawer-menu'].show()")
     //- soil-drawer-menu(ref="drawer-menu", cancel-label="取消")
     //-   soil-drawer-menu-item(label="收藏到精选集", @select="onSelectCollect")
@@ -49,9 +52,9 @@
     height: 100%;
   }
   body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
   }
 
   .d1 {

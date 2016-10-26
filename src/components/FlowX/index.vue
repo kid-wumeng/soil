@@ -4,22 +4,22 @@
 
     soil-list-x.left-area( :padding="padding" )
       slot( name="left" )
-      template( slot="sep" ): slot( name="sep" )
 
     soil-list-x.center-area( :padding="padding" )
       slot
-      template( slot="sep" ): slot( name="sep" )
+
+    //- @TODO Use render function to handle the warn that seps are duplicate.
+    //- @TODO Handle the max-height area and don't use the placeholder.
 
     //- Since the center-area is position: absolute,
     //- need the placeholder open the height of root-element
     //- when the center-area is higher than left-area / right-area
-    soil-list-x.center-area-placeholder
-      slot
-      template( slot="sep" ): slot( name="sep" )
+    //- soil-list-x.center-area-placeholder
+    //-   slot
+    //-   template( slot="sep" ): slot( name="sep" )
 
     soil-list-x.right-area( :padding="padding" )
       slot( name="right" )
-      template( slot="sep" ): slot( name="sep" )
 
 </template>
 

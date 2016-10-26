@@ -15,6 +15,7 @@
     # The reason why use the `render` function to generate the template
     # is inserting the separator between the items.
 
+    # @TODO Recode the struct
     render: (createElement) ->
 
       _countItems = =>
@@ -44,7 +45,9 @@
         return nodes
 
       items = _createItems()
-      if !_existSep() or _countItems() is 1
+      if not this.$slots.default
+        children = []
+      else if !_existSep() or _countItems() is 1
         children = items
       else
         sep = _createSep()
