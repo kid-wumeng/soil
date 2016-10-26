@@ -1,11 +1,12 @@
 <template lang="jade">
 
   .playground
-    soil-flow-x
-      .d1
-      .d2(slot="left")
-      .d3
-      .sep1(slot="sep")
+    soil-menu-cell(
+      left-label="动画电影",
+      right-sub-label="点击可清除缓存",
+    )
+      soil-switch
+
     //- soil-button(label="您下一步的操作是？", @click="$refs['drawer-menu'].show()")
     //- soil-drawer-menu(ref="drawer-menu", cancel-label="取消")
     //-   soil-drawer-menu-item(label="收藏到精选集", @select="onSelectCollect")
@@ -48,13 +49,9 @@
   @import "./assets/styles/color";
 
   html, body {
-    width: 100%;
-    height: 100%;
   }
   body {
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
+    background-color: #f2f2f2;
   }
 
   .d1 {
@@ -86,8 +83,6 @@
     width: 20px;
     height: 40px;
     background-color: #ccc;
-  }
-  .soil-date-picker {
   }
 
 </style>

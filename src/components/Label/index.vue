@@ -1,6 +1,6 @@
 <template lang="jade">
 
-  .soil-label(:class="classObject", @click="onClick") {{ text }}
+  .soil-label(:class="classObject", @click="onClick") {{ label }}
 
 </template>
 
@@ -12,7 +12,7 @@
 
     props:
 
-      'text':
+      'label':
         type: String
         default: ''
 
@@ -41,7 +41,6 @@
   @import "../../assets/styles/color";
 
   .soil-label {
-    font-size: 14px;
     color: @soil-black;
     white-space: nowrap;
     overflow: hidden;
