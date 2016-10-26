@@ -87,7 +87,6 @@
         @date  = date
         # @TODO To support that month from 0
         this.$emit 'input', { year, month, date }
-        this.$refs.datePanel.hide()
 
 </script>
 
