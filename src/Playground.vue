@@ -1,11 +1,19 @@
 <template lang="jade">
 
   .playground
-    soil-menu-cell(
-      left-label="动画电影",
-      right-sub-label="点击可清除缓存",
+    soil-menu-cell-group(
+      title="Orz.World 的设置选项",
+      description="您在这里的设置只会影响本客户端"
     )
-      soil-switch
+      soil-menu-cell(
+        left-label="动画电影",
+        right-sub-label="20658",
+        link
+      )
+      soil-menu-cell(
+        left-label="夜间模式",
+      )
+        soil-switch
 
     //- soil-button(label="您下一步的操作是？", @click="$refs['drawer-menu'].show()")
     //- soil-drawer-menu(ref="drawer-menu", cancel-label="取消")
@@ -51,6 +59,7 @@
   html, body {
   }
   body {
+    padding-top: 24px;
     background-color: #f2f2f2;
   }
 
