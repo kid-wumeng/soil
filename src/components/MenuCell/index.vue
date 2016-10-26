@@ -59,8 +59,8 @@
 
   .soil-menu-cell{
     box-sizing: border-box;
-    height: 40px;
-    padding: 6px 16px;
+    height: 48px;
+    padding: 4px 16px;
     background-color: white;
     .link{
       font-size: 16px;

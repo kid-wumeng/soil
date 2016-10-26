@@ -7,6 +7,7 @@
     )
       soil-menu-cell(
         left-label="动画电影",
+        left-sub-label="你的收藏",
         right-sub-label="20658",
         link
       )
