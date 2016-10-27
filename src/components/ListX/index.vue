@@ -80,7 +80,7 @@
 
 
 
-<style lang="less" scoped>
+<style lang="less">
 
   .soil-list-x {
     height: 100%;

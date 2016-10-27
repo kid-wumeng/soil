@@ -19,6 +19,7 @@ Soil =
   Button: require './components/Button'
   Switch: require './components/Switch'
   Input: require './components/Input'
+  Rate: require './components/Rate'
   MenuCell: require './components/MenuCell'
   MenuCellGroup: require './components/MenuCellGroup'
   Drawer: require './components/Drawer'

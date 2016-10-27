@@ -1,20 +1,7 @@
 <template lang="jade">
 
   .playground
-    soil-menu-cell-group(
-      title="Orz.World 的设置选项",
-      description="您在这里的设置只会影响本客户端"
-    )
-      soil-menu-cell(
-        left-label="动画电影",
-        left-sub-label="你的收藏",
-        right-sub-label="20658",
-        link
-      )
-      soil-menu-cell(
-        left-label="夜间模式",
-      )
-        soil-switch
+    soil-rate(v-model="rate", :count=4)
 
     //- soil-button(label="您下一步的操作是？", @click="$refs['drawer-menu'].show()")
     //- soil-drawer-menu(ref="drawer-menu", cancel-label="取消")
@@ -33,7 +20,8 @@
     #   this.$refs['drawer-menu'].show()
 
     data: ->
-      birthday: {}
+      'rate': 0
+      'birthday': {}
       'src': 'http://pic.sc.chinaz.com/files/pic/pic9/201508/apic14052.jpg'
 
     methods:
@@ -94,5 +82,10 @@
     height: 40px;
     background-color: #ccc;
   }
+
+  .soil-rate[rate="1"] .icon.-active{ color: @soil-red; text-shadow: 0px 0px 10px }
+  .soil-rate[rate="2"] .icon.-active{ color: @soil-gray-8; text-shadow: 0px 0px 10px }
+  .soil-rate[rate="3"] .icon.-active{ color: @soil-yellow; text-shadow: 0px 0px 10px }
+  .soil-rate[rate="4"] .icon.-active{ color: @soil-yellow; text-shadow: 0px 0px 10px }
 
 </style>

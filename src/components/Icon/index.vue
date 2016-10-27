@@ -1,8 +1,6 @@
 <template lang="jade">
 
-  .soil-icon(@click="onClick")
-    .icon(:class="iconClassName", :style="iconStyleObject")
-    soil-label.label(v-if="label", :text="label", :style="iconStyleObject")
+  .soil-icon(:class="className", :style="styleObject", @click="onClick")
 
 </template>
 
@@ -34,10 +32,10 @@
 
     computed:
 
-      'iconClassName': ->
+      'className': ->
         return "icon-#{@family}-#{@name}"
 
-      'iconStyleObject': ->
+      'styleObject': ->
         color: util.color @color
 
       'labelStyleObject': ->
@@ -56,19 +54,8 @@
   @import "../../assets/styles/color";
 
   .soil-icon {
-    text-align: center;
     font-size: 16px;
     color: inherit;
-  }
-
-  .soil-icon > .icon {
-    width: 100%;
-  }
-
-  .soil-icon > .label {
-    margin-top: 6px;
-    width: 100%;
-    font-size: 12px;
   }
 
 </style>
