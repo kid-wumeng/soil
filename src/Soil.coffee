@@ -12,6 +12,7 @@ Soil =
   FlowX: require './components/FlowX'
   BarX: require './components/BarX'
   Grid: require './components/Grid'
+  MainSide: require './components/MainSide'
   LineX: require './components/LineX'
   Label: require './components/Label'
   Image: require './components/Image'

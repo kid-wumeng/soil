@@ -1,7 +1,9 @@
 <template lang="jade">
 
   .playground
-    soil-rate(v-model="rate", :count=4)
+    soil-main-side(padding="8px")
+      .d2(slot="main")
+      .d3(slot="right-side")
 
     //- soil-button(label="您下一步的操作是？", @click="$refs['drawer-menu'].show()")
     //- soil-drawer-menu(ref="drawer-menu", cancel-label="取消")
@@ -48,7 +50,6 @@
   html, body {
   }
   body {
-    padding-top: 24px;
     background-color: #f2f2f2;
   }
 
