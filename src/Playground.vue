@@ -6,10 +6,7 @@
     //-   .d2(slot="main")
     //-   .d3(slot="right-side")
 
-    soil-list-x
-      .d1(slot="item")
-      .d2(slot="item")
-      .d2(slot="item")
+    soil-flow-x(padding="8px")
       .sep1(slot="sep")
 
     //- soil-button(label="您下一步的操作是？", @click="$refs['drawer-menu'].show()")
@@ -64,13 +61,10 @@
     width: 48px;
     height: 48px;
     background-color: red;
-    &:hover {
-      background-color: red;
-    }
   }
   .d2 {
     width: 48px;
-    height: 48px;
+    height: 68px;
     background-color: blue;
   }
   .d3 {
@@ -81,11 +75,17 @@
   .sep1 {
     width: 10px;
     height: 40px;
-    background-color: #ccc;
+    background-color: #333;
   }
   .sep2 {
+    width: 10px;
     height: 40px;
     background-color: #333;
+  }
+
+  .soil-flow-x{
+    margin-top: 200px;
+    background-color: #ccc;
   }
 
   .soil-rate[rate="1"] .icon.-active{ color: @soil-red; text-shadow: 0px 0px 10px }

@@ -13,8 +13,8 @@
     # The reason why use the `render` function to generate the template
     # is inserting the separator between the items.
     render: (createElement) ->
-      items = @$slots['item'] ? []
-      seps  = @$slots['sep']  ? []
+      items = @$slots['default'] ? []
+      seps  = @$slots['sep']     ? []
       sep   = seps[0]
 
       children = []

@@ -1,69 +1,66 @@
-<template lang="jade">
-
-  .soil-flow-x
-
-    soil-list-x.left-area( :padding="padding" )
-      slot( name="left" )
-
-    soil-list-x.center-area( :padding="padding" )
-      slot
-
-    //- @TODO Use render function to handle the warn that seps are duplicate.
-    //- @TODO Handle the max-height area and don't use the placeholder.
-
-    //- Since the center-area is position: absolute,
-    //- need the placeholder open the height of root-element
-    //- when the center-area is higher than left-area / right-area
-    //- soil-list-x.center-area-placeholder
-    //-   slot
-    //-   template( slot="sep" ): slot( name="sep" )
-
-    soil-list-x.right-area( :padding="padding" )
-      slot( name="right" )
-
-</template>
-
-
-
 <script lang="coffee">
+
+  util = require '../../assets/util'
 
   module.exports =
 
     components:
-      'soil-list-x': require '../ListX'
+      'left-area':   require './LeftArea'
+      'center-area': require './CenterArea'
+      'right-area':  require './RightArea'
+
 
     props:
       'padding':
         type: String
+        default: '0'
 
+
+    render: (createElement) ->
+      leftItems   = @$slots['left']   ? []
+      centerItems = @$slots['center'] ? []
+      rightItems  = @$slots['right']  ? []
+      seps        = @$slots['sep']    ? []
+
+      props =
+        'padding': @padding
+
+      sepTemplate = createElement 'template', {slot: 'sep'}, seps
+
+      leftArea    = createElement 'left-area',   {props}, [leftItems,   sepTemplate]
+      centerArea  = createElement 'center-area', {props}, [centerItems, sepTemplate]
+      rightArea   = createElement 'right-area',  {props}, [rightItems,  sepTemplate]
+
+      return createElement 'div', {class: 'soil-flow-x'}, [leftArea, centerArea, rightArea]
+
+
+    mounted: ->
+
+    methods:
+      'initHeight': ->
+        root = @$el
+        centerArea = root.querySelector('.center-area')
+        if centerArea.offsetHeight > root.offsetHeight
+          root.style.height = "#{centerArea.offsetHeight}px"
 </script>
 
 
 
-<style lang="less" scoped>
+<style lang="less">
 
-  .soil-flow-x {
-    width: 100%;
-    height: 100%;
+  .soil-flow-x{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-  }
-
-  .soil-flow-x > .center-area {
-    position: absolute;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .soil-flow-x > .center-area-placeholder {
-    // Hide the placeholder
-    position: relative;
-    left: -100%;
-    width: 1px;
-    visibility: hidden;
+    .left-area{
+      width: 30%;
+    }
+    .center-area{
+      width: 40%;
+      justify-content: center;
+    }
+    .right-area{
+      width: 30%;
+      justify-content: flex-end;
+    }
   }
 
 </style>
