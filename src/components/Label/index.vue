@@ -1,6 +1,6 @@
 <template lang="jade">
 
-  .soil-label(:class="classObject", @click="onClick") {{ label }}
+  .soil-label(:class="classObject", @click="$emit('click')") {{ label }}
 
 </template>
 
@@ -11,26 +11,16 @@
   module.exports =
 
     props:
-
       'label':
         type: String
         default: ''
-
       'ellipsis':
         type: Boolean
         default: false
 
-
     computed:
-
       'classObject': ->
         '-ellipsis': @ellipsis
-
-
-    methods:
-
-      'onClick': ->
-        this.$emit('click')
 
 </script>
 
@@ -40,12 +30,12 @@
 
   @import "../../assets/styles/color";
 
-  .soil-label {
+  .soil-label{
     color: @soil-black;
     white-space: nowrap;
     overflow: hidden;
 
-    &.-ellipsis {
+    &.-ellipsis{
       text-overflow: ellipsis;
     }
   }

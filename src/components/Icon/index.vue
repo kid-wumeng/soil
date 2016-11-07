@@ -1,6 +1,10 @@
 <template lang="jade">
 
-  .soil-icon(:class="className", :style="styleObject", @click="onClick")
+  .soil-icon(
+    :class="className",
+    :style="styleObject"
+    @click="$emit('click')"
+  )
 
 </template>
 
@@ -13,36 +17,17 @@
   module.exports =
 
     props:
-
       'family':
         type: String
         default: 'soil'
-
       'name':
         type: String
         required: true
 
-      'label':
-        type: String
-        default: null
-
-      'color':
-        type: String
-        default: null
-
     computed:
-
-      'className': ->
-        return "icon-#{@family}-#{@name}"
-
+      'className': -> "icon-#{@family}-#{@name}"
       'styleObject': ->
-        color: util.color @color
-
-      'labelStyleObject': ->
-        color: util.color @color
-
-    methods:
-      'onClick': -> this.$emit 'click'
+        'font-family': @family
 
 </script>
 
@@ -50,12 +35,21 @@
 
 <style lang="less">
 
-  @import "../../assets/styles/icon";
-  @import "../../assets/styles/color";
+  @import "../../assets/styles/icon-font";
 
-  .soil-icon {
-    font-size: 16px;
+  .soil-icon{
+    display: inline-block;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
     color: inherit;
+    speak: none;
+    text-decoration: inherit;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
 </style>
