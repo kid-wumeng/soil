@@ -5,76 +5,44 @@
   module.exports =
 
     props:
-
       'padding':
         type: String
-        default: '4px'
-
+        default: '0'
 
 
     # The reason why use the `render` function to generate the template
     # is inserting the separator between the items.
-
-    # @TODO Recode the struct
     render: (createElement) ->
+      items = @$slots['item'] ? []
+      seps  = @$slots['sep']  ? []
+      sep   = seps[0]
 
-      _countItems = =>
-        return this.$slots.default.length
+      children = []
+      for item, i in items
+        children.push item
+        # Insert sep between items.
+        if sep
+          if i isnt items.length-1
+            sepClone = util.cloneVNode(createElement, sep)
+            children.push sepClone
 
-      _createItem = (item) =>
-        return createElement 'div', {class: 'item'}, [item]
-
-      _createItems = =>
-        items = this.$slots.default ? []
-        return items.map _createItem
-
-      _existSep = =>
-        return this.$slots.sep isnt undefined
-
-      _createSep = =>
-        sep = util.cloneVNodes createElement, this.$slots.sep
-        return createElement 'div', {class: 'sep'}, sep
-
-      _combineWithSep = (items) =>
-        nodes = []
-        last = items.length - 1
-        for i in [0..last-1]
-          nodes.push items[i]
-          nodes.push _createSep()
-        nodes.push items[last]
-        return nodes
-
-      items = _createItems()
-      if not this.$slots.default
-        children = []
-      else if !_existSep() or _countItems() is 1
-        children = items
-      else
-        sep = _createSep()
-        children = _combineWithSep items
-      return createElement 'div', {class: 'soil-list-x'}, children
-
+      return createElement('div', {class: 'soil-list-x'}, children)
 
 
     mounted: ->
-      this._handlePadding()
-
+      @initPadding()
 
 
     updated: ->
-      this._handlePadding()
-
+      @initPadding()
 
 
     methods:
-
-      _handlePadding: ->
-        nodes = this.$el.childNodes
-        len = nodes.length
-        if len > 1
-          last = len - 1
-          for i in [0..last-1]
-            nodes[i].style.marginRight = @padding
+      initPadding: ->
+        if @padding isnt '0'
+          for node, i in @$el.childNodes
+            if i isnt @$el.childNodes.length-1
+              node.style.marginRight = @padding
 
 </script>
 
@@ -82,16 +50,9 @@
 
 <style lang="less">
 
-  .soil-list-x {
-    height: 100%;
+  .soil-list-x{
     display: flex;
-    align-items: stretch;
-  }
-
-  .soil-list-x > .item,
-  .soil-list-x > .sep {
-    display: flex;
-    align-items: center;
+    align-items: center;;
   }
 
 </style>

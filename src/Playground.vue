@@ -1,9 +1,12 @@
 <template lang="jade">
 
   .playground
-    soil-main-side(padding="8px")
-      .d2(slot="main")
-      .d3(slot="right-side")
+    soil-list-x(padding="8px")
+      .d1(slot="item")
+      .d2(slot="item")
+      .d3(slot="item")
+      .sep1(slot="sep")
+      .sep2(slot="sep")
 
     //- soil-button(label="您下一步的操作是？", @click="$refs['drawer-menu'].show()")
     //- soil-drawer-menu(ref="drawer-menu", cancel-label="取消")
@@ -73,7 +76,7 @@
   }
   .sep1 {
     display: inline-block;
-    width: 1px;
+    width: 10px;
     height: 40px;
     background-color: #ccc;
   }
@@ -81,7 +84,7 @@
     display: inline-block;
     width: 20px;
     height: 40px;
-    background-color: #ccc;
+    background-color: #333;
   }
 
   .soil-rate[rate="1"] .icon.-active{ color: @soil-red; text-shadow: 0px 0px 10px }
