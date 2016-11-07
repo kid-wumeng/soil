@@ -8,6 +8,17 @@
 
     soil-flow-x(padding="8px")
       .sep1(slot="sep")
+      .d1(slot="left") d1.1
+      .d1(slot="left") d1.2
+      .d1(slot="left") d1.3
+      .d1(slot="left") d1.4
+      .d2(slot="center") d2
+      .d2(slot="center") d2
+      .d2(slot="center") d2
+      .d3(slot="right") d3
+      .d3(slot="right") d3
+      .d3(slot="right") d3
+      .d3(slot="right") d3
 
     //- soil-button(label="您下一步的操作是？", @click="$refs['drawer-menu'].show()")
     //- soil-drawer-menu(ref="drawer-menu", cancel-label="取消")

@@ -24,7 +24,6 @@
 
       props =
         'padding': @padding
-
       sepTemplate = createElement 'template', {slot: 'sep'}, seps
 
       leftArea    = createElement 'left-area',   {props}, [leftItems,   sepTemplate]
@@ -33,15 +32,6 @@
 
       return createElement 'div', {class: 'soil-flow-x'}, [leftArea, centerArea, rightArea]
 
-
-    mounted: ->
-
-    methods:
-      'initHeight': ->
-        root = @$el
-        centerArea = root.querySelector('.center-area')
-        if centerArea.offsetHeight > root.offsetHeight
-          root.style.height = "#{centerArea.offsetHeight}px"
 </script>
 
 
@@ -50,14 +40,15 @@
 
   .soil-flow-x{
     display: flex;
-    .left-area{
+    >.left-area{
       width: 30%;
+      justify-content: flex-start;
     }
-    .center-area{
+    >.center-area{
       width: 40%;
       justify-content: center;
     }
-    .right-area{
+    >.right-area{
       width: 30%;
       justify-content: flex-end;
     }
