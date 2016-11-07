@@ -23,7 +23,7 @@
         # Insert sep between items.
         if sep
           if i isnt items.length-1
-            sepClone = util.cloneVNode(createElement, sep)
+            sepClone = util.cloneVNode(sep)
             children.push sepClone
 
       return createElement('div', {class: 'soil-list-x'}, children)
@@ -39,10 +39,9 @@
 
     methods:
       initPadding: ->
-        if @padding isnt '0'
-          for node, i in @$el.childNodes
-            if i isnt @$el.childNodes.length-1
-              node.style.marginRight = @padding
+        for node, i in @$el.childNodes
+          if i isnt @$el.childNodes.length-1
+            node.style.marginRight = @padding
 
 </script>
 

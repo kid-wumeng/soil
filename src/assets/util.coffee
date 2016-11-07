@@ -1,28 +1,38 @@
-cloneVNode = (createElement, vnode) ->
+Vue = require 'vue'
+
+
+cloneVNode = (vnode) ->
   if vnode.componentOptions
     tag = vnode.componentOptions.tag
     propsData = vnode.componentOptions.propsData
   else
     tag = vnode.tag
     propsData = {}
-  { data, children } = vnode
+
+  data = vnode.data
   data.props = merge data.props, propsData
-  return createElement tag, data, children
+
+  children = vnode.children
+  if children
+    children = cloneVNodes children
+
+  vm = new Vue
+  return vm.$createElement tag, data, children
 
 
 
-cloneVNodes = (createElement, vnodes) ->
-  return vnodes.map (vnode) -> cloneVNode(createElement, vnode)
+cloneVNodes = (vnodes) ->
+  return vnodes.map (vnode) -> cloneVNode(vnode)
 
 
 
-merge = (obj1, obj2) ->
-  newObj = {}
-  for name, value of obj1
-    newObj[name] = obj1[name]
-  for name, value of obj2
-    newObj[name] = obj2[name]
-  return newObj
+merge = (src, dest) ->
+  obj = {}
+  for name, value of src
+    obj[name] = src[name]
+  for name, value of dest
+    obj[name] = dest[name]
+  return obj
 
 
 

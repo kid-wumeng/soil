@@ -1,12 +1,16 @@
 <template lang="jade">
 
   .playground
-    soil-list-x(padding="8px")
+    //- soil-main-side
+    //-   .d1(slot="left-side")
+    //-   .d2(slot="main")
+    //-   .d3(slot="right-side")
+
+    soil-list-x
       .d1(slot="item")
       .d2(slot="item")
-      .d3(slot="item")
+      .d2(slot="item")
       .sep1(slot="sep")
-      .sep2(slot="sep")
 
     //- soil-button(label="您下一步的操作是？", @click="$refs['drawer-menu'].show()")
     //- soil-drawer-menu(ref="drawer-menu", cancel-label="取消")
@@ -75,14 +79,11 @@
     background-color: green;
   }
   .sep1 {
-    display: inline-block;
     width: 10px;
     height: 40px;
     background-color: #ccc;
   }
   .sep2 {
-    display: inline-block;
-    width: 20px;
     height: 40px;
     background-color: #333;
   }
