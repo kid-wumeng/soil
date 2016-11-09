@@ -11,7 +11,7 @@
 
 
     # The reason why use the `render` function to generate the template
-    # is inserting the separator between the items.
+    # is inserting the separator between items.
     render: (createElement) ->
       items = @$slots['default'] ? []
       seps  = @$slots['sep']     ? []
@@ -23,8 +23,8 @@
         # Insert sep between items.
         if sep
           if i isnt items.length-1
-            sepClone = util.cloneVNode(sep)
-            children.push sepClone
+            cloneSep = util.cloneVNode(sep)
+            children.push(cloneSep)
 
       return createElement('div', {class: 'soil-list-x'}, children)
 
