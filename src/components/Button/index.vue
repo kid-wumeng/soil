@@ -1,7 +1,10 @@
 <template lang="jade">
 
-  .soil-button( :class="classObject", @click="onClick" )
-    soil-label( :label="label" )
+  .soil-button(
+    :class="classObject",
+    :style="styleObject",
+    @click="onClick"
+  ) {{ label }}
 
 </template>
 
@@ -9,45 +12,43 @@
 
 <script lang="coffee">
 
+  util = require '../../assets/util'
+
   module.exports =
 
     props:
-
       'label':
         type: String
         required: true
-
-      'type':
+      'facade':
         type: String
-        default: 'solid'
-
+        default: 'ghost'
+      'color':
+        type: String
+        default: 'soil-blue'
       'disabled':
         type: Boolean
         default: false
 
-      'color':
-        type: String
-        default: 'blue'
-
 
     computed:
-
       'classObject': ->
-        '-solid': @type is 'solid'
-        '-ghost': @type is 'ghost'
-        '-nude':  @type is 'nude'
-        '-red':    @color is 'red'
-        '-green':  @color is 'green'
-        '-blue':   @color is 'blue'
-        '-yellow': @color is 'yellow'
+        '-solid': @facade is 'solid'
+        '-ghost': @facade is 'ghost'
+        '-nude':  @facade is 'nude'
         '-disabled': @disabled
+
+      'styleObject': ->
+        return {} if @disabled
+        color = util.color(@color)
+        switch @facade
+          when 'solid' then return{ backgroundColor: color, borderColor: color }
+          when 'ghost' then return{ color: color, borderColor: color }
+          when 'nude'  then return{ color: color }
 
 
     methods:
-
-      'onClick': ->
-        if not @disabled
-          this.$emit('click')
+      'onClick': -> @$emit('click') if not @disabled
 
 </script>
 
@@ -57,63 +58,33 @@
 
   @import "../../assets/styles/color";
 
-  .soil-button {
+  .soil-button{
     display: inline-block;
     box-sizing: border-box;
-    padding: 8px 16px;
+    padding: 6px 12px;
+    font-size: 12px;
     border-width: 1px;
     border-style: solid;
     border-radius: 2px;
     cursor: pointer;
     user-select: none;
+    &.-solid{
+      color: white
+    }
+    &.-nude{
+      border-color: transparent
+    }
+    &.-disabled{
+      color: @soil-gray-4;
+      background-color: @soil-gray-1;
+      border-color: @soil-gray-2;
+      border-style: dashed;
+    }
   }
 
   [soil-dpr="2"] .soil-button,
-  [soil-dpr="3"] .soil-button {
+  [soil-dpr="3"] .soil-button{
     border-width: 0.5px;
-  }
-
-  .soil-button.-red {
-    background-color: @soil-red;
-    border-color: @soil-red;
-    > .soil-label { color: @soil-red }
-  }
-
-  .soil-button.-green {
-    background-color: @soil-green;
-    border-color: @soil-green;
-    > .soil-label { color: @soil-green }
-  }
-
-  .soil-button.-blue {
-    background-color: @soil-blue;
-    border-color: @soil-blue;
-    > .soil-label { color: @soil-blue }
-  }
-
-  .soil-button.-yellow {
-    background-color: @soil-yellow;
-    border-color: @soil-yellow;
-    > .soil-label { color: @soil-yellow }
-  }
-
-  .soil-button.-disabled {
-    background-color: @soil-gray;
-    border-color: @soil-gray;
-    > .soil-label { color: @soil-gray }
-  }
-
-  .soil-button.-solid {
-    > .soil-label { color: white }
-  }
-
-  .soil-button.-ghost {
-    background-color: transparent;
-  }
-
-  .soil-button.-nude {
-    background-color: transparent;
-    border-color: transparent;
   }
 
 </style>

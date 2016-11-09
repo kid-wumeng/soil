@@ -9,6 +9,9 @@
 
 <script lang="coffee">
 
+  # @TODO Implement `padding` prop
+  # @TODO Implement `y` prop
+
   module.exports =
 
     props:

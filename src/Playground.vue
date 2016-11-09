@@ -1,24 +1,37 @@
 <template lang="jade">
 
   .playground
-    soil-radio-group(@change="onChange" multiple)
-      soil-radio(label="动画" value="ANIMATION" default-active @change="onChangeOne")
-      soil-radio(label="漫画" value="COMIC" default-active)
-      soil-radio(label="游戏" value="GAME")
-
-    //- soil-button(label="您下一步的操作是？", @click="$refs['drawer-menu'].show()")
-    //- soil-drawer-menu(ref="drawer-menu", cancel-label="取消")
-    //-   soil-drawer-menu-item(label="收藏到精选集", @select="onSelectCollect")
-    //-   soil-drawer-menu-item(label="下载到本地", @select="onSelectDownload")
-    //-   soil-drawer-menu-item(label="分享到微信朋友圈", @select="onSelectShare")
-    //-   soil-drawer-menu-item(label="不再听这首歌", @select="onSelectRemove")
-
+    soil-table
+      soil-table-row(title)
+        soil-table-cell(label="ID")
+        soil-table-cell(label="名字")
+        soil-table-cell(label="作者")
+        soil-table-cell(label="简介")
+        soil-table-cell(label="操作")
+      soil-table-row(v-for="comic in comics")
+        soil-table-cell(:label="comic.id")
+        soil-table-cell(:label="comic.name")
+        soil-table-cell(:label="comic.author")
+        soil-table-cell(:label="comic.intro")
+        soil-table-cell(label="操作")
+          soil-button(label="编辑" facade="ghost")
+          soil-button(label="删除" facade="ghost" disabled color="soil-red")
 </template>
+
+
 
 <script lang="coffee">
 
   module.exports =
 
+    data: ->
+      comics: [
+        { id: 1, name: '剑风传奇', author: '三浦建太郎', intro: '黑暗史诗' }
+        { id: (->console.log 1), name: 'JOJO的奇妙冒险', author: '荒木飞吕彦', intro: '黄金灵魂、漆黑意志' }
+        { id: 3, name: '海贼王', author: '尾田荣一郎', intro: '我是要成为海贼王的男人！' }
+        { id: 4, name: '火影忍者', author: '岸本齐史', intro: '忍者的故事' }
+        { id: 5, name: '死神', author: '久保带人', intro: '尸魂界篇非常好看' }
+      ]
 
     methods:
       'onChange': (value) ->
@@ -29,6 +42,8 @@
 
 </script>
 
+
+
 <style lang="less">
 
   @import "./assets/styles/color";
@@ -36,7 +51,6 @@
   html, body {
   }
   body {
-    background-color: #f2f2f2;
     padding: 50px;
   }
   .soil-radio{
@@ -70,7 +84,6 @@
     height: 40px;
     background-color: #333;
   }
-
 
   .soil-rate[rate="1"] .icon.-active{ color: @soil-red; text-shadow: 0px 0px 10px }
   .soil-rate[rate="2"] .icon.-active{ color: @soil-gray-8; text-shadow: 0px 0px 10px }
