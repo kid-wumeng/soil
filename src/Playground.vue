@@ -1,11 +1,11 @@
 <template lang="jade">
 
   .playground
-    soil-bar-x
+    soil-list-y
       .d1
       .d2
       .d3
-      .sep1(slot="sep")
+      soil-line-x(slot="sep")
 
 </template>
 
@@ -49,6 +49,10 @@
     width: 10px;
     height: 40px;
     background-color: #333;
+  }
+
+  .playground .soil-line-x{
+    color: @soil-green;
   }
 
 </style>

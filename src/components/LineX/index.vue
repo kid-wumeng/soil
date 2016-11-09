@@ -1,30 +1,8 @@
 <template lang="jade">
 
-  .soil-line-x(:style="styleObject")
+  .soil-line-x
 
 </template>
-
-
-
-<script lang="coffee">
-
-  util = require '../../assets/util'
-
-  module.exports =
-
-    props:
-
-      'color':
-        type: String
-        default: 'soil-gray-1'
-
-
-    computed:
-
-      'styleObject': ->
-        'borderBottomColor': util.color(@color)
-
-</script>
 
 
 
@@ -32,9 +10,11 @@
 
   @import "../../assets/styles/color";
 
-  .soil-line-x {
+  .soil-line-x{
+    color: @soil-gray-1;
     border-bottom-width: 1px;
     border-bottom-style: solid;
+    border-bottom-color: currentColor;
   }
 
   [soil-dpr="2"] .soil-line-x,
