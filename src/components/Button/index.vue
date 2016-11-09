@@ -1,7 +1,7 @@
 <template lang="jade">
 
   .soil-button( :class="classObject", @click="onClick" )
-    soil-label( :text="label" )
+    soil-label( :label="label" )
 
 </template>
 
@@ -58,6 +58,7 @@
   @import "../../assets/styles/color";
 
   .soil-button {
+    display: inline-block;
     box-sizing: border-box;
     padding: 8px 16px;
     border-width: 1px;

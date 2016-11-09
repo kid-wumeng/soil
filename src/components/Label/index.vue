@@ -31,10 +31,10 @@
   @import "../../assets/styles/color";
 
   .soil-label{
-    color: @soil-black;
+    color: inherit;
     white-space: nowrap;
     overflow: hidden;
-
+    
     &.-ellipsis{
       text-overflow: ellipsis;
     }

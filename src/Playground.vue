@@ -1,12 +1,10 @@
 <template lang="jade">
 
   .playground
-    //- soil-main-side
-    //-   .d1(slot="left-side")
-    //-   .d2(slot="main")
-    //-   .d3(slot="right-side")
-
-    soil-icon(name="search")
+    soil-radio-group(@change="onChange" multiple)
+      soil-radio(label="动画" value="ANIMATION" default-active @change="onChangeOne")
+      soil-radio(label="漫画" value="COMIC" default-active)
+      soil-radio(label="游戏" value="GAME")
 
     //- soil-button(label="您下一步的操作是？", @click="$refs['drawer-menu'].show()")
     //- soil-drawer-menu(ref="drawer-menu", cancel-label="取消")
@@ -21,28 +19,13 @@
 
   module.exports =
 
-    # mounted: ->
-    #   this.$refs['drawer-menu'].show()
-
-    data: ->
-      'rate': 0
-      'birthday': {}
-      'src': 'http://pic.sc.chinaz.com/files/pic/pic9/201508/apic14052.jpg'
 
     methods:
-      'onLoadImage': ({ dataURL, file }) ->
-        @src = dataURL
-      'onMinSizeError': ({ file, minSize }) ->
-        alert "文件#{file.name}太小，不应该小于#{minSize/1024}KB"
-      'onMaxSizeError': ({ file, maxSize }) ->
-        alert "文件#{file.name}太大，不应该大于#{maxSize/1024}KB"
-      'onMimesError': ({ file, mimes }) ->
-        alert "文件#{file.name}类型不符合要求，只能是#{mimes.join(', ')}其中之一"
+      'onChange': (value) ->
+        console.log value
+      'onChangeOne': (value) ->
+        console.log value
 
-    #   'onSelectCollect': -> alert 'collect'
-    #   'onSelectDownload': -> alert 'download'
-    #   'onSelectShare': -> alert 'share'
-    #   'onSelectRemove': -> alert 'remove'
 
 </script>
 
@@ -55,6 +38,11 @@
   body {
     background-color: #f2f2f2;
     padding: 50px;
+  }
+  .soil-radio{
+  }
+
+  .soil-radio > .circle-sign{
   }
 
   .d1 {
@@ -83,10 +71,6 @@
     background-color: #333;
   }
 
-  .soil-flow-x{
-    margin-top: 200px;
-    background-color: #ccc;
-  }
 
   .soil-rate[rate="1"] .icon.-active{ color: @soil-red; text-shadow: 0px 0px 10px }
   .soil-rate[rate="2"] .icon.-active{ color: @soil-gray-8; text-shadow: 0px 0px 10px }
