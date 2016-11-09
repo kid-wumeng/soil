@@ -1,11 +1,7 @@
 <template lang="jade">
 
   .playground
-    soil-list-y
-      .d1
-      .d2
-      .d3
-      soil-line-x(slot="sep")
+    soil-image(src="http://qq.qsgct999.cn/uploads/allimg/140725/1_140725154656_4.jpg" circle)
 
 </template>
 
@@ -51,8 +47,7 @@
     background-color: #333;
   }
 
-  .playground .soil-line-x{
-    color: @soil-green;
+  .playground .soil-image{
   }
 
 </style>

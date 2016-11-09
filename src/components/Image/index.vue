@@ -8,8 +8,6 @@
 
 <script lang="coffee">
 
-  util = require '../../assets/util'
-
   module.exports =
 
     props:
@@ -36,20 +34,24 @@
 
 
     mounted: ->
-      this._loadImage()
+      this.loadImage()
 
 
     updated: ->
-      this._loadImage()
+      this.loadImage()
 
 
     methods:
-      '_loadImage': ->
+      'loadImage': ->
         img = new Image
         img.src = @src
-        img.onload = (event) =>
-          this.$el.style.width = @width ? "#{img.width}px"
-          this.$el.style.height = @height ? "#{img.height}px"
+        img.onload = =>
+          width  = if @width  then @width  else img.width
+          height = if @height then @height else img.height
+          if @circle
+            if width > height then width = height else height = width
+          @$el.style.width  = "#{width}px"
+          @$el.style.height = "#{height}px"
 
 </script>
 
@@ -57,14 +59,12 @@
 
 <style lang="less" scoped>
 
-  @import "../../assets/styles/color";
-
-  .soil-image {
+  .soil-image{
+    display: inline-block;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    transition: width 0.5s ease, height 0.5s ease;
-    &.-circle {
+    &.-circle{
       border-radius: 100%;
     }
   }
