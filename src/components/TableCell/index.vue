@@ -27,7 +27,7 @@
 
   .soil-table-cell{
     display: table-cell;
-    height: 40px;
+    height: 36px;
     padding-left: 8px;
     padding-right: 8px;
     vertical-align: middle;
@@ -46,7 +46,7 @@
   }
 
   .-title > .soil-table-cell{
-    border-top-color: @soil-gray-1
+    border-top-color: @soil-gray-1;
   }
 
 </style>

@@ -14,8 +14,10 @@
         soil-table-cell(:label="comic.author")
         soil-table-cell(:label="comic.intro")
         soil-table-cell(label="操作")
-          soil-button(label="编辑" facade="ghost")
-          soil-button(label="删除" facade="ghost" disabled color="soil-red")
+          soil-list-x(padding="8px")
+            soil-button(label="删除" facade="nude" disabled color="soil-red")
+            soil-button(label="编辑" facade="ghost" disabled)
+
 </template>
 
 
@@ -27,7 +29,7 @@
     data: ->
       comics: [
         { id: 1, name: '剑风传奇', author: '三浦建太郎', intro: '黑暗史诗' }
-        { id: (->console.log 1), name: 'JOJO的奇妙冒险', author: '荒木飞吕彦', intro: '黄金灵魂、漆黑意志' }
+        { id: 2, name: 'JOJO的奇妙冒险', author: '荒木飞吕彦', intro: '黄金灵魂、漆黑意志' }
         { id: 3, name: '海贼王', author: '尾田荣一郎', intro: '我是要成为海贼王的男人！' }
         { id: 4, name: '火影忍者', author: '岸本齐史', intro: '忍者的故事' }
         { id: 5, name: '死神', author: '久保带人', intro: '尸魂界篇非常好看' }
@@ -85,7 +87,7 @@
     background-color: #333;
   }
 
-  .soil-rate[rate="1"] .icon.-active{ color: @soil-red; text-shadow: 0px 0px 10px }
+  .soil-rate[rate="1"] .icon.-active{ color: @soil-red;    text-shadow: 0px 0px 10px }
   .soil-rate[rate="2"] .icon.-active{ color: @soil-gray-8; text-shadow: 0px 0px 10px }
   .soil-rate[rate="3"] .icon.-active{ color: @soil-yellow; text-shadow: 0px 0px 10px }
   .soil-rate[rate="4"] .icon.-active{ color: @soil-yellow; text-shadow: 0px 0px 10px }

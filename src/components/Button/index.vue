@@ -61,7 +61,7 @@
   .soil-button{
     display: inline-block;
     box-sizing: border-box;
-    padding: 6px 12px;
+    padding: 5px 12px;
     font-size: 12px;
     border-width: 1px;
     border-style: solid;
@@ -79,6 +79,7 @@
       background-color: @soil-gray-1;
       border-color: @soil-gray-2;
       border-style: dashed;
+      cursor: not-allowed;
     }
   }
 
