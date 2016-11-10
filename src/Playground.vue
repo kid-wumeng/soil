@@ -1,7 +1,9 @@
 <template lang="jade">
 
   .playground
-    soil-image(src="http://qq.qsgct999.cn/uploads/allimg/140725/1_140725154656_4.jpg" circle)
+    soil-input(facade="light" @change="onChange")
+      soil-icon(slot="left" name="search")
+      soil-icon(slot="right" name="no")
 
 </template>
 
@@ -12,6 +14,10 @@
   module.exports =
 
     mounted: ->
+
+    methods:
+      'onChange': (value) ->
+        console.log value
 
 </script>
 
@@ -47,7 +53,16 @@
     background-color: #333;
   }
 
-  .playground .soil-image{
+  body{
+    background-color: @soil-blue;
+  }
+  .playground{
+    padding: 100px;
+  }
+
+  .soil-icon{
+    font-size: 14px;
+    color: @soil-gray-8;
   }
 
 </style>
