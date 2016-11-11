@@ -26,7 +26,7 @@
             cloneSep = util.cloneVNode(sep)
             children.push(cloneSep)
 
-      return createElement('div', {class: 'soil-list-x'}, children)
+      return createElement 'div', {class: 'soil-list-x'}, children
 
 
     mounted: ->

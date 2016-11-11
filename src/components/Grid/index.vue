@@ -1,8 +1,7 @@
 <script lang="coffee">
 
-  util = require '../../assets/util'
-
   module.exports =
+
 
     components:
       'soil-list-y': require '../ListY'
@@ -10,7 +9,7 @@
 
 
     props:
-      'colCount':
+      'cols':
         type: Number
         default: 3
       'paddingRow':
@@ -30,16 +29,18 @@
       cellSepTemplate = createElement 'template', {slot: 'sep'}, cellSeps
 
       # Create all rows
+      colCount = @cols
+      rowCount = Math.ceil(items.length/colCount)
       rows = []
-      rowCount  = Math.ceil(items.length / @colCount)
       rowOption =
         props:
           'padding': @paddingCell
 
       for i in [0..rowCount-1]
-        first = @colCount * i
-        last  = @colCount * (i + 1) - 1
-        row = createElement('row', rowOption, [items[first..last], cellSepTemplate])
+        first = colCount * i
+        last  = colCount * (i + 1) - 1
+        itemsInRow = items[first..last]
+        row = createElement 'row', rowOption, [itemsInRow, cellSepTemplate]
         rows.push(row)
 
       # Create grid
@@ -48,6 +49,6 @@
         props:
           'padding': @paddingRow
 
-      return createElement('soil-list-y', gridOption, [rows, rowSepTemplate])
+      return createElement 'soil-list-y', gridOption, [rows, rowSepTemplate]
 
 </script>

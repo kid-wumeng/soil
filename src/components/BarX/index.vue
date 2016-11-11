@@ -11,7 +11,7 @@
       seps  = @$slots['sep']     ? []
       sep   = seps[0]
 
-      cells = items.map (item) -> createElement('div', {class: 'cell'}, [item])
+      cells = items.map (item) -> createElement 'div', {class: 'cell'}, [item]
 
       children = []
       for cell, i in cells
@@ -22,7 +22,7 @@
             cloneSep = util.cloneVNode(sep)
             children.push(cloneSep)
 
-      return createElement('div', {class: 'soil-bar-x'}, children)
+      return createElement 'div', {class: 'soil-bar-x'}, children
 
 </script>
 
