@@ -41,6 +41,7 @@
         font-size: 12px;
         color: @soil-black-light;
         cursor: pointer;
+        user-select: none;
         transition: background-color 0.3s ease;
         &:hover{
           background-color: @soil-gray-1;

@@ -78,9 +78,11 @@
         height: 32px;
         font-size: 12px;
         color: @soil-black-light;
+        user-select: none;
       }
       .day-label{
         color: @soil-gray-6;
+        cursor: default;
       }
       .date-in-prev-week{
         color: @soil-gray-3;

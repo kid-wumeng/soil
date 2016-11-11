@@ -4,7 +4,7 @@
     year-panel-head(
       :decade="decade",
       @prev-decade="$emit('prev-decade')",
-      @next-decade="$emit('next-decade')",
+      @next-decade="$emit('next-decade')"
     )
     year-panel-body(
       :decade="decade",

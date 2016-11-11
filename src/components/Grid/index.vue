@@ -18,6 +18,7 @@
       'paddingCell':
         type: String
         default: '0'
+      # @TODO To support `match-parent` prop
 
 
     render: (createElement) ->

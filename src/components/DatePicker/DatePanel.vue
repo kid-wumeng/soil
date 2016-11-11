@@ -2,12 +2,15 @@
 
   .date-panel
     date-panel-head(
+      :month-labels="monthLabels",
       :year="year",
       :month="month",
       @prev-year="$emit('prev-year')",
       @next-year="$emit('next-year')",
       @prev-month="$emit('prev-month')",
       @next-month="$emit('next-month')",
+      @switch-year-panel="$emit('switch-year-panel')",
+      @switch-month-panel="$emit('switch-month-panel')"
     )
     date-panel-body(
       :day-labels="dayLabels",

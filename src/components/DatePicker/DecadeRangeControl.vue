@@ -31,7 +31,7 @@
 
   .soil-date-picker{
     .decade-range-control{
-      width: 200px;
+      width: 160px;
       display: inline-flex;
       justify-content: space-between;
       align-items: center;
@@ -48,6 +48,8 @@
       >.label{
         font-size: 12px;
         color: @soil-gray-3;
+        cursor: default;
+        user-select: none;
       }
     }
   }

@@ -5,11 +5,14 @@
       :year="year",
       @prev-year="$emit('prev-year')",
       @next-year="$emit('next-year')",
+      @switch-year-panel="$emit('switch-year-panel')"
     )
     month-range-control(
+      :month-labels="monthLabels",
       :month="month",
       @prev-month="$emit('prev-month')",
       @next-month="$emit('next-month')",
+      @switch-month-panel="$emit('switch-month-panel')"
     )
 
 </template>
@@ -25,6 +28,9 @@
       'month-range-control': require './MonthRangeControl'
 
     props:
+      'monthLabels':
+        type: Array
+        required: true
       'year':
         type: Number
         required: true

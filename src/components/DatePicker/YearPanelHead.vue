@@ -4,7 +4,7 @@
     decade-range-control(
       :decade="decade",
       @prev-decade="$emit('prev-decade')",
-      @next-decade="$emit('next-decade')",
+      @next-decade="$emit('next-decade')"
     )
 
 </template>

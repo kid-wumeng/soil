@@ -2,7 +2,7 @@
 
   .month-range-control
     soil-icon.prev(name="arrow-left",  @click="$emit('prev-month')")
-    soil-label.label(:label="label")
+    soil-label.label(:label="label",   @click="$emit('switch-month-panel')")
     soil-icon.next(name="arrow-right", @click="$emit('next-month')")
 
 </template>
@@ -17,9 +17,12 @@
       'month':
         type: Number
         required: true
+      'monthLabels':
+        type: Array
+        required: true
 
     computed:
-      'label': -> "#{@month}"
+      'label': -> "#{@monthLabels[@month-1]}"
 
 </script>
 
@@ -46,8 +49,15 @@
         }
       }
       >.label{
+        padding: 8px 12px;
         font-size: 12px;
-        color: @soil-gray-3;
+        color: @soil-black-light;
+        cursor: pointer;
+        user-select: none;
+        transition: background-color 0.3s ease;
+        &:hover{
+          background-color: @soil-gray-1;
+        }
       }
     }
   }

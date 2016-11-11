@@ -3,7 +3,8 @@
   .playground
     //- soil-input(facade="dark" v-model="email")
     //-   soil-date-picker(slot="dropdown")
-    soil-date-picker
+    soil-date-picker(v-model="birthday")
+    h1 生日：{{ birthday.year }}年 {{ birthday.month }}月 {{ birthday.date }}日
 </template>
 
 
@@ -15,7 +16,7 @@
     mounted: ->
 
     data: ->
-      'email': ''
+      'birthday': {}
 
     methods:
       'onClick1': ->

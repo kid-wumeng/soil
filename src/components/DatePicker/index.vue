@@ -3,7 +3,7 @@
   .soil-date-picker
 
     year-panel(
-      ref="yearPanel",
+      v-show="yearPanelOpen",
       :decade="decade",
       @prev-decade="decade -= 10",
       @next-decade="decade += 10",
@@ -11,16 +11,17 @@
     )
 
     month-panel(
-      ref="monthPanel",
+      v-show="monthPanelOpen",
       :month-labels="monthLabels",
       :year="year",
       @prev-year="year--",
       @next-year="year++",
+      @switch-year-panel="onSwitchYearPanel",
       @pick="onPickMonth"
     )
 
     date-panel(
-      ref="datePanel",
+      v-show="datePanelOpen",
       :month-labels="monthLabels",
       :day-labels="dayLabels",
       :year="year",
@@ -29,6 +30,8 @@
       @next-year="year++",
       @prev-month="onPrevMonth",
       @next-month="onNextMonth",
+      @switch-year-panel="onSwitchYearPanel",
+      @switch-month-panel="onSwitchMonthPanel",
       @pick="onPickDate"
     )
 
@@ -52,7 +55,7 @@
       'value':
         type: Object
         default: -> {}
-      'initDecade':
+      'initYear':
         type: Number
         default: 2000
       'monthLabels':
@@ -64,50 +67,46 @@
         type: Array
         default: -> ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
 
+      # @TODO To support the `month-from-0` prop
+
 
     data: ->
-      'decade': parseInt(@initDecade / 10) * 10
-      'year':  @initDecade
-      'month': 1
-      'date':  null
-
-
-    mounted: ->
-      # this.$refs.yearPanel.show(@decade)
+      'decade': parseInt(@initYear / 10) * 10
+      'year':   @initYear
+      'month':  1
+      'date':   1
+      'yearPanelOpen':  true
+      'monthPanelOpen': false
+      'datePanelOpen':  false
 
 
     methods:
       'onPrevMonth': -> if @month > 1  then @month-- else @year-- and @month = 12
       'onNextMonth': -> if @month < 12 then @month++ else @year++ and @month = 1
+      'onSwitchYearPanel': ->
+        @decade = parseInt(@year / 10) * 10
+        @monthPanelOpen = false
+        @datePanelOpen  = false
+        @yearPanelOpen  = true
+      'onSwitchMonthPanel': ->
+        @yearPanelOpen  = false
+        @datePanelOpen  = false
+        @monthPanelOpen = true
       'onPickYear': (year) ->
-        console.log year
-      'onPickMonth': (month) ->
-        console.log month
-      'onPickDate': (date) ->
-        console.log date
-      'onSwitchYearPanel': (year) ->
-        this.$refs.monthPanel.hide()
-        this.$refs.datePanel.hide()
-        this.$refs.yearPanel.show(year)
-      'onSwitchMonthPanel': (year) ->
-        this.$refs.yearPanel.hide()
-        this.$refs.datePanel.hide()
-        this.$refs.monthPanel.show(year)
-      'onSelectYear': (year) ->
         @year = year
-        this.$refs.yearPanel.hide()
-        this.$refs.monthPanel.show(year)
-      'onSelectMonth': (year, month) ->
-        @year  = year
+        @yearPanelOpen  = false
+        @monthPanelOpen = true
+      'onPickMonth': (month) ->
         @month = month
-        this.$refs.monthPanel.hide()
-        this.$refs.datePanel.show(year, month)
-      'onSelectDate': (year, month, date) ->
-        @year  = year
-        @month = month
-        @date  = date
-        # @TODO To support that month from 0
-        this.$emit 'input', { year, month, date }
+        @monthPanelOpen = false
+        @datePanelOpen  = true
+      'onPickDate': (date) ->
+        @date = date
+        @$emit('input', {
+          year:  @year
+          month: @month
+          date:  @date
+        })
 
 </script>
 

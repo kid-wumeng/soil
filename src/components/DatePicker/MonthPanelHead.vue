@@ -5,6 +5,7 @@
       :year="year",
       @prev-year="$emit('prev-year')",
       @next-year="$emit('next-year')",
+      @switch-year-panel="$emit('switch-year-panel')"
     )
 
 </template>
