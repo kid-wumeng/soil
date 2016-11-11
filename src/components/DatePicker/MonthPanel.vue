@@ -18,8 +18,6 @@
 
 <script lang="coffee">
 
-  util = require '../../assets/util'
-
   module.exports =
 
     components:
@@ -42,8 +40,6 @@
 
 
 <style lang="less">
-
-  @import "../../assets/styles/color";
 
   .soil-date-picker{
     .month-panel-body{

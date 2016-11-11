@@ -56,7 +56,6 @@
         day = lastDateInThisMonth.getDay()
         return if day < 6 then [1..6-day] else []
 
-
 </script>
 
 

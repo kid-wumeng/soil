@@ -41,8 +41,6 @@
 
 <script lang="coffee">
 
-  util = require '../../assets/util'
-
   module.exports =
 
     components:
