@@ -1,10 +1,10 @@
 <template lang="jade">
 
   .playground
-    soil-input(facade="light" @change="onChange")
-      soil-icon(slot="left" name="search")
-      soil-icon(slot="right" name="no")
-
+    soil-input(facade="dark" v-model="email", :trim="false", :auto-dropdown="true")
+      soil-date-picker(slot="dropdown")
+    soil-button(label="显示值" color="soil-green" @click="onClick1")
+    soil-button(label="设置值" color="soil-red" @click="onClick2")
 </template>
 
 
@@ -15,9 +15,14 @@
 
     mounted: ->
 
+    data: ->
+      'email': ''
+
     methods:
-      'onChange': (value) ->
-        console.log value
+      'onClick1': ->
+        console.log @email
+      'onClick2': ->
+        @email = 'kid.wumeng@gmail.com'
 
 </script>
 
@@ -54,15 +59,22 @@
   }
 
   body{
-    background-color: @soil-blue;
   }
   .playground{
     padding: 100px;
   }
 
   .soil-icon{
-    font-size: 14px;
     color: @soil-gray-8;
+  }
+  .search{
+    font-size: 24px;
+  }
+  .no{
+    font-size: 12px;
+  }
+
+  .soil-date-picker{
   }
 
 </style>

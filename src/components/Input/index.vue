@@ -1,17 +1,25 @@
 <template lang="jade">
 
-  .soil-input(:class="classObject")
-    slot(name="left")
+  .soil-input(:class="classObject", @click.stop="onClick")
+
+    left-area(v-if="$slots.left")
+      slot(name="left")
+
     write-area(
-      :hint="hint",
-      :mask="mask",
-      :trim="trim",
-      :passive="passive",
-      :disabled="disabled",
-      @input="onInput"
-      @change="onChange"
+      ref="write-area",
+      :value="value",
+      :placeholder="hint",
+      :type="nativeType",
+      :disabled="nativeDisabled",
+      @input.native="onInput",
+      @change.native="onChange"
     )
-    slot(name="right")
+
+    dropdown-area(v-if="dropdownOpen")
+      slot(name="dropdown")
+
+    right-area(v-if="$slots.right")
+      slot(name="right")
 
 </template>
 
@@ -24,7 +32,10 @@
   module.exports =
 
     components:
-      'write-area': require './WriteArea'
+      'left-area':     require './LeftArea'
+      'write-area':    require './WriteArea'
+      'right-area':    require './RightArea'
+      'dropdown-area': require './DropdownArea'
 
 
     props:
@@ -56,10 +67,14 @@
       'valid':
         type: Function
         default: null
+      'autoDropdown':
+        type: Boolean
+        default: true
 
 
     data: ->
       'lastValue': @value
+      'dropdownOpen': false
 
 
     computed:
@@ -71,9 +86,28 @@
         '-mask':     @mask
         '-disabled': @disabled
 
+      'nativeType': ->
+        switch
+          when @mask then return 'password'
+          else return 'text'
+
+      'nativeDisabled': -> @passive or @disabled
+
+
+    mounted: ->
+      document.addEventListener('click', @onClickOut)
+
 
     methods:
-      'onInput': (value) ->
+      'onClick': ->
+        @focus()
+        if @autoDropdown then @showDropdown()
+
+      'onClickOut': ->
+        if @autoDropdown then @hideDropdown()
+
+      'onInput': (event) ->
+        value = event.target.value
         if @trim
           value = value.replace /(^\s+)|(\s+$)/g, ''
         if @lastValue isnt value
@@ -96,6 +130,15 @@
           if @valid(@lastValue) is false
             @$emit('valid-error', @lastValue)
 
+      'focus': ->
+        @$refs['write-area'].$el.focus()
+
+      'showDropdown': ->
+        @dropdownOpen = true
+
+      'hideDropdown': ->
+        @dropdownOpen = false
+
 </script>
 
 
@@ -107,17 +150,22 @@
   @padding: 8px;
 
   .soil-input{
-    width: 300px;
+    width: 240px;
     display: flex;
     align-items: center;
     box-sizing: border-box;
     height: 32px;
+    position: relative;
     >.write-area{
       margin-left: @padding;
       margin-right: @padding;
     }
-    >:first-child:not(.write-area){margin-left: @padding}
-    >:last-child:not(.write-area){margin-right: @padding}
+    >.left-area{margin-left: @padding}
+    >.right-area{margin-right: @padding}
+    >.dropdown-area{
+      position: absolute;
+      top: 115%;
+    }
     &.-border{
       background-color: transparent;
       border: 1px solid @soil-gray-4;

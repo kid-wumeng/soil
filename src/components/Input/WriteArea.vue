@@ -1,44 +1,8 @@
 <template lang="jade">
 
-  input.write-area(
-    :type="type",
-    :placeholder="hint",
-    :disabled="passive || disabled",
-    @input="$emit('input', $event.target.value)"
-    @change="$emit('change')"
-  )
+  input.write-area
 
 </template>
-
-
-
-<script lang="coffee">
-
-  util = require '../../assets/util'
-
-  module.exports =
-
-    props:
-      'hint':
-        type: String
-        required: true
-      'mask':
-        type: Boolean
-        required: true
-      'passive':
-        type: Boolean
-        required: true
-      'disabled':
-        type: Boolean
-        required: true
-
-    computed:
-      'type': ->
-        switch
-          when @mask then return 'password'
-          else return 'text'
-
-</script>
 
 
 

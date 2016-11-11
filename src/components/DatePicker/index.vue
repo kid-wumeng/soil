@@ -96,7 +96,7 @@
 
   @import "../../assets/styles/color";
 
-  @panel-width: 300px;
+  @panel-width: 240px;
   @panel-height: 300px;
   @head-height: 56px;
 

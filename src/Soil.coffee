@@ -11,7 +11,7 @@ Soil =
   ListY: require './components/ListY'
   FlowX: require './components/FlowX'
   BarX: require './components/BarX'
-  # Grid: require './components/Grid'
+  Grid: require './components/Grid'
   MainSide: require './components/MainSide'
   LineX: require './components/LineX'
   Label: require './components/Label'
@@ -32,7 +32,7 @@ Soil =
   # Drawer: require './components/Drawer'
   # DrawerMenu: require './components/DrawerMenu'
   # DrawerMenuItem: require './components/DrawerMenuItem'
-  # DatePicker: require './components/DatePicker'  # @TODO
+  DatePicker: require './components/DatePicker'  # @TODO
   FilePicker: require './components/FilePicker'  # @TODO
 
 
