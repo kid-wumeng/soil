@@ -20,7 +20,6 @@
       'height':
         type: String
         default: null
-      # @TODO Automatically set to square
       'circle':
         type: Boolean
         default: false

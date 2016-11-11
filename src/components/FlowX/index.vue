@@ -24,13 +24,13 @@
 
       props =
         'padding': @padding
-      sepTemplate = createElement 'template', {slot: 'sep'}, seps
+      sepTemplate = createElement('template', {slot: 'sep'}, seps)
 
-      leftArea    = createElement 'left-area',   {props}, [leftItems,   sepTemplate]
-      centerArea  = createElement 'center-area', {props}, [centerItems, sepTemplate]
-      rightArea   = createElement 'right-area',  {props}, [rightItems,  sepTemplate]
+      leftArea    = createElement('left-area',   {props}, [leftItems,   sepTemplate])
+      centerArea  = createElement('center-area', {props}, [centerItems, sepTemplate])
+      rightArea   = createElement('right-area',  {props}, [rightItems,  sepTemplate])
 
-      return createElement 'div', {class: 'soil-flow-x'}, [leftArea, centerArea, rightArea]
+      return createElement('div', {class: 'soil-flow-x'}, [leftArea, centerArea, rightArea])
 
 </script>
 

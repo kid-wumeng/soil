@@ -44,3 +44,17 @@
             node.style.marginBottom = @padding
 
 </script>
+
+
+
+<style lang="less">
+
+  .soil-list-y{
+    display: inline-flex;
+    flex-direction: column;
+    > *{
+      flex: none;
+    }
+  }
+
+</style>

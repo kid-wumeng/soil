@@ -15,11 +15,11 @@ Soil =
   MainSide: require './components/MainSide'
   LineX: require './components/LineX'
   Label: require './components/Label'
-  Image: require './components/Image'  # @TODO
+  Image: require './components/Image'
   Icon: require './components/Icon'
   Button: require './components/Button'
   # Switch: require './components/Switch'
-  Input: require './components/Input'  # @TODO
+  Input: require './components/Input'
   Radio: require './components/Radio'
   RadioGroup: require './components/RadioGroup'
   Table: require './components/Table'
@@ -32,7 +32,7 @@ Soil =
   # Drawer: require './components/Drawer'
   # DrawerMenu: require './components/DrawerMenu'
   # DrawerMenuItem: require './components/DrawerMenuItem'
-  DatePicker: require './components/DatePicker'  # @TODO
+  DatePicker: require './components/DatePicker'
   FilePicker: require './components/FilePicker'  # @TODO
 
 

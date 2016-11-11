@@ -1,10 +1,18 @@
 <template lang="jade">
 
   .playground
-    soil-input(facade="dark" v-model="email", :trim="false", :auto-dropdown="true")
-      soil-date-picker(slot="dropdown")
-    soil-button(label="显示值" color="soil-green" @click="onClick1")
-    soil-button(label="设置值" color="soil-red" @click="onClick2")
+    //- soil-input(facade="dark" v-model="email")
+    //-   soil-date-picker(slot="dropdown")
+    soil-grid(padding-row="30px" padding-cell="0")
+      .d1
+      .d2
+      .d3
+      .d1
+      .d2
+      .d3
+      .d1
+      soil-line-x(slot="sep-row")
+      .sep1(slot="sep-cell")
 </template>
 
 
@@ -33,8 +41,8 @@
   @import "./assets/styles/color";
 
   .d1 {
-    width: 248px;
-    height: 88px;
+    width: 48px;
+    height: 48px;
     background-color: red;
   }
   .d2 {
