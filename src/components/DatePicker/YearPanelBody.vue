@@ -1,6 +1,6 @@
 <template lang="jade">
 
-  soil-grid.year-panel-body(:cols="4")
+  soil-grid.year-panel-body(:cols="4", padding-row="8px")
     .year(
       v-for="year in years",
       @click="$emit('pick', year)"
@@ -32,5 +32,25 @@
 <style lang="less">
 
   @import "../../assets/styles/color";
+
+  .soil-date-picker{
+    .year-panel-body{
+      .year{
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        width: 70px;
+        height: 40px;
+        font-size: 12px;
+        color: @soil-black-light;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        &:hover{
+          background-color: @soil-gray-1;
+        }
+      }
+    }
+  }
 
 </style>

@@ -40,4 +40,11 @@
 
   @import "../../assets/styles/color";
 
+  .soil-date-picker{
+    .date-panel-head{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
 </style>

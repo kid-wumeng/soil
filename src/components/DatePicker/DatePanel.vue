@@ -55,24 +55,10 @@
 
   @import "../../assets/styles/color";
 
-  // .soil-date-picker{
-  //   .date-panel{
-  //     .head{
-  //       display: flex;
-  //       justify-content: space-between;
-  //       .range-control{ flex-basis: 100px }
-  //     }
-  //     .body{
-  //       .point{
-  //         width: 40px;
-  //         height: 32px;
-  //         display: inline-flex;
-  //         justify-content: center;
-  //         align-items: center;
-  //       }
-  //       .day-label{ color: @soil-gray-6 }
-  //     }
-  //   }
-  // }
+  .soil-date-picker{
+    .date-panel-body{
+      margin-top: 16px;
+    }
+  }
 
 </style>

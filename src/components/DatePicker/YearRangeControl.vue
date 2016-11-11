@@ -2,7 +2,7 @@
 
   .year-range-control
     soil-icon.prev(name="arrow-left",  @click="$emit('prev-year')")
-    soil-label(:label="label")
+    soil-label.label(:label="label")
     soil-icon.next(name="arrow-right", @click="$emit('next-year')")
 
 </template>
@@ -31,6 +31,24 @@
 
   .soil-date-picker{
     .year-range-control{
+      width: 160px;
+      display: inline-flex;
+      justify-content: space-between;
+      align-items: center;
+      >.prev,
+      >.next{
+        padding: 8px 12px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        &:hover{
+          background-color: @soil-gray-1;
+        }
+      }
+      >.label{
+        font-size: 12px;
+        color: @soil-gray-3;
+      }
     }
   }
 

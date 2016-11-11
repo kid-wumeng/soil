@@ -65,4 +65,39 @@
 
   @import "../../assets/styles/color";
 
+  .soil-date-picker{
+    .date-panel-body{
+      .day-label,
+      .date-in-prev-week,
+      .date,
+      .date-in-next-week{
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 32px;
+        font-size: 12px;
+        color: @soil-black-light;
+      }
+      .day-label{
+        color: @soil-gray-6;
+      }
+      .date-in-prev-week{
+        color: @soil-gray-3;
+        cursor: not-allowed;
+      }
+      .date{
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        &:hover{
+          background-color: @soil-gray-1;
+        }
+      }
+      .date-in-next-week{
+        color: @soil-gray-3;
+        cursor: not-allowed;
+      }
+    }
+  }
+
 </style>

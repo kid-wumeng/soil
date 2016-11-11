@@ -7,6 +7,7 @@
       @next-year="$emit('next-year')",
     )
     month-panel-body(
+      :month-labels="monthLabels",
       @pick="onPick"
     )
 
@@ -42,5 +43,11 @@
 <style lang="less">
 
   @import "../../assets/styles/color";
+
+  .soil-date-picker{
+    .month-panel-body{
+      margin-top: 16px;
+    }
+  }
 
 </style>

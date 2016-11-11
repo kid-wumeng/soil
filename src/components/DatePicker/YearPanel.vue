@@ -40,4 +40,10 @@
 
   @import "../../assets/styles/color";
 
+  .soil-date-picker{
+    .year-panel-body{
+      margin-top: 16px;
+    }
+  }
+
 </style>

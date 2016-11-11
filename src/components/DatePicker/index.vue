@@ -1,6 +1,7 @@
 <template lang="jade">
 
   .soil-date-picker
+
     year-panel(
       ref="yearPanel",
       :decade="decade",
@@ -8,6 +9,7 @@
       @next-decade="decade += 10",
       @pick="onPickYear"
     )
+
     month-panel(
       ref="monthPanel",
       :month-labels="monthLabels",
@@ -16,6 +18,7 @@
       @next-year="year++",
       @pick="onPickMonth"
     )
+
     date-panel(
       ref="datePanel",
       :month-labels="monthLabels",
@@ -112,56 +115,8 @@
 
 <style lang="less">
 
-  @import "../../assets/styles/color";
-
-  @panel-width: 240px;
-  @panel-height: 300px;
-  @head-height: 56px;
-
   .soil-date-picker{
-    display: inline-block;
-
-    .panel{
-      .head{ height: @head-height }
-      .body{ height: @panel-height - @head-height }
-    }
-
-    .range-control{
-      height: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      .soil-icon{
-        font-size: 16px;
-        color: @soil-black-light;
-        cursor: pointer;
-      }
-      .label{
-        font-size: 14px;
-        &.-enabled{
-          color: @soil-black-light;
-          cursor: pointer;
-        }
-        &.-disabled{
-          color: @soil-gray-3;
-          cursor: not-allowed;
-        }
-      }
-    }
-
-    .point{
-      font-weight: normal;
-      font-size: 12px;
-      &.-enabled{
-        color: @soil-black-light;
-        cursor: pointer;
-        &:hover{ background-color: @soil-gray-1 }
-      }
-      &.-disabled{
-        color: @soil-gray-3;
-        cursor: not-allowed;
-      }
-    }
+    width: 280px;
   }
 
 </style>
