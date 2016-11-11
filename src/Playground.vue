@@ -3,16 +3,7 @@
   .playground
     //- soil-input(facade="dark" v-model="email")
     //-   soil-date-picker(slot="dropdown")
-    soil-grid(padding-row="30px" padding-cell="0")
-      .d1
-      .d2
-      .d3
-      .d1
-      .d2
-      .d3
-      .d1
-      soil-line-x(slot="sep-row")
-      .sep1(slot="sep-cell")
+    soil-date-picker
 </template>
 
 

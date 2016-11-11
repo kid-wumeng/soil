@@ -3,21 +3,30 @@
   .soil-date-picker
     year-panel(
       ref="yearPanel",
-      @select-year="onSelectYear"
+      :decade="decade",
+      @prev-decade="decade -= 10",
+      @next-decade="decade += 10",
+      @pick="onPickYear"
     )
     month-panel(
       ref="monthPanel",
       :month-labels="monthLabels",
-      @switch-year-panel="onSwitchYearPanel",
-      @select-month="onSelectMonth"
+      :year="year",
+      @prev-year="year--",
+      @next-year="year++",
+      @pick="onPickMonth"
     )
     date-panel(
       ref="datePanel",
       :month-labels="monthLabels",
       :day-labels="dayLabels",
-      @switch-year-panel="onSwitchYearPanel",
-      @switch-month-panel="onSwitchMonthPanel",
-      @select-date="onSelectDate"
+      :year="year",
+      :month="month",
+      @prev-year="year--",
+      @next-year="year++",
+      @prev-month="onPrevMonth",
+      @next-month="onNextMonth",
+      @pick="onPickDate"
     )
 
 </template>
@@ -54,16 +63,25 @@
 
 
     data: ->
-      'year':  null
-      'month': null
+      'decade': parseInt(@initDecade / 10) * 10
+      'year':  @initDecade
+      'month': 1
       'date':  null
 
 
     mounted: ->
-      this.$refs.yearPanel.show(@initDecade)
+      # this.$refs.yearPanel.show(@decade)
 
 
     methods:
+      'onPrevMonth': -> if @month > 1  then @month-- else @year-- and @month = 12
+      'onNextMonth': -> if @month < 12 then @month++ else @year++ and @month = 1
+      'onPickYear': (year) ->
+        console.log year
+      'onPickMonth': (month) ->
+        console.log month
+      'onPickDate': (date) ->
+        console.log date
       'onSwitchYearPanel': (year) ->
         this.$refs.monthPanel.hide()
         this.$refs.datePanel.hide()
@@ -104,8 +122,6 @@
     display: inline-block;
 
     .panel{
-      width: @panel-width;
-      height: @panel-height;
       .head{ height: @head-height }
       .body{ height: @panel-height - @head-height }
     }
@@ -134,9 +150,8 @@
     }
 
     .point{
-      padding: 8px 12px;
       font-weight: normal;
-      font-size: 14px;
+      font-size: 12px;
       &.-enabled{
         color: @soil-black-light;
         cursor: pointer;

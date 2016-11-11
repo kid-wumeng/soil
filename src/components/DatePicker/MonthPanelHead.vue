@@ -1,13 +1,10 @@
 <template lang="jade">
 
-  .month-panel
-    month-panel-head(
+  .month-panel-head
+    year-range-control(
       :year="year",
       @prev-year="$emit('prev-year')",
       @next-year="$emit('next-year')",
-    )
-    month-panel-body(
-      @pick="onPick"
     )
 
 </template>
@@ -16,24 +13,15 @@
 
 <script lang="coffee">
 
-  util = require '../../assets/util'
-
   module.exports =
 
     components:
-      'month-panel-head': require './MonthPanelHead'
-      'month-panel-body': require './MonthPanelBody'
+      'year-range-control': require './YearRangeControl'
 
     props:
-      'monthLabels':
-        type: Array
-        required: true
       'year':
         type: Number
         required: true
-
-    methods:
-      'onPick': (month) -> @$emit('pick', month)
 
 </script>
 
