@@ -83,28 +83,31 @@
       'onNextMonth': -> if @month < 12 then @month++ else @year++ and @month = 1
       'onSwitchYearPanel': ->
         @decade = parseInt(@year / 10) * 10
+        @switchYearPanel()
+      'onSwitchMonthPanel': ->
+        @switchMonthPanel()
+      'onPickYear': (year) ->
+        @year = year
+        @switchMonthPanel()
+      'onPickMonth': (month) ->
+        @month = month
+        @switchDatePanel()
+      'onPickDate': (date) ->
+        @date = date
+        { year, month, date } = @
+        @$emit 'input', { year, month, date }
+      'switchYearPanel': ->
         @monthPanelOpen = false
         @datePanelOpen  = false
         @yearPanelOpen  = true
-      'onSwitchMonthPanel': ->
+      'switchMonthPanel': ->
         @yearPanelOpen  = false
         @datePanelOpen  = false
         @monthPanelOpen = true
-      'onPickYear': (year) ->
-        @year = year
+      'switchDatePanel': ->
         @yearPanelOpen  = false
-        @monthPanelOpen = true
-      'onPickMonth': (month) ->
-        @month = month
         @monthPanelOpen = false
         @datePanelOpen  = true
-      'onPickDate': (date) ->
-        @date = date
-        @$emit('input', {
-          year:  @year
-          month: @month
-          date:  @date
-        })
 
 </script>
 
