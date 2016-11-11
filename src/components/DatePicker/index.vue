@@ -53,14 +53,17 @@
       'value':
         type: Object
         default: -> {}
+
       'initYear':
         type: Number
         default: 2000
+
       'monthLabels':
         type: Array
         default: -> [ 'Jan' , 'Feb', 'Mar', 'Apr'
                       'May' , 'Jun', 'Jul', 'Aug'
                       'Sept', 'Oct', 'Nov', 'Dec' ]
+
       'dayLabels':
         type: Array
         default: -> ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
@@ -79,31 +82,50 @@
 
 
     methods:
-      'onPrevMonth': -> if @month > 1  then @month-- else @year-- and @month = 12
-      'onNextMonth': -> if @month < 12 then @month++ else @year++ and @month = 1
+      'onPrevMonth': ->
+        if @month > 1
+           @month--
+        else
+           @year--
+           @month = 12
+
+      'onNextMonth': ->
+        if @month < 12
+           @month++
+        else 
+           @year++
+           @month = 1
+
       'onSwitchYearPanel': ->
         @decade = parseInt(@year / 10) * 10
         @switchYearPanel()
+
       'onSwitchMonthPanel': ->
         @switchMonthPanel()
+
       'onPickYear': (year) ->
         @year = year
         @switchMonthPanel()
+
       'onPickMonth': (month) ->
         @month = month
         @switchDatePanel()
+
       'onPickDate': (date) ->
         @date = date
         { year, month, date } = @
         @$emit 'input', { year, month, date }
+
       'switchYearPanel': ->
         @monthPanelOpen = false
         @datePanelOpen  = false
         @yearPanelOpen  = true
+
       'switchMonthPanel': ->
         @yearPanelOpen  = false
         @datePanelOpen  = false
         @monthPanelOpen = true
+
       'switchDatePanel': ->
         @yearPanelOpen  = false
         @monthPanelOpen = false
