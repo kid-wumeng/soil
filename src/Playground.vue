@@ -1,10 +1,14 @@
 <template lang="jade">
 
   .playground
-    soil-file-picker(@load="onLoad", data-url, :mimes="['image/png']", @mime-error="onMaxError")
-      soil-button(label="上传图片")
-      soil-button(label="上传图片")
-      .d1
+    soil-popup(ref="p1", :alpha="0.8")
+      h1 xxx
+    soil-popup(ref="p2")
+      h1 yyy
+    soil-button(label="打开 1", @click="$refs.p1.show()")
+    soil-button(label="关闭 1", @click="$refs.p1.hide()")
+    soil-button(label="打开 2", @click="$refs.p2.show()")
+    soil-button(label="关闭 2", @click="$refs.p2.hide()")
 
 </template>
 

@@ -33,7 +33,8 @@ Soil =
   # DrawerMenu: require './components/DrawerMenu'
   # DrawerMenuItem: require './components/DrawerMenuItem'
   DatePicker: require './components/DatePicker'
-  FilePicker: require './components/FilePicker'  # @TODO
+  FilePicker: require './components/FilePicker'
+  Popup: require './components/Popup'
 
 
 
