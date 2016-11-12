@@ -12,10 +12,9 @@
       :type="nativeType",
       :disabled="nativeDisabled",
       @input.native="onInput",
-      @change.native="onChange"
     )
 
-    dropdown-area(v-if="dropdownOpen")
+    dropdown-area(v-if="$slots.dropdown && dropdownOpen")
       slot(name="dropdown")
 
     right-area(v-if="$slots.right")
@@ -61,6 +60,12 @@
       'disabled':
         type: Boolean
         default: false
+      'min':
+        type: Number
+        default: null
+      'max':
+        type: Number
+        default: null
       'format':
         type: String
         default: null
@@ -114,10 +119,21 @@
            @lastValue = value
            @$emit('input', @lastValue)
 
-      'onChange': ->
+      'check': ->
+        @minCheck()
+        @maxCheck()
         @formatCheck()
         @validCheck()
-        @$emit('change', @lastValue)
+
+      'minCheck': ->
+        if @min
+          if @lastValue.length < @min
+            @$emit('min-error', @lastValue)
+
+      'maxCheck': ->
+        if @max
+          if @lastValue.length > @max
+            @$emit('max-error', @lastValue)
 
       'formatCheck': ->
         switch @format

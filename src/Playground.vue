@@ -1,10 +1,8 @@
 <template lang="jade">
 
   .playground
-    //- soil-input(facade="dark" v-model="email")
-    //-   soil-date-picker(slot="dropdown")
-    soil-date-picker(v-model="birthday")
-    h1 生日：{{ birthday.year }}年 {{ birthday.month }}月 {{ birthday.date }}日
+    soil-input(v-model="birthdayString", facade="dark", :min="5", :max="10", @min-error="onMinError", @max-error="onMaxError")
+      soil-date-picker(slot="dropdown", @input="onInput")
 </template>
 
 
@@ -17,12 +15,15 @@
 
     data: ->
       'birthday': {}
+      'birthdayString': ''
 
     methods:
-      'onClick1': ->
-        console.log @email
-      'onClick2': ->
-        @email = 'kid.wumeng@gmail.com'
+      'onInput': ({year, month, date}) ->
+        @birthdayString = "#{year} 年 #{month} 月 #{date} 日"
+      'onMinError': (value) ->
+        console.log "太短：#{value}"
+      'onMaxError': (value) ->
+        console.log "太长：#{value}"
 
 </script>
 
