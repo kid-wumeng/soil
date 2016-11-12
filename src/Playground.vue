@@ -1,8 +1,11 @@
 <template lang="jade">
 
   .playground
-    soil-input(v-model="birthdayString", facade="dark", :min="5", :max="10", @min-error="onMinError", @max-error="onMaxError")
-      soil-date-picker(slot="dropdown", @input="onInput")
+    soil-file-picker(@load="onLoad", data-url, :mimes="['image/png']", @mime-error="onMaxError")
+      soil-button(label="上传图片")
+      soil-button(label="上传图片")
+      .d1
+
 </template>
 
 
@@ -13,17 +16,11 @@
 
     mounted: ->
 
-    data: ->
-      'birthday': {}
-      'birthdayString': ''
-
     methods:
-      'onInput': ({year, month, date}) ->
-        @birthdayString = "#{year} 年 #{month} 月 #{date} 日"
-      'onMinError': (value) ->
-        console.log "太短：#{value}"
-      'onMaxError': (value) ->
-        console.log "太长：#{value}"
+      'onLoad': (data) ->
+        console.log data
+      'onMaxError': (data) ->
+        console.log data
 
 </script>
 
@@ -76,6 +73,9 @@
   }
 
   .soil-date-picker{
+  }
+  .soil-button{
+    margin-right: 20px;
   }
 
 </style>
