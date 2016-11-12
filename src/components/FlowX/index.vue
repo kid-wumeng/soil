@@ -26,6 +26,7 @@
         'padding': @padding
       sepTemplate = createElement 'template', {slot: 'sep'}, seps
 
+      # @TODO Don't show area if it hasn't any child.
       leftArea    = createElement 'left-area',   {props}, [leftItems,   sepTemplate]
       centerArea  = createElement 'center-area', {props}, [centerItems, sepTemplate]
       rightArea   = createElement 'right-area',  {props}, [rightItems,  sepTemplate]

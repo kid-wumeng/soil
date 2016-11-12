@@ -35,6 +35,7 @@ Soil =
   DatePicker: require './components/DatePicker'
   FilePicker: require './components/FilePicker'
   Popup: require './components/Popup'
+  Dialog: require './components/Dialog'
 
 
 

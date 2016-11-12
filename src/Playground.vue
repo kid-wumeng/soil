@@ -1,14 +1,10 @@
 <template lang="jade">
 
   .playground
-    soil-popup(ref="p1", :alpha="0.8")
-      h1 xxx
-    soil-popup(ref="p2")
-      h1 yyy
-    soil-button(label="打开 1", @click="$refs.p1.show()")
-    soil-button(label="关闭 1", @click="$refs.p1.hide()")
-    soil-button(label="打开 2", @click="$refs.p2.show()")
-    soil-button(label="关闭 2", @click="$refs.p2.hide()")
+    soil-dialog(ref="p1")
+      div 对话框 1对话框 1对话框 1对话框 1对话框 1对话框 1对话框 1
+      soil-button(slot="bar-left",  label="删除", color="soil-red")
+      soil-button(slot="bar-right", label="确定")
 
 </template>
 
@@ -19,6 +15,7 @@
   module.exports =
 
     mounted: ->
+      @$refs.p1.show()
 
     methods:
       'onLoad': (data) ->
@@ -79,7 +76,6 @@
   .soil-date-picker{
   }
   .soil-button{
-    margin-right: 20px;
   }
 
 </style>
