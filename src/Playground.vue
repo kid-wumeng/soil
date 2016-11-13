@@ -1,15 +1,7 @@
 <template lang="jade">
 
   .playground
-    soil-message-dialog(
-      ref="dialog",
-      title="作品申请已成功提交",
-      message="我们将尽快处理",
-      sure-label="OK",
-      hide-on-click-mask,
-      @sure="onSure",
-      @hide="onHide",
-    )
+    soil-button(label="弹一个信息对话框", @click="onClick")
 
 </template>
 
@@ -19,16 +11,9 @@
 
   module.exports =
 
-    mounted: ->
-      @$refs.dialog.show()
-    updated: ->
-      @$refs.dialog.show()
-
     methods:
-      'onSure': ->
-        console.log 'sure'
-      'onHide': ->
-        console.log 'hide'
+      'onClick': ->
+        Soil.message '哈哈哈123', -> console.log 111222
 
 </script>
 

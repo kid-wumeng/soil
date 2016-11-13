@@ -36,6 +36,12 @@ merge = (src, dest) ->
 
 
 
+setProps = (vm, op, Constructor) ->
+  for name, prop of Constructor.props
+    vm[name] = op[name] ? prop.default
+
+
+
 isEmailAddress = (value) ->
   return /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/.test value
 
@@ -85,6 +91,7 @@ color = (value) ->
 exports.cloneVNode = cloneVNode
 exports.cloneVNodes = cloneVNodes
 exports.merge = merge
+exports.setProps = setProps
 exports.isEmailAddress = isEmailAddress
 exports.n2br = n2br
 exports.color = color

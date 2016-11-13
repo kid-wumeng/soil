@@ -85,13 +85,20 @@ _setDevicePixelRatio = ->
 
 Soil.init = (option={}) ->
   registerAllComponentsInGlobal = option.registerAllComponentsInGlobal ? false
+
   for name, Component of Soil when name isnt 'init'
+
     # For example, ListX -> 'soil-list-x'
     Component.name = _convertComponentName name, 'aa-bb', 'soil-*'
-    # If auto-register
+
+    # Auto-register
     if registerAllComponentsInGlobal
       Vue.component Component.name, Component
+
   _setDevicePixelRatio()
+
+  # Shortcuts
+  Soil.message = require './components/MessageDialog/shortcut'
 
 
 

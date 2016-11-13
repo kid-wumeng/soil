@@ -4,11 +4,12 @@ Soil = require './Soil'
 App = require './App'
 
 
+window.Soil = Soil
 Soil.init
   registerAllComponentsInGlobal: true
 
-Vue.use VueRouter
 
+Vue.use VueRouter
 router = new VueRouter
   mode: 'history'
   routes: [{

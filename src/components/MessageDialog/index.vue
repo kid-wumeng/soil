@@ -6,8 +6,8 @@
     @show="$emit('show')",
     @hide="$emit('hide')",
   )
-    c-title(:title="title")
-    message(:message="message")
+    c-title(v-if="title", :title="title")
+    message(v-if="message", :message="message")
     action-bar(:sure-label="sureLabel", @sure="onSure")
 
 </template>
@@ -59,8 +59,8 @@
     >.panel{
       width: 280px;
       padding: 16px;
-      >.message{
-        margin-top: 16px;
+      >.title{
+        margin-bottom: 16px;
       }
       >.action-bar{
         margin-top: 48px;
