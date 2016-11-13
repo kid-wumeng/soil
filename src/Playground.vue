@@ -1,7 +1,15 @@
 <template lang="jade">
 
   .playground
-    //- soil-message-dialog(ref="message", message="作品申请提交成功，我们将尽快处理", @sure="onSure")
+    soil-message-dialog(
+      ref="dialog",
+      title="作品申请已成功提交",
+      message="我们将尽快处理",
+      sure-label="OK",
+      hide-on-click-mask,
+      @sure="onSure",
+      @hide="onHide",
+    )
 
 </template>
 
@@ -12,15 +20,15 @@
   module.exports =
 
     mounted: ->
-      @$refs.popup.show()
+      @$refs.dialog.show()
+    updated: ->
+      @$refs.dialog.show()
 
     methods:
-      'onLoad': (data) ->
-        console.log data
-      'onMaxError': (data) ->
-        console.log data
-      'onClick': ->
-        console.log 111
+      'onSure': ->
+        console.log 'sure'
+      'onHide': ->
+        console.log 'hide'
 
 </script>
 

@@ -1,13 +1,14 @@
 <template lang="jade">
 
-  .soil-dialog
-    soil-popup(ref="popup", :alpha="alpha")
-      panel(:padding="padding")
-        content-area
-          slot
-        bar(:padding="padding")
-          template(slot="bar-left"):  slot(name="bar-left")
-          template(slot="bar-right"): slot(name="bar-right")
+  soil-popup.soil-dialog(
+    ref="popup",
+    :style="styleObject",
+    @show="$emit('show')",
+    @hide="$emit('hide')",
+    @click.native.self="onClickMask"
+  )
+    panel
+      slot
 
 </template>
 
@@ -18,24 +19,46 @@
   module.exports =
 
     components:
-      'soil-popup':   require '../Popup'
-      'panel':        require './Panel'
-      'content-area': require './ContentArea'
-      'bar':          require './Bar'
+      'soil-popup': require '../Popup'
+      'panel':      require './Panel'
+
 
     props:
       'alpha':
         type: Number
         default: 0.4
-      'padding':
-        type: String
-        default: '16px'
+      'hideOnClickMask':
+        type: Boolean
+        default: false
+
+
+    computed:
+      'styleObject': ->
+        'backgroundColor': "rgba(0, 0, 0, #{@alpha})"
+
 
     methods:
       'show': ->
         @$refs.popup.show()
+
       'hide': ->
         @$refs.popup.hide()
-        @$emit('hide')
+
+      'onClickMask': ->
+        @hide() if @hideOnClickMask
 
 </script>
+
+
+
+<style lang="less">
+
+  .soil-dialog{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+</style>

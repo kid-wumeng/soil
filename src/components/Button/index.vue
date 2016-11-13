@@ -62,6 +62,7 @@
     display: inline-block;
     box-sizing: border-box;
     padding: 5px 12px;
+    text-align: center;
     font-size: 12px;
     border-width: 1px;
     border-style: solid;

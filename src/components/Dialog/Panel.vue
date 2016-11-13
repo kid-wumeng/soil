@@ -1,6 +1,6 @@
 <template lang="jade">
 
-  .panel(:style="styleObject")
+  .panel
     slot
 
 </template>
@@ -13,8 +13,8 @@
 
     props:
       'padding':
-        type: String
-        required: 'true'
+        type: Number
+        default: 0
 
     computed:
       'styleObject': ->
@@ -27,16 +27,10 @@
 <style lang="less">
 
   .soil-dialog{
-    >.soil-popup{
-      >.panel{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        box-sizing: border-box;
-        background-color: white;
-        border-radius: 2px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-      }
+    >.panel{
+      background-color: white;
+      border-radius: 2px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     }
   }
 

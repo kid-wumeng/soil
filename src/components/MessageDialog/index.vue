@@ -1,18 +1,14 @@
 <template lang="jade">
 
-  soil-dialog.soil-message-dialog(ref="dialog")
-    .title(
-      v-if="title"
-    ) {{ title }}
-    .message(
-      v-if="message"
-    ) {{ message }}
-    soil-button(
-      slot="bar-right",
-      :label="sureLabel",
-      facade="nude",
-      @click="onSure"
-    )
+  soil-dialog.soil-message-dialog(
+    ref="dialog",
+    :hide-on-click-mask="hideOnClickMask",
+    @show="$emit('show')",
+    @hide="$emit('hide')",
+  )
+    c-title(:title="title")
+    message(:message="message")
+    action-bar(:sure-label="sureLabel", @sure="onSure")
 
 </template>
 
@@ -20,13 +16,13 @@
 
 <script lang="coffee">
 
-  util = require '../../assets/util'
-
   module.exports =
 
     components:
       'soil-dialog': require '../Dialog'
-      'soil-button': require '../Button'
+      'c-title':     require './Title'
+      'message':     require './Message'
+      'action-bar':  require './ActionBar'
 
     props:
       'title':
@@ -38,6 +34,9 @@
       'sureLabel':
         type: String
         default: 'OK'
+      'hideOnClickMask':
+        type: Boolean
+        default: false
 
     methods:
       'show': ->
@@ -57,25 +56,14 @@
   @import "../../assets/styles/color";
 
   .soil-message-dialog{
-    .content-area{
+    >.panel{
       width: 280px;
-      min-height: 48px;
-      .title{
-        margin-bottom: 12px;
-        font-size: 12px;
-        color: @soil-gray-6;
+      padding: 16px;
+      >.message{
+        margin-top: 16px;
       }
-      .message{
-        font-size: 14px;
-        color: @soil-black-light;
-      }
-    }
-    .bar{
-      margin-top: 32px;
-      .soil-button{
-        padding: 0;
-        font-size: 14px;
-        -webkit-font-smoothing: subpixel-antialiased;
+      >.action-bar{
+        margin-top: 48px;
       }
     }
   }

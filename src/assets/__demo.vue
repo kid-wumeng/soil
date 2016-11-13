@@ -12,6 +12,10 @@
 
   module.exports =
 
+    props:
+      'name':
+        type: String
+
     mounted: ->
 
 </script>

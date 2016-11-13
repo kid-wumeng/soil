@@ -1,8 +1,7 @@
 <template lang="jade">
 
-  .soil-popup(v-if="open", :class="classObject", :style="styleObject")
-    content-area
-      slot
+  .soil-popup(v-show="open", :style="styleObject", @click.stop="onClick")
+    slot
 
 </template>
 
@@ -14,25 +13,12 @@
 
   module.exports =
 
-    components:
-      'content-area': require './ContentArea'
-
-    props:
-      # @TODO To lock scroll.
-      'modal':
-        type: Boolean
-        default: false
-
-
     data: ->
       'open': false
       'zIndex': 0
 
 
     computed:
-      'classObject': ->
-        '-modal': @modal
-
       'styleObject': ->
         'zIndex': @zIndex
 
@@ -59,6 +45,8 @@
           @open = false
           @$emit('hide')
 
+      'onClick': ->
+
       'onClickOut': ->
         @$emit('click-out')
 
@@ -72,10 +60,6 @@
     position: fixed;
     left: 0;
     top: 0;
-    &.-modal{
-      width: 100%;
-      height: 100%;
-    }
   }
 
 </style>
