@@ -29,12 +29,13 @@
         default: 0.4
       'padding':
         type: String
-        default: '12px'
+        default: '16px'
 
     methods:
       'show': ->
         @$refs.popup.show()
       'hide': ->
         @$refs.popup.hide()
+        @$emit('hide')
 
 </script>

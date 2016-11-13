@@ -36,6 +36,7 @@ Soil =
   FilePicker: require './components/FilePicker'
   Popup: require './components/Popup'
   Dialog: require './components/Dialog'
+  MessageDialog: require './components/MessageDialog'
 
 
 

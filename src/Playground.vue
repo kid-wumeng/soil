@@ -1,10 +1,7 @@
 <template lang="jade">
 
   .playground
-    soil-dialog(ref="p1")
-      div 对话框 1对话框 1对话框 1对话框 1对话框 1对话框 1对话框 1
-      soil-button(slot="bar-left",  label="删除", color="soil-red")
-      soil-button(slot="bar-right", label="确定")
+    soil-message-dialog(ref="message", message="作品申请提交成功，我们将尽快处理", @sure="onSure")
 
 </template>
 
@@ -15,13 +12,15 @@
   module.exports =
 
     mounted: ->
-      @$refs.p1.show()
+      @$refs.message.show()
 
     methods:
       'onLoad': (data) ->
         console.log data
       'onMaxError': (data) ->
         console.log data
+      'onSure': ->
+        console.log 111
 
 </script>
 

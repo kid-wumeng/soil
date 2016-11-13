@@ -39,8 +39,10 @@
         if @open is true
           count--
           @open = false
+          @$emit('hide')
 
       'onClick': ->
+        @$emit('click-mask')
         @hide()
 
 </script>
