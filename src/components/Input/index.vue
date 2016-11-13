@@ -100,7 +100,11 @@
 
 
     mounted: ->
-      document.addEventListener('click', @onClickOut)
+      document.addEventListener 'click', @onClickOut
+
+
+    destroyed: ->
+      document.removeEventListener 'click', @onClickOut
 
 
     methods:

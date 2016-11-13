@@ -1,7 +1,7 @@
 <template lang="jade">
 
   .playground
-    soil-message-dialog(ref="message", message="作品申请提交成功，我们将尽快处理", @sure="onSure")
+    //- soil-message-dialog(ref="message", message="作品申请提交成功，我们将尽快处理", @sure="onSure")
 
 </template>
 
@@ -12,14 +12,14 @@
   module.exports =
 
     mounted: ->
-      @$refs.message.show()
+      @$refs.popup.show()
 
     methods:
       'onLoad': (data) ->
         console.log data
       'onMaxError': (data) ->
         console.log data
-      'onSure': ->
+      'onClick': ->
         console.log 111
 
 </script>
