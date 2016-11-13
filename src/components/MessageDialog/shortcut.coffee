@@ -3,14 +3,18 @@ Constructor = require './'
 util = require '../../assets/util'
 
 
-
 VueComponent = Vue.extend Constructor
 
+
+execute = (args...) ->
+  if typeof args[0] is 'object'
+    executeByObject args[0]
+  else
+    executeBySimple args...
 
 
 executeBySimple = (message, onHide) ->
   executeByObject {message, onHide, hideOnClickMask: true}
-
 
 
 executeByObject = (op={}) ->
@@ -28,9 +32,4 @@ executeByObject = (op={}) ->
   vm.show()
 
 
-
-module.exports = (args...) ->
-  if typeof args[0] is 'object'
-    executeByObject args[0]
-  else
-    executeBySimple args...
+module.exports = execute
