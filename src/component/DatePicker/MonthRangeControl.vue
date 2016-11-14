@@ -13,6 +13,10 @@
 
   module.exports =
 
+    components:
+      'soil-icon':  require '../Icon'
+      'soil-label': require '../Label'
+
     props:
       'month':
         type: Number
