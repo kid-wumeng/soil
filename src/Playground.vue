@@ -1,9 +1,8 @@
 <template lang="jade">
 
   .playground
-    soil-input(v-model="comment", facade="dark")
-      soil-icon(name="search", slot="left")
-      soil-icon(name="search", slot="dropdown")
+    soil-date-picker
+
 </template>
 
 
@@ -11,6 +10,8 @@
 <script lang="coffee">
 
   module.exports =
+
+    components: Soil.formatComponentTable('aa-bb', 'soil-*')
 
     data: ->
       comment: ''

@@ -5,8 +5,6 @@ App = require './App'
 
 
 window.Soil = Soil
-Soil.init
-  registerAllComponentsInGlobal: true
 
 
 Vue.use VueRouter
