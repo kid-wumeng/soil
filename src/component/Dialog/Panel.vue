@@ -28,6 +28,8 @@
 
 <style lang="less">
 
+  @import "../../asset/style/color";
+  
   .soil-dialog{
     >.panel{
       background-color: white;

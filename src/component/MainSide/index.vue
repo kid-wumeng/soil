@@ -41,6 +41,8 @@
 
 <style lang="less">
 
+  @import "../../asset/style/color";
+  
   .soil-main-side{
     display: flex;
     box-sizing: padding-box;

@@ -9,6 +9,8 @@
 
 <style lang="less">
 
+  @import "../../asset/style/color";
+  
   .soil-input{
     .right-area{
       height: 100%;

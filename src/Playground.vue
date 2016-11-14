@@ -10,7 +10,7 @@
 
 <script lang="coffee">
 
-  Soil = require '../../Soil'
+  Soil = require './Soil'
 
   module.exports =
 

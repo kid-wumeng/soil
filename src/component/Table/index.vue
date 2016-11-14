@@ -9,6 +9,8 @@
 
 <style lang="less">
 
+  @import "../../asset/style/color";
+  
   .soil-table{
     display: table;
     width: 100%;

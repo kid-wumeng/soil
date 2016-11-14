@@ -56,6 +56,8 @@
 
 <style lang="less">
 
+  @import "../../asset/style/color";
+
   .soil-date-picker{
     .date-panel-body{
       margin-top: 16px;

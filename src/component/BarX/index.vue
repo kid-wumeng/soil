@@ -30,6 +30,8 @@
 
 <style lang="less">
 
+  @import "../../asset/style/color";
+
   .soil-bar-x{
     display: flex;
     align-items: center;

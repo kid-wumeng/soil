@@ -12,7 +12,7 @@
   Soil = require '../../Soil'
 
   module.exports =
-    
+
     mounted: ->
       for radio, i in @$children
         radio.index = i
@@ -37,6 +37,8 @@
 
 <style lang="less">
 
+  @import "../../asset/style/color";
+  
   .soil-radio-group{
     display: inline-flex;
     >.soil-radio{

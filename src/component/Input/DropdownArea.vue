@@ -9,6 +9,8 @@
 
 <style lang="less">
 
+  @import "../../asset/style/color";
+  
   .soil-input{
     >.dropdown-area{
       display: inline-block;

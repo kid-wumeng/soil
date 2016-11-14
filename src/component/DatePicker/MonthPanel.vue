@@ -43,6 +43,8 @@
 
 <style lang="less">
 
+  @import "../../asset/style/color";
+  
   .soil-date-picker{
     .month-panel-body{
       margin-top: 16px;

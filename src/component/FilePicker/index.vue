@@ -104,6 +104,8 @@
 
 <style lang="less">
 
+  @import "../../asset/style/color";
+
   .soil-file-picker{
     display: inline-block;
     > *{

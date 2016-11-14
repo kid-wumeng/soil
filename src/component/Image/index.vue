@@ -65,6 +65,8 @@
 
 <style lang="less">
 
+  @import "../../asset/style/color";
+  
   .soil-image{
     display: inline-block;
     background-repeat: no-repeat;

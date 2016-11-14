@@ -49,6 +49,8 @@
 
 <style lang="less">
 
+  @import "../../asset/style/color";
+  
   .soil-list-y{
     display: inline-flex;
     flex-direction: column;

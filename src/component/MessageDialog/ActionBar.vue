@@ -27,6 +27,8 @@
 
 <style lang="less">
 
+  @import "../../asset/style/color";
+  
   .soil-message-dialog{
     .action-bar{
       .soil-button{

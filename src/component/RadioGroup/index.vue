@@ -82,6 +82,8 @@
 
 <style lang="less">
 
+  @import "../../asset/style/color";
+  
   .soil-radio-group{
     >.soil-radio{margin-right: 16px}
     >.soil-radio:last-child{margin-right: 0}

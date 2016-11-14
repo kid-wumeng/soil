@@ -66,4 +66,8 @@ Soil.message = require './component/MessageDialog/shortcut'
 
 
 
+Soil = Soil.merge(Soil, Soil.componentTable)
+
+
+
 module.exports = Soil

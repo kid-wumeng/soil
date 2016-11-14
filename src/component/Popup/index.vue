@@ -58,6 +58,8 @@
 
 <style lang="less">
 
+  @import "../../asset/style/color";
+  
   .soil-popup{
     position: fixed;
     left: 0;

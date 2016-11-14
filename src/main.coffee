@@ -4,9 +4,6 @@ Soil = require './Soil'
 App = require './App'
 
 
-window.Soil = Soil
-
-
 Vue.use VueRouter
 router = new VueRouter
   mode: 'history'

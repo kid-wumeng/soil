@@ -39,6 +39,8 @@
 
 <style lang="less">
 
+  @import "../../asset/style/color";
+  
   .soil-flow-x{
     display: flex;
     >.left-area{

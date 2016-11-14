@@ -32,6 +32,8 @@
 
 <style lang="less">
 
+  @import "../../asset/style/color";
+  
   .soil-date-picker{
     .month-panel-head{
       display: flex;

@@ -139,6 +139,8 @@
 
 <style lang="less">
 
+  @import "../../asset/style/color";
+  
   .soil-date-picker{
     width: 280px;
   }

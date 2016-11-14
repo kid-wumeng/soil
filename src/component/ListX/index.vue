@@ -49,6 +49,8 @@
 
 <style lang="less">
 
+  @import "../../asset/style/color";
+  
   .soil-list-x{
     display: inline-flex;
     align-items: center;
