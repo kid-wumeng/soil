@@ -47,7 +47,7 @@
 
 <style lang="less" scoped>
 
-  @import "../../assets/styles/color";
+  @import "../../assets/style/color";
 
   .soil-switch {
     display: inline-block;

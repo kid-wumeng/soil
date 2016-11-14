@@ -126,7 +126,7 @@
 
 <style lang="less">
 
-  @import "../../assets/styles/color";
+  @import "../../assets/style/color";
 
   @padding: 8px;
 

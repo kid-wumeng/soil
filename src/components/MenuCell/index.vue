@@ -55,7 +55,7 @@
 
 <style lang="less">
 
-  @import "../../assets/styles/color";
+  @import "../../assets/style/color";
 
   .soil-menu-cell{
     box-sizing: border-box;

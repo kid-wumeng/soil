@@ -32,7 +32,7 @@
 
 <style lang="less">
 
-  @import "../../assets/styles/color";
+  @import "../../assets/style/color";
 
   .soil-input-area{
     >.write-area{

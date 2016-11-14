@@ -31,7 +31,7 @@
 
 <style lang="less">
 
-  @import "../../assets/styles/color";
+  @import "../../assets/style/color";
 
   .soil-menu-cell-group{
     .title{

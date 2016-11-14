@@ -8,7 +8,7 @@
 
 <style lang="less" scoped>
 
-  @import "../../assets/styles/color";
+  @import "../../assets/style/color";
 
   .soil-line-x{
     color: @soil-gray-1;

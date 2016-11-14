@@ -27,7 +27,7 @@
 
 <style lang="less">
 
-  @import "../../assets/styles/color";
+  @import "../../assets/style/color";
 
   .soil-date-picker{
     .year-range-control{

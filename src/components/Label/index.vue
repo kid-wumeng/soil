@@ -28,7 +28,7 @@
 
 <style lang="less" scoped>
 
-  @import "../../assets/styles/color";
+  @import "../../assets/style/color";
 
   .soil-label{
     color: inherit;

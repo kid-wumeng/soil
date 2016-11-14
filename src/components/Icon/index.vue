@@ -35,7 +35,7 @@
 
 <style lang="less">
 
-  @import "../../assets/styles/icon-font";
+  @import "../../assets/style/icon-font";
 
   .soil-icon{
     display: inline-block;
