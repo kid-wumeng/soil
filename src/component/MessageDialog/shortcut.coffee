@@ -1,6 +1,6 @@
 Vue = require 'vue'
+Soil = require '../../Soil'
 Constructor = require './'
-util = require '../../asset/util'
 
 
 VueComponent = Vue.extend Constructor
@@ -19,7 +19,7 @@ executeBySimple = (message, onHide) ->
 
 executeByObject = (op={}) ->
   vm = new VueComponent().$mount()
-  util.setProps(vm, op, Constructor)
+  Soil.setProps(vm, op, Constructor)
 
   if op.onSure then vm.$on('sure', op.onSure)
   if op.onHide then vm.$on('hide', op.onHide)

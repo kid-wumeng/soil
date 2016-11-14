@@ -1,57 +1,4 @@
-Vue = require 'vue'
-
-
-cloneVNode = (vnode) ->
-  if vnode.componentOptions
-    tag = vnode.componentOptions.tag
-    propsData = vnode.componentOptions.propsData
-  else
-    tag = vnode.tag
-    propsData = {}
-
-  data = vnode.data
-  data.props = merge data.props, propsData
-
-  children = vnode.children
-  if children
-    children = cloneVNodes children
-
-  vm = new Vue
-  return vm.$createElement tag, data, children
-
-
-
-cloneVNodes = (vnodes) ->
-  return vnodes.map (vnode) -> cloneVNode(vnode)
-
-
-
-merge = (src, dest) ->
-  obj = {}
-  for name, value of src
-    obj[name] = src[name]
-  for name, value of dest
-    obj[name] = dest[name]
-  return obj
-
-
-
-setProps = (vm, op, Constructor) ->
-  for name, prop of Constructor.props
-    vm[name] = op[name] ? prop.default
-
-
-
-isEmailAddress = (value) ->
-  return /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/.test value
-
-
-
-n2br = (text) ->
-  return text.replace /\n/g, '<br/>'
-
-
-color = (value) ->
+module.exports = (value) ->
   switch value
     # red
     when 'soil-red'       then return '#FF4949'
@@ -85,13 +32,3 @@ color = (value) ->
     when 'soil-black-light' then return '#324057'
     # Standard CSS color-value
     else return value
-
-
-
-exports.cloneVNode = cloneVNode
-exports.cloneVNodes = cloneVNodes
-exports.merge = merge
-exports.setProps = setProps
-exports.isEmailAddress = isEmailAddress
-exports.n2br = n2br
-exports.color = color

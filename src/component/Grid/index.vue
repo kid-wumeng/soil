@@ -1,7 +1,8 @@
 <script lang="coffee">
 
-  module.exports =
+  Soil = require '../../Soil'
 
+  module.exports =
 
     components:
       'soil-list-y': require '../ListY'

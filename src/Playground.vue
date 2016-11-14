@@ -2,12 +2,15 @@
 
   .playground
     soil-date-picker
+    soil-bar-x
 
 </template>
 
 
 
 <script lang="coffee">
+
+  Soil = require '../../Soil'
 
   module.exports =
 

@@ -1,6 +1,6 @@
 <script lang="coffee">
 
-  util = require '../../asset/util'
+  Soil = require '../../Soil'
 
   module.exports =
 
@@ -19,7 +19,7 @@
         # Insert sep between cells.
         if sep
           if i isnt cells.length-1
-            cloneSep = util.cloneVNode(sep)
+            cloneSep = Soil.cloneVNode(sep)
             children.push(cloneSep)
 
       return createElement 'div', {class: 'soil-bar-x'}, children

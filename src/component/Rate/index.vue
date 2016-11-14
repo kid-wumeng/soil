@@ -15,7 +15,7 @@
 
 <script lang="coffee">
 
-  util = require '../../asset/util'
+  Soil = require '../../Soil'
 
   module.exports =
 

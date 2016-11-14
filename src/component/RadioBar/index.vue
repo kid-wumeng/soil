@@ -9,7 +9,10 @@
 
 <script lang="coffee">
 
+  Soil = require '../../Soil'
+
   module.exports =
+    
     mounted: ->
       for radio, i in @$children
         radio.index = i

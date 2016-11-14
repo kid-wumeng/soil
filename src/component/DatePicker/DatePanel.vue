@@ -25,6 +25,8 @@
 
 <script lang="coffee">
 
+  Soil = require '../../Soil'
+
   module.exports =
 
     components:

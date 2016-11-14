@@ -10,12 +10,18 @@ Soil = {}
 
 
 
-# Helper
+# Helper ( their `this` context is Soil )
 Soil.formatComponentName  = require './asset/helper/formatComponentName'
 Soil.formatComponentTable = require './asset/helper/formatComponentTable'
 Soil.merge                = require './asset/helper/merge'
 Soil.joinGlobal           = require './asset/helper/joinGlobal'
+Soil.cloneVNode           = require './asset/helper/cloneVNode'
+Soil.cloneVNodes          = require './asset/helper/cloneVNodes'
+Soil.setProps             = require './asset/helper/setProps'
 Soil.setDevicePixelRatio  = require './asset/helper/setDevicePixelRatio'
+Soil.color                = require './asset/helper/color'
+Soil.n2br                 = require './asset/helper/n2br'
+Soil.isEmailAddress       = require './asset/helper/isEmailAddress'
 
 
 

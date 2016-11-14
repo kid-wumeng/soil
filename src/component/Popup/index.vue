@@ -9,6 +9,8 @@
 
 <script lang="coffee">
 
+  Soil = require '../../Soil'
+
   count = 0
 
   module.exports =

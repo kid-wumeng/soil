@@ -12,7 +12,7 @@
 
 <script lang="coffee">
 
-  util = require '../../asset/util'
+  Soil = require '../../Soil'
 
   module.exports =
 
@@ -39,8 +39,9 @@
         '-disabled': @disabled
 
       'styleObject': ->
-        return {} if @disabled
-        color = util.color(@color)
+        if @disabled
+          return {}
+        color = Soil.color(@color)
         switch @facade
           when 'solid' then return{ backgroundColor: color, borderColor: color }
           when 'ghost' then return{ color: color, borderColor: color }
@@ -54,7 +55,7 @@
 
 
 
-<style lang="less" scoped>
+<style lang="less">
 
   @import "../../asset/style/color";
 

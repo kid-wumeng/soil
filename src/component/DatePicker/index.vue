@@ -41,6 +41,8 @@
 
 <script lang="coffee">
 
+  Soil = require '../../Soil'
+
   module.exports =
 
     components:
@@ -92,7 +94,7 @@
       'onNextMonth': ->
         if @month < 12
            @month++
-        else 
+        else
            @year++
            @month = 1
 

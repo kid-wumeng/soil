@@ -10,7 +10,7 @@
 
 <script lang="coffee">
 
-  util = require '../../asset/util'
+  Soil = require '../../Soil'
 
   module.exports =
 
@@ -111,7 +111,7 @@
 
 
 
-<style lang="less" scoped>
+<style lang="less">
 
   @import "../../asset/style/color";
 

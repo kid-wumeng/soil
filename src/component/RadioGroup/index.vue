@@ -12,6 +12,8 @@
   # @TODO Implement `padding` prop
   # @TODO Implement `y` prop
 
+  Soil = require '../../Soil'
+
   module.exports =
 
     props:
