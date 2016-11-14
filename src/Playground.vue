@@ -1,7 +1,8 @@
 <template lang="jade">
 
   .playground
-    soil-button(label="弹一个信息对话框", @click="onClick")
+    soil-input(facade="dark")
+    soil-input-area(v-model="comment", facade="dark", :countMode="mixCount")
 
 </template>
 
@@ -11,7 +12,13 @@
 
   module.exports =
 
+    data: ->
+      comment: ''
+
     methods:
+      'mixCount': (char) ->
+        code = char.charCodeAt 0
+        return if code <= 255 then 1 else 2
       'onClick': ->
         Soil.message '哈哈哈123', -> console.log 111222
 
@@ -50,6 +57,7 @@
   }
 
   body{
+    background-color: #f2f2f2;
   }
   .playground{
     padding: 100px;
@@ -67,7 +75,8 @@
 
   .soil-date-picker{
   }
-  .soil-button{
+  .soil-input{
+    margin-bottom: 16px;
   }
 
 </style>

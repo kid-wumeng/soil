@@ -20,6 +20,7 @@ Soil =
   Button: require './components/Button'
   # Switch: require './components/Switch'
   Input: require './components/Input'
+  InputArea: require './components/InputArea'
   Radio: require './components/Radio'
   RadioGroup: require './components/RadioGroup'
   Table: require './components/Table'

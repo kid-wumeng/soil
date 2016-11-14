@@ -88,8 +88,8 @@
         '-underscore': @facade is 'underscore'
         '-dark':       @facade is 'dark'
         '-light':      @facade is 'light'
-        '-mask':     @mask
-        '-disabled': @disabled
+        '-mask':       @mask
+        '-disabled':   @disabled
 
       'nativeType': ->
         switch
@@ -197,11 +197,6 @@
     }
     &.-light{
       background-color: white;
-      border-color: transparent;
-      border-radius: 3px;
-    }
-    &.-dark{
-      background-color: @soil-gray-2;
       border-color: transparent;
       border-radius: 3px;
     }
