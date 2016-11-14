@@ -24,6 +24,6 @@
 
 <style lang="less">
 
-  @import "../../asset/styles/color";
+  @import "../../asset/style/color";
 
 </style>
