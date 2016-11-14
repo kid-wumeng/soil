@@ -62,7 +62,7 @@
 
 <style lang="less">
 
-  @import "../../assets/style/color";
+  @import "../../asset/style/color";
 
   .soil-date-picker{
     .date-panel-body{

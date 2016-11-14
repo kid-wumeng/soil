@@ -1,6 +1,6 @@
 Vue = require 'vue'
 Constructor = require './'
-util = require '../../assets/util'
+util = require '../../asset/util'
 
 
 VueComponent = Vue.extend Constructor

@@ -12,7 +12,7 @@
 
 <script lang="coffee">
 
-  util = require '../../assets/util'
+  util = require '../../asset/util'
 
   module.exports =
 
@@ -35,7 +35,7 @@
 
 <style lang="less">
 
-  @import "../../assets/style/icon-font";
+  @import "../../asset/style/icon-font";
 
   .soil-icon{
     display: inline-block;

@@ -9,7 +9,7 @@
 
 <script lang="coffee">
 
-  util = require '../../assets/util'
+  util = require '../../asset/util'
 
   module.exports =
 
@@ -112,7 +112,7 @@
 
 <style lang="less" scoped>
 
-  @import "../../assets/style/color";
+  @import "../../asset/style/color";
 
   .panel {
     left: 0;

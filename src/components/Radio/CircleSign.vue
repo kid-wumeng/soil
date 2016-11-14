@@ -8,7 +8,7 @@
 
 <style lang="less">
 
-  @import "../../assets/style/color";
+  @import "../../asset/style/color";
 
   @out-circle-size: 14px;
   @in-circle-size: 6px;

@@ -28,7 +28,7 @@
 
 <style lang="less">
 
-  @import "./assets/styles/color";
+  @import "./asset/styles/color";
 
   .d1 {
     width: 48px;

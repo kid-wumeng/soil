@@ -23,7 +23,7 @@
 
 <style lang="less">
 
-  @import "../../assets/style/color";
+  @import "../../asset/style/color";
 
   .soil-table-cell{
     display: table-cell;

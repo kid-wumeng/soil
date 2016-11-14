@@ -54,7 +54,7 @@
 
 <style lang="less">
 
-  @import "../../assets/style/color";
+  @import "../../asset/style/color";
 
   .soil-radio.-circle{
     display: inline-flex;

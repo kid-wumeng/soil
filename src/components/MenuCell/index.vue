@@ -25,7 +25,7 @@
 
 <script lang="coffee">
 
-  util = require '../../assets/util'
+  util = require '../../asset/util'
 
   module.exports =
 
@@ -55,7 +55,7 @@
 
 <style lang="less">
 
-  @import "../../assets/style/color";
+  @import "../../asset/style/color";
 
   .soil-menu-cell{
     box-sizing: border-box;
