@@ -2,7 +2,7 @@
 
   .soil-input(:class="classObject", @click.stop="onClick")
 
-    left-area(v-if="$slots.left")
+    left-area(v-if="display.left")
       slot(name="left")
 
     write-area(
@@ -11,13 +11,13 @@
       :placeholder="hint",
       :type="nativeType",
       :disabled="nativeDisabled",
-      @input.native="onInput",
+      @input="onInput",
     )
 
-    dropdown-area(v-if="$slots.dropdown && dropdownOpen")
+    dropdown-area(v-if="display.dropdown")
       slot(name="dropdown")
 
-    right-area(v-if="$slots.right")
+    right-area(v-if="display.right")
       slot(name="right")
 
 </template>
@@ -25,8 +25,6 @@
 
 
 <script lang="coffee">
-
-  util = require '../../assets/util'
 
   module.exports =
 
@@ -60,25 +58,12 @@
       'disabled':
         type: Boolean
         default: false
-      'min':
-        type: Number
-        default: null
-      'max':
-        type: Number
-        default: null
-      'format':
-        type: String
-        default: null
-      'valid':
-        type: Function
-        default: null
       'autoDropdown':
         type: Boolean
         default: true
 
 
     data: ->
-      'lastValue': @value
       'dropdownOpen': false
 
 
@@ -98,6 +83,11 @@
 
       'nativeDisabled': -> @passive or @disabled
 
+      'display': ->
+        'left':     @$slots['left']     isnt undefined
+        'right':    @$slots['right']    isnt undefined
+        'dropdown': @$slots['dropdown'] isnt undefined and @dropdownOpen
+
 
     mounted: ->
       document.addEventListener 'click', @onClickOut
@@ -115,40 +105,11 @@
       'onClickOut': ->
         if @autoDropdown then @hideDropdown()
 
-      'onInput': (event) ->
-        value = event.target.value
+      'onInput': (value) ->
         if @trim
           value = value.replace /(^\s+)|(\s+$)/g, ''
-        if @lastValue isnt value
-           @lastValue = value
-           @$emit('input', @lastValue)
-
-      'check': ->
-        @minCheck()
-        @maxCheck()
-        @formatCheck()
-        @validCheck()
-
-      'minCheck': ->
-        if @min
-          if @lastValue.length < @min
-            @$emit('min-error', @lastValue)
-
-      'maxCheck': ->
-        if @max
-          if @lastValue.length > @max
-            @$emit('max-error', @lastValue)
-
-      'formatCheck': ->
-        switch @format
-          when 'email'
-            if util.isEmailAddress(@lastValue) is false
-              @$emit('format-error', @lastValue)
-
-      'validCheck': ->
-        if @valid
-          if @valid(@lastValue) is false
-            @$emit('valid-error', @lastValue)
+        if value isnt @value
+          @$emit('input', value)
 
       'focus': ->
         @$refs['write-area'].$el.focus()

@@ -41,7 +41,7 @@
     display: inline-block;
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
+    font-size: 16px;
     color: inherit;
     speak: none;
     text-decoration: inherit;

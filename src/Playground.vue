@@ -1,9 +1,9 @@
 <template lang="jade">
 
   .playground
-    soil-input(facade="dark")
-    soil-input-area(v-model="comment", facade="dark", :countMode="mixCount")
-
+    soil-input(v-model="comment", facade="dark")
+      soil-icon(name="search", slot="left")
+      soil-icon(name="search", slot="dropdown")
 </template>
 
 

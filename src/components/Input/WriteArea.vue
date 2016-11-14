@@ -1,8 +1,20 @@
 <template lang="jade">
 
-  input.write-area
+  input.write-area(@input="onInput")
 
 </template>
+
+
+
+<script lang="coffee">
+
+  module.exports =
+
+    methods:
+      'onInput': (event) ->
+        @$emit('input', event.target.value)
+
+</script>
 
 
 
@@ -13,8 +25,7 @@
   .soil-input{
     >.write-area{
       flex-grow: 1;
-      height: 16px;
-      line-height: 16px;
+      height: 32px;
       font-size: 12px;
       overflow: hidden;
       background-color: transparent;
