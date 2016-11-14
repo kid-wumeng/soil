@@ -1,5 +1,5 @@
 {
-  "name": "soil-vue",
+  "name": "vue-soil",
   "version": "1.0.0",
   "description": "A Common Cross-Screen Web Component Library for Vue.js 2.0",
   "author": "KID <kid.wumeng@gmail.com>",
@@ -37,7 +37,6 @@
     "less-loader": "^2.2.3",
     "opn": "^4.0.2",
     "ora": "^0.3.0",
-    "pug": "^2.0.0-beta6",
     "shelljs": "^0.7.4",
     "url-loader": "^0.5.7",
     "vue-loader": "^9.4.0",
