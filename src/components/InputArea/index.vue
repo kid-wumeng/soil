@@ -11,7 +11,7 @@
     )
     counter(
       :count="count",
-      :total="total",
+      :max="max",
     )
 
 </template>
@@ -44,7 +44,7 @@
       'trim':
         type: Boolean
         default: true
-      'total':
+      'max':
         type: Number
         default: 300
       'countMode':

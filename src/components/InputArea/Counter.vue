@@ -3,7 +3,7 @@
   .counter(:class="classObject")
     .count {{ count }}
     .sep /
-    .total {{ total }}
+    .max {{ max }}
 
 </template>
 
@@ -17,13 +17,13 @@
       'count':
         type: Number
         required: true
-      'total':
+      'max':
         type: Number
         required: true
 
     computed:
       'classObject': ->
-        '-over': @count > @total
+        '-over': @count > @max
 
 </script>
 
