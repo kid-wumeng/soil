@@ -95,6 +95,7 @@
         for type, value of data
           if value is null
             ready = false
+            break
         if ready
           @$emit('load', data)
 
