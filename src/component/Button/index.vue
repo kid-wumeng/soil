@@ -39,7 +39,7 @@
       'styleObject': ->
         if @disabled
           return {}
-        color = @Soil.color(@color)
+        color = @$soil.color(@color)
         switch @facade
           when 'solid' then return{ backgroundColor: color, borderColor: color }
           when 'ghost' then return{ color: color, borderColor: color }

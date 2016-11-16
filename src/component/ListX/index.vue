@@ -21,7 +21,7 @@
         # Insert sep between items.
         if sep
           if i isnt items.length-1
-            cloneSep = @Soil.cloneVNode(sep)
+            cloneSep = @$soil.cloneVNode(sep)
             children.push(cloneSep)
 
       return createElement 'div', {class: 'soil-list-x'}, children

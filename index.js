@@ -66,7 +66,7 @@ Soil.install = function(Vue, op)
 
   Soil = Soil.merge(Soil, Soil.componentTable);
 
-  Vue.prototype.Soil = Soil;
+  Vue.prototype.$soil = Soil;
 }
 
 
