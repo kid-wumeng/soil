@@ -31,7 +31,8 @@
   @import "../../asset/style/color.less";
 
   .soil-label{
-    color: inherit;
+    font-size: 14px;
+    color: @soil-black;
     white-space: nowrap;
     overflow: hidden;
 
