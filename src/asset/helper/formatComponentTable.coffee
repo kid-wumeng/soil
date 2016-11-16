@@ -1,9 +1,9 @@
 formatComponentName = require './formatComponentName'
 
 
-module.exports = (mode, template) ->
+module.exports = (componentTable, mode, template) ->
   table = {}
-  for name, component of @componentTable
+  for name, component of componentTable
     name = formatComponentName(name, mode, template)
     table[name] = component
   return table

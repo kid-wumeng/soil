@@ -9,15 +9,13 @@
 
 <script lang="coffee">
 
-  Soil = require '../../Soil'
-
   module.exports =
 
     props:
       'padding':
         type: String
         required: true
-        
+
     computed:
       'styleObject': ->
         'margin-right': @padding

@@ -9,7 +9,7 @@
 
 <style lang="less">
 
-  @import "../../asset/style/color";
+  @import "../../asset/style/color.less";
   
   .soil-input{
     .right-area{

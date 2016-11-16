@@ -9,8 +9,6 @@
 
 <script lang="coffee">
 
-  Soil = require '../../Soil'
-
   count = 0
 
   module.exports =
@@ -58,8 +56,8 @@
 
 <style lang="less">
 
-  @import "../../asset/style/color";
-  
+  @import "../../asset/style/color.less";
+
   .soil-popup{
     position: fixed;
     left: 0;

@@ -12,8 +12,6 @@
 
 <script lang="coffee">
 
-  Soil = require '../../Soil'
-
   module.exports =
 
     props:
@@ -35,8 +33,8 @@
 
 <style lang="less">
 
-  @import "../../asset/style/icon-font";
-  @import "../../asset/style/color";
+  @import "../../asset/style/icon-font.less";
+  @import "../../asset/style/color.less";
 
   .soil-icon{
     display: inline-block;

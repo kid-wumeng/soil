@@ -8,8 +8,6 @@
 
 <script lang="coffee">
 
-  Soil = require '../../Soil'
-
   module.exports =
 
     props:
@@ -30,7 +28,7 @@
 
 <style lang="less">
 
-  @import "../../asset/style/color";
+  @import "../../asset/style/color.less";
 
   .soil-label{
     color: inherit;

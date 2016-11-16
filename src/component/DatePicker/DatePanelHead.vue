@@ -21,8 +21,6 @@
 
 <script lang="coffee">
 
-  Soil = require '../../Soil'
-
   module.exports =
 
     components:
@@ -46,8 +44,8 @@
 
 <style lang="less">
 
-  @import "../../asset/style/color";
-  
+  @import "../../asset/style/color.less";
+
   .soil-date-picker{
     .date-panel-head{
       display: flex;

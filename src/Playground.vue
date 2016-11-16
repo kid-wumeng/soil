@@ -14,7 +14,7 @@
 
   module.exports =
 
-    components: Soil.formatComponentTable('aa-bb', 'soil-*')
+    components: helper.formatComponentTable('aa-bb', 'soil-*')
 
     data: ->
       comment: ''
@@ -24,7 +24,7 @@
         code = char.charCodeAt 0
         return if code <= 255 then 1 else 2
       'onClick': ->
-        Soil.message '哈哈哈123', -> console.log 111222
+        helper.message '哈哈哈123', -> console.log 111222
 
 </script>
 

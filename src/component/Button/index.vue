@@ -12,8 +12,6 @@
 
 <script lang="coffee">
 
-  Soil = require '../../Soil'
-
   module.exports =
 
     props:
@@ -41,7 +39,7 @@
       'styleObject': ->
         if @disabled
           return {}
-        color = Soil.color(@color)
+        color = @Soil.color(@color)
         switch @facade
           when 'solid' then return{ backgroundColor: color, borderColor: color }
           when 'ghost' then return{ color: color, borderColor: color }
@@ -57,7 +55,7 @@
 
 <style lang="less">
 
-  @import "../../asset/style/color";
+  @import "../../asset/style/color.less";
 
   .soil-button{
     display: inline-block;

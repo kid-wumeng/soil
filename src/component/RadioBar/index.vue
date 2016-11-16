@@ -9,8 +9,6 @@
 
 <script lang="coffee">
 
-  Soil = require '../../Soil'
-
   module.exports =
 
     mounted: ->
@@ -37,8 +35,8 @@
 
 <style lang="less">
 
-  @import "../../asset/style/color";
-  
+  @import "../../asset/style/color.less";
+
   .soil-radio-group{
     display: inline-flex;
     >.soil-radio{

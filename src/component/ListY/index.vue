@@ -1,7 +1,5 @@
 <script lang="coffee">
 
-  Soil = require '../../Soil'
-
   module.exports =
 
     props:
@@ -23,7 +21,7 @@
         # Insert sep between items.
         if sep
           if i isnt items.length-1
-            cloneSep = Soil.cloneVNode(sep)
+            cloneSep = @Soil.cloneVNode(sep)
             children.push(cloneSep)
 
       return createElement 'div', {class: 'soil-list-y'}, children
@@ -49,8 +47,8 @@
 
 <style lang="less">
 
-  @import "../../asset/style/color";
-  
+  @import "../../asset/style/color.less";
+
   .soil-list-y{
     display: inline-flex;
     flex-direction: column;

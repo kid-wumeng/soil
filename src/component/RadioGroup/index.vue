@@ -12,8 +12,6 @@
   # @TODO Implement `padding` prop
   # @TODO Implement `y` prop
 
-  Soil = require '../../Soil'
-
   module.exports =
 
     props:
@@ -82,8 +80,8 @@
 
 <style lang="less">
 
-  @import "../../asset/style/color";
-  
+  @import "../../asset/style/color.less";
+
   .soil-radio-group{
     >.soil-radio{margin-right: 16px}
     >.soil-radio:last-child{margin-right: 0}

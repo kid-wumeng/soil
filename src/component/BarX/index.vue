@@ -1,7 +1,5 @@
 <script lang="coffee">
 
-  Soil = require '../../Soil'
-
   module.exports =
 
     # The reason why use the `render` function to generate the template
@@ -19,7 +17,7 @@
         # Insert sep between cells.
         if sep
           if i isnt cells.length-1
-            cloneSep = Soil.cloneVNode(sep)
+            cloneSep = @Soil.cloneVNode(sep)
             children.push(cloneSep)
 
       return createElement 'div', {class: 'soil-bar-x'}, children
@@ -30,7 +28,7 @@
 
 <style lang="less">
 
-  @import "../../asset/style/color";
+  @import "../../asset/style/color.less";
 
   .soil-bar-x{
     display: flex;
