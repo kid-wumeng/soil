@@ -44,18 +44,15 @@
       'loadImage': ->
         img = new Image
         img.src = @src
-        img.onload = => @initSize(img)
+        img.onload  = => @initSize(img)
+        img.onerror = => @initSize({width: 0, height: 0})
 
       'initSize': (img) ->
-        width  = if @width  then @width  else img.width
-        height = if @height then @height else img.height
+        width  = if @width  then @width  else "#{img.width}px"
+        height = if @height then @height else "#{img.height}px"
 
-        if @circle
-          # Set to square (width == height) for the circle
-          if width > height then width = height else height = width
-
-        @$el.style.width  = "#{width}px"
-        @$el.style.height = "#{height}px"
+        @$el.style.width  = width
+        @$el.style.height = height
 
 </script>
 

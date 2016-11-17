@@ -41,7 +41,7 @@
   }
 
   .soil-table-row.-title > .soil-table-cell{
-    border-bottom: none;
+    border-bottom: 1px solid @soil-gray-1;
   }
 
 </style>
