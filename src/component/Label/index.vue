@@ -31,6 +31,9 @@
   @import "../../asset/style/color.less";
 
   .soil-label{
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
     font-size: 14px;
     color: @soil-black;
     white-space: nowrap;

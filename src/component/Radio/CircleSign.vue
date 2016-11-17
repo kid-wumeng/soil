@@ -10,8 +10,8 @@
 
   @import "../../asset/style/color.less";
 
-  @out-circle-size: 14px;
-  @in-circle-size: 6px;
+  @out-circle-size: 12px;
+  @in-circle-size: 4px;
 
   .soil-radio{
     .circle-sign{
@@ -21,7 +21,7 @@
       width: @out-circle-size;
       height: @out-circle-size;
       color: @soil-blue;
-      border: 1px solid @soil-gray-3;
+      border: 1px solid @soil-gray-4;
       border-radius: 100%;
       &:after{
         display: inline-block;
@@ -37,8 +37,12 @@
     }
   }
 
-  .soil-radio.-active > .circle-sign:after{
-    transform: scale3d(1, 1, 1);
+  .soil-radio.-active{
+    >.circle-sign{
+      &:after{
+        transform: scale3d(1, 1, 1);
+      }
+    }
   }
 
 </style>

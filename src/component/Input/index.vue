@@ -128,14 +128,14 @@
 
   @import "../../asset/style/color.less";
 
-  @padding: 8px;
+  @padding: 6px;
 
   .soil-input{
     width: 240px;
     display: flex;
     align-items: center;
     box-sizing: border-box;
-    height: 32px;
+    height: 28px;
     position: relative;
     >.write-area{
       margin-left: @padding;
@@ -150,7 +150,6 @@
     &.-border{
       background-color: transparent;
       border: 1px solid @soil-gray-4;
-      border-radius: 3px;
     }
     &.-underscore{
       background-color: transparent;
@@ -159,12 +158,10 @@
     &.-light{
       background-color: white;
       border-color: transparent;
-      border-radius: 3px;
     }
     &.-dark{
       background-color: @soil-gray-2;
       border-color: transparent;
-      border-radius: 3px;
     }
     &.-disabled{
       border-style: dashed;

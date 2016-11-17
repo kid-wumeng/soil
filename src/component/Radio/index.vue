@@ -56,16 +56,24 @@
 
   @import "../../asset/style/color.less";
 
-  .soil-radio.-circle{
+  .soil-radio{
     display: inline-flex;
     align-items: center;
-    vertical-align: middle;
+    height: 18px;
     cursor: pointer;
     .circle-sign{
       margin-right: 4px;
     }
     .label{
-      font-size: 14px;
+      font-size: 12px;
+      color: @soil-gray-6;
+      -webkit-font-smoothing: antialiased;
+      transition: color 0.8s ease;
+    }
+  }
+
+  .soil-radio.-active{
+    .label{
       color: @soil-black-light;
     }
   }

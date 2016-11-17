@@ -39,7 +39,7 @@
       justify-content: flex-end;
       font-size: 12px;
       color: @soil-gray-6;
-      -webkit-font-smoothing: subpixel-antialiased;
+      -webkit-font-smoothing: antialiased;
       .count{ margin-right: 4px }
       .sep{ margin-right: 4px }
     }

@@ -30,23 +30,24 @@
       overflow: hidden;
       background-color: transparent;
       border: none;
+      -webkit-font-smoothing: subpixel-antialiased;
     }
   }
 
   .soil-input.-border{
-    >.write-area{color: @soil-black}
+    >.write-area{color: @soil-black-light}
     >.write-area::placeholder{color: @soil-gray-5}
   }
   .soil-input.-underscore{
-    >.write-area{color: @soil-black}
+    >.write-area{color: @soil-black-light}
     >.write-area::placeholder{color: @soil-gray-4}
   }
   .soil-input.-light{
-    >.write-area{color: @soil-black}
+    >.write-area{color: @soil-black-light}
     >.write-area::placeholder{color: @soil-gray-4}
   }
   .soil-input.-dark{
-    >.write-area{color: @soil-black}
+    >.write-area{color: @soil-black-light}
     >.write-area::placeholder{color: @soil-gray-5}
   }
   .soil-input.-disabled{

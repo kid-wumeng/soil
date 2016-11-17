@@ -49,7 +49,7 @@
         default: 300
       'countMode':
         type: Function
-        default: (value) -> 1
+        default: (char) -> 1
       'disabled':
         type: Boolean
         default: false
@@ -89,21 +89,18 @@
   .soil-input-area{
     box-sizing: border-box;
     width: 240px;
-    padding: 8px;
+    padding: 6px;
     &.-border{
       background-color: transparent;
       border: 1px solid @soil-gray-4;
-      border-radius: 3px;
     }
     &.-light{
       background-color: white;
       border-color: transparent;
-      border-radius: 3px;
     }
     &.-dark{
       background-color: @soil-gray-2;
       border-color: transparent;
-      border-radius: 3px;
     }
     &.-disabled{
       border-style: dashed;

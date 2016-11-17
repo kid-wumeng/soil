@@ -45,17 +45,18 @@
       background-color: transparent;
       border: none;
       resize:none;
+      -webkit-font-smoothing: subpixel-antialiased;
     }
     &.-border{
-      >.write-area{color: @soil-black}
+      >.write-area{color: @soil-black-light}
       >.write-area::placeholder{color: @soil-gray-5}
     }
     &.-light{
-      >.write-area{color: @soil-black}
+      >.write-area{color: @soil-black-light}
       >.write-area::placeholder{color: @soil-gray-4}
     }
     &.-dark{
-      >.write-area{color: @soil-black}
+      >.write-area{color: @soil-black-light}
       >.write-area::placeholder{color: @soil-gray-5}
     }
     &.-disabled{
