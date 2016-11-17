@@ -11,10 +11,14 @@
 
   # @TODO Implement `padding` prop
   # @TODO Implement `y` prop
+  # @TODO Implement `at-least` prop
 
   module.exports =
 
     props:
+      # @TODO Check: default-value should in child-radios' data
+      'value':
+        type: null
       'multiple':
         type: Boolean
         default: false
@@ -53,19 +57,19 @@
 
 
       'handleMultiple': ->
-        values = []
+        value = []
         for radio in @radios
           if radio.active
-            values.push(radio.value)
-        @$emit('change', values)
+            value.push(radio.data)
+        @$emit('input', value)
 
 
       'handleSingle': (radio) ->
         if radio.active
           @mutex(radio)
-          @$emit('change', radio.value)
+          @$emit('input', radio.data)
         else
-          @$emit('change', null)
+          @$emit('input', null)
 
 
       'mutex': (changeRadio) ->

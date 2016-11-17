@@ -17,11 +17,14 @@
       'circle-sign': require './CircleSign'
 
     props:
+      'value':
+        type: Boolean
+        default: false
+      'data':
+        type: null
+        default: null
       'label':
         type: String
-        required: true
-      'value':
-        type: null
         required: true
       'facade':
         type: String
@@ -42,8 +45,9 @@
     methods:
       'onClick': ->
         @active = !@active
+        @$emit('input', @active)
         if @active
-          @$emit('change', @value)
+          @$emit('change', @data)
         else
           @$emit('change', null)
 
