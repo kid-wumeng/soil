@@ -1,21 +1,26 @@
 <template lang="jade">
-
   soil-dialog.soil-message-dialog(
-    ref="dialog",
-    :hide-on-click-mask="hideOnClickMask",
-    @show="$emit('show')",
-    @hide="$emit('hide')",
+    :open="open",
+    :alpha="alpha",
+    @click-mask="onClickMask"
   )
-    c-title(v-if="title", :title="title")
-    message(v-if="message", :message="message")
-    action-bar(:sure-label="sureLabel", @sure="onSure")
-
+    c-title(
+      v-if="title",
+      :title="title"
+    )
+    message(
+      v-if="message",
+      :message="message"
+    )
+    action-bar(
+      :label-ok="labelOk",
+      @ok="$emit('ok')"
+    )
 </template>
 
 
 
 <script lang="coffee">
-
   module.exports =
 
     components:
@@ -25,36 +30,34 @@
       'action-bar':  require './ActionBar'
 
     props:
+      'open':
+        type: Boolean
+        default: false
       'title':
         type: String
         default: ''
       'message':
         type: String
         default: ''
-      'sureLabel':
+      'labelOk':
         type: String
         default: 'OK'
-      'hideOnClickMask':
+      'alpha':
+        type: Number
+        default: 0.4
+      'modal':
         type: Boolean
         default: false
 
     methods:
-      'show': ->
-        @$refs.dialog.show()
-      'hide': ->
-        @$refs.dialog.hide()
-      'onSure': ->
-        @hide()
-        @$emit('sure')
-
+      'onClickMask': ->
+        @$emit('click-mask')
+        @$emit('ok') if not @modal
 </script>
 
 
 
 <style lang="less">
-
-  @import "../../asset/style/color.less";
-
   .soil-message-dialog{
     >.panel{
       width: 280px;
@@ -67,5 +70,4 @@
       }
     }
   }
-
 </style>

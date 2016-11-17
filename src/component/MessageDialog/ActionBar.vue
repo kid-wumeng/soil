@@ -1,32 +1,28 @@
 <template lang="jade">
-
   .action-bar
-    soil-button(:label="sureLabel", facade="solid", @click="$emit('sure')")
-
+    soil-button(
+      :label="labelOk",
+      facade="solid",
+      @click="$emit('ok')"
+    )
 </template>
 
 
 
 <script lang="coffee">
-
   module.exports =
-
     components:
       'soil-button': require '../Button'
 
     props:
-      'sureLabel':
+      'labelOk':
         type: String
         required: true
-
 </script>
 
 
 
 <style lang="less">
-
-  @import "../../asset/style/color.less";
-
   .soil-message-dialog{
     .action-bar{
       .soil-button{
@@ -38,5 +34,4 @@
       }
     }
   }
-
 </style>

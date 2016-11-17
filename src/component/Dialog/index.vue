@@ -1,60 +1,41 @@
 <template lang="jade">
-
   soil-popup.soil-dialog(
-    ref="popup",
+    :open="open",
     :style="styleObject",
-    @show="$emit('show')",
-    @hide="$emit('hide')",
     @click.native.self="onClickMask"
   )
     panel
       slot
-
 </template>
 
 
 
 <script lang="coffee">
-
   module.exports =
-
     components:
       'soil-popup': require '../Popup'
       'panel':      require './Panel'
 
-
     props:
+      'open':
+        type: Boolean
+        default: false
       'alpha':
         type: Number
         default: 0.4
-      'hideOnClickMask':
-        type: Boolean
-        default: false
-
 
     computed:
       'styleObject': ->
         'backgroundColor': "rgba(0, 0, 0, #{@alpha})"
 
-
     methods:
-      'show': ->
-        @$refs.popup.show()
-
-      'hide': ->
-        @$refs.popup.hide()
-
       'onClickMask': ->
-        @hide() if @hideOnClickMask
-
+        @$emit('click-mask')
 </script>
 
 
 
 <style lang="less">
-
-  @import "../../asset/style/color.less";
-
   .soil-dialog{
     width: 100%;
     height: 100%;
@@ -62,5 +43,4 @@
     justify-content: center;
     align-items: center;
   }
-
 </style>

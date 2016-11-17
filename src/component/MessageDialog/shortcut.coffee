@@ -13,23 +13,22 @@ execute = (args...) ->
     executeBySimple args...
 
 
-executeBySimple = (message, onHide) ->
-  executeByObject {message, onHide, hideOnClickMask: true}
+executeBySimple = (message, onOK) ->
+  executeByObject {message, onOK}
 
 
 executeByObject = (op={}) ->
   vm = new VueComponent().$mount()
   setProps(vm, op, Constructor)
 
-  if op.onSure then vm.$on('sure', op.onSure)
-  if op.onHide then vm.$on('hide', op.onHide)
-
-  vm.$on 'hide', ->
+  vm.$on 'ok', op.onOK if op.onOK
+  vm.$on 'ok', ->
+    vm.open = false
     document.body.removeChild(vm.$el)
     setTimeout (-> vm.$destroy()), 0
 
   document.body.appendChild(vm.$el)
-  vm.show()
+  vm.open = true
 
 
 module.exports = execute
