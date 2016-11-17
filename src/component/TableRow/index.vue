@@ -31,8 +31,8 @@
   .soil-table-row{
     display: table-row;
     transition: background-color 0.3s ease;
-    &:hover{
-      background-color: #F8F8FF;
+    &:hover:not(.-title){
+      background-color: #F9F9F9;
     }
     &.-title{
       font-weight: bold;

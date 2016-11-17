@@ -31,12 +31,7 @@
     padding-left: 8px;
     padding-right: 8px;
     vertical-align: middle;
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-top-color: transparent;
-    border-bottom-color: @soil-gray-1;
+    border-bottom: 1px solid #F9F9F9;
     &:first-child{ padding-left: 16px }
     &:last-child{ padding-right: 16px }
     .label{
@@ -45,8 +40,8 @@
     }
   }
 
-  .-title > .soil-table-cell{
-    border-top-color: @soil-gray-1;
+  .soil-table-row.-title > .soil-table-cell{
+    border-bottom: none;
   }
 
 </style>
