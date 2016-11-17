@@ -34,7 +34,7 @@
       'facade':
         # border | light | dark
         type: String
-        default: 'border'
+        default: 'dark'
       'hint':
         type: String
         default: ''
