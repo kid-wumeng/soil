@@ -2,7 +2,9 @@
   soil-dialog.soil-message-dialog(
     :open="open",
     :alpha="alpha",
-    @click-mask="onClickMask"
+    :modal="modal",
+    @input="$emit('input')",
+    @click-mask="$emit('click-mask')"
   )
     c-title(
       v-if="title",

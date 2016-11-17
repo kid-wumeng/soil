@@ -24,8 +24,8 @@
 
   .soil-input{
     >.write-area{
-      flex-grow: 1;
-      height: 32px;
+      height: 28px;
+      line-height: 28px;
       font-size: 12px;
       overflow: hidden;
       background-color: transparent;

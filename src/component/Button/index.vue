@@ -58,7 +58,9 @@
   @import "../../asset/style/color.less";
 
   .soil-button{
-    display: inline-block;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
     padding: 5px 12px;
     text-align: center;

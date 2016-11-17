@@ -50,7 +50,7 @@
   @import "../../asset/style/color.less";
 
   .soil-list-x{
-    display: inline-flex;
+    display: flex;
     align-items: center;
     > *{
       flex: none;

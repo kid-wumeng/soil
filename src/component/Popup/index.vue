@@ -1,19 +1,25 @@
 <template lang="jade">
   .soil-popup(
+    v-if="reset? open: true",
     v-show="open",
     :style="styleObject",
     @click.stop="void(0)"
-  ): slot
+  )
+    slot
 </template>
 
 
 
 <script lang="coffee">
-  count = 0
+
+  $count = 0
 
   module.exports =
     props:
       'open':
+        type: Boolean
+        default: false
+      'reset':
         type: Boolean
         default: false
 
@@ -26,8 +32,8 @@
 
     mounted: ->
       if @open
-        count++
-        @zIndex = count
+        $count++
+        @zIndex = $count
       document.addEventListener 'click', @onClickOutside
 
     destroyed: ->
@@ -36,10 +42,10 @@
     watch:
       'open': (open) ->
         if open
-          count++
-          @zIndex = count
+          $count++
+          @zIndex = $count
         else
-          count--
+          $count--
 
     methods:
       'onClickOutside': -> @$emit('click-outside')

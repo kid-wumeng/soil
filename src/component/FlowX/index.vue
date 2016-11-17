@@ -44,14 +44,17 @@
     >.left-area{
       width: 30%;
       justify-content: flex-start;
+      align-items: center;
     }
     >.center-area{
       width: 40%;
       justify-content: center;
+      align-items: center;
     }
     >.right-area{
       width: 30%;
       justify-content: flex-end;
+      align-items: center;
     }
   }
 

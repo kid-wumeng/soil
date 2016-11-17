@@ -1,11 +1,13 @@
 <template lang="jade">
-  soil-popup.soil-dialog(
-    :open="open",
-    :style="styleObject",
-    @click.native.self="onClickMask"
-  )
-    panel
-      slot
+  .soil-dialog
+    soil-popup(
+      :open="open",
+      :reset="reset",
+      :style="styleObject",
+      @click.native.self="onClickMask"
+    )
+      panel
+        slot
 </template>
 
 
@@ -23,24 +25,28 @@
       'alpha':
         type: Number
         default: 0.4
+      'reset':
+        type: Boolean
+        default: false
 
     computed:
       'styleObject': ->
         'backgroundColor': "rgba(0, 0, 0, #{@alpha})"
 
     methods:
-      'onClickMask': ->
-        @$emit('click-mask')
+      'onClickMask': -> @$emit('click-mask')
 </script>
 
 
 
 <style lang="less">
   .soil-dialog{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    >.soil-popup{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 </style>
