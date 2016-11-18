@@ -56,16 +56,12 @@ Soil.componentTable = {
 
 
 
-Soil.install = function(Vue, op)
-{
+Soil.install = function(Vue, op){
   op = op || {};
-
   if(op.global){
     Soil.joinGlobal(Soil.componentTable, 'aa-bb', 'soil-*');
   }
-
   Soil = Soil.merge(Soil, Soil.componentTable);
-
   Vue.prototype.$soil = Soil;
 }
 

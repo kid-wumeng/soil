@@ -41,7 +41,6 @@
       text-align: justify;
       font-size: 12px;
       line-height: 16px;
-      height: 48px;
       background-color: transparent;
       border: none;
       resize:none;
