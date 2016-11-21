@@ -44,6 +44,9 @@
   @import "../../asset/style/color.less";
 
   .soil-date-picker{
+    .month-panel-head{
+      margin-top: 12px;
+    }
     .month-panel-body{
       margin-top: 16px;
     }

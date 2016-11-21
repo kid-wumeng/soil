@@ -114,7 +114,8 @@
       'onPickDate': (date) ->
         @date = date
         { year, month, date } = @
-        @$emit 'input', { year, month, date }
+        @$emit 'pick-date', { year, month, date }
+        @$emit 'input',     { year, month, date }
 
       'switchYearPanel': ->
         @monthPanelOpen = false

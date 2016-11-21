@@ -1,6 +1,10 @@
 <template lang="jade">
 
-  .soil-image(:class="classObject", :style="styleObject")
+  .soil-image(
+    :class="classObject",
+    :style="styleObject",
+    @click="$emit('click')"
+  )
 
 </template>
 
@@ -20,6 +24,9 @@
       'height':
         type: String
         default: null
+      'contain':
+        type: Boolean
+        default: false
       'circle':
         type: Boolean
         default: false
@@ -28,6 +35,7 @@
     computed:
       'classObject': ->
         '-circle': @circle
+        '-contain': @contain
       'styleObject': ->
         backgroundImage: "url(#{@src})"
 
@@ -53,7 +61,6 @@
 
         @$el.style.width  = width
         @$el.style.height = height
-
 </script>
 
 
@@ -63,10 +70,13 @@
   @import "../../asset/style/color.less";
 
   .soil-image{
-    display: inline-block;
+    display: block;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    &.-contain{
+      background-size: contain;
+    }
     &.-circle{
       border-radius: 100%;
     }

@@ -13,7 +13,7 @@
     props:
       'label':
         type: String
-        default: ''
+        required: true
       'ellipsis':
         type: Boolean
         default: false

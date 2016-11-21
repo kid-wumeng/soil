@@ -58,13 +58,9 @@
       'disabled':
         type: Boolean
         default: false
-      'autoDropdown':
+      'dropdownOpen':
         type: Boolean
-        default: true
-
-
-    data: ->
-      'dropdownOpen': false
+        default: false
 
 
     computed:
@@ -90,20 +86,21 @@
 
 
     mounted: ->
-      document.addEventListener 'click', @onClickOut
+      document.addEventListener 'click', @onClickOutside
 
 
     destroyed: ->
-      document.removeEventListener 'click', @onClickOut
+      document.removeEventListener 'click', @onClickOutside
 
 
     methods:
       'onClick': ->
         @focus()
-        if @autoDropdown then @showDropdown()
+        @$emit('click')
+        @$emit('click-dropdown-outside')
 
       'onClickOut': ->
-        if @autoDropdown then @hideDropdown()
+        @$emit('click-dropdown-outside')
 
       'onInput': (value) ->
         if @trim
@@ -113,12 +110,6 @@
 
       'focus': ->
         @$refs['write-area'].$el.focus()
-
-      'showDropdown': ->
-        @dropdownOpen = true
-
-      'hideDropdown': ->
-        @dropdownOpen = false
 
 </script>
 
@@ -138,6 +129,7 @@
     height: 28px;
     position: relative;
     >.write-area{
+      flex-grow: 1;
       margin-left: @padding;
       margin-right: @padding;
     }

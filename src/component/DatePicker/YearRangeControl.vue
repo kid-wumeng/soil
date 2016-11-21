@@ -50,7 +50,7 @@
         }
       }
       >.label{
-        padding: 8px 12px;
+        padding: 0 12px;
         font-size: 12px;
         color: @soil-black-light;
         cursor: pointer;

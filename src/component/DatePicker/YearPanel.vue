@@ -39,6 +39,9 @@
   @import "../../asset/style/color.less";
 
   .soil-date-picker{
+    .year-panel-head{
+      margin-top: 12px;
+    }
     .year-panel-body{
       margin-top: 16px;
     }

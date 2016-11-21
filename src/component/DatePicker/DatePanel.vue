@@ -57,6 +57,9 @@
   @import "../../asset/style/color.less";
 
   .soil-date-picker{
+    .date-panel-head{
+      margin-top: 12px;
+    }
     .date-panel-body{
       margin-top: 16px;
     }

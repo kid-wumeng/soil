@@ -50,6 +50,7 @@
         }
       }
       >.label{
+        padding: 0 12px;
         font-size: 12px;
         color: @soil-gray-3;
         cursor: default;

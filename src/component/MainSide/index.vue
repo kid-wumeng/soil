@@ -1,6 +1,6 @@
 <template lang="jade">
 
-  .soil-main-side(:style="styleObject")
+  .soil-main-side
 
     left-side-area(:padding="padding")
       slot(name="left-side")
@@ -28,10 +28,6 @@
       'padding':
         type: String
         default: '0'
-
-    computed:
-      'styleObject': ->
-        'padding': @padding
 
 </script>
 

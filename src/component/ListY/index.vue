@@ -50,8 +50,10 @@
   @import "../../asset/style/color.less";
 
   .soil-list-y{
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
     > *{
       flex: none;
     }

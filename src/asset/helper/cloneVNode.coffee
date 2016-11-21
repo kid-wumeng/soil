@@ -2,19 +2,16 @@ Vue = require 'vue'
 
 
 module.exports = (vnode) ->
-  if vnode.componentOptions
-    tag = vnode.componentOptions.tag
-    propsData = vnode.componentOptions.propsData
-  else
-    tag = vnode.tag
-    propsData = {}
-
-  data = vnode.data
-  data.props = merge data.props, propsData
-
-  children = vnode.children
-  if children
-    children = cloneVNodes children
-
-  vm = new Vue
-  return vm.$createElement tag, data, children
+  cloned = vnode.context.$createElement()
+  cloned.tag = vnode.tag
+  cloned.data = vnode.data
+  cloned.children = vnode.children
+  cloned.text = vnode.text
+  cloned.elm = vnode.elm
+  cloned.ns = vnode.ns
+  cloned.context = vnode.context
+  cloned.componentOptions = vnode.componentOptions
+  cloned.isStatic = vnode.isStatic;
+  cloned.key = vnode.key;
+  cloned.isCloned = true;
+  return cloned

@@ -61,7 +61,7 @@
 
 <style lang="less">
   .soil-message-dialog{
-    >.panel{
+    .panel{
       width: 280px;
       padding: 16px;
       >.title{

@@ -29,7 +29,7 @@
   @import "../../asset/style/color.less";
 
   .soil-dialog{
-    >.panel{
+    >.soil-popup >.panel{
       background-color: white;
       border-radius: 2px;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);

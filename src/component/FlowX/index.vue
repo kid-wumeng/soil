@@ -41,6 +41,7 @@
 
   .soil-flow-x{
     display: flex;
+    width: 100%;
     >.left-area{
       width: 30%;
       justify-content: flex-start;

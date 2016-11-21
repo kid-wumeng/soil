@@ -1,6 +1,8 @@
 <template lang="jade">
 
-  input.write-area(@input="onInput")
+  input.write-area(
+    @input="onInput"
+  )
 
 </template>
 

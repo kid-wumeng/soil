@@ -11,6 +11,7 @@
   @import "../../asset/style/color.less";
 
   .soil-line-x{
+    width: 100%;
     color: @soil-gray-1;
     border-bottom-width: 1px;
     border-bottom-style: solid;
