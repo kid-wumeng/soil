@@ -40,9 +40,6 @@
   .soil-main-side{
     display: flex;
     box-sizing: padding-box;
-    .main-area{
-      flex-grow: 1;
-    }
   }
 
 </style>
