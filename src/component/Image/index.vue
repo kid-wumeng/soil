@@ -37,6 +37,8 @@
         '-circle': @circle
         '-contain': @contain
       'styleObject': ->
+        width:  @width  ? 0
+        height: @height ? 0
         backgroundImage: "url(#{@src})"
 
 
