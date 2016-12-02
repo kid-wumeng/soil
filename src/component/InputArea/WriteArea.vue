@@ -1,6 +1,7 @@
 <template lang="jade">
 
   textarea.write-area(
+    :value="value",
     :style="styleObject",
     @input="onInput"
   )
@@ -14,6 +15,9 @@
   module.exports =
 
     props:
+      'value':
+        type: String
+        required: ''
       'rows':
         type: Number
         required: true
