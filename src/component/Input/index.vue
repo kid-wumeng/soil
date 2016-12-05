@@ -99,7 +99,7 @@
         @$emit('click')
         @$emit('click-dropdown-outside')
 
-      'onClickOut': ->
+      'onClickOutside': ->
         @$emit('click-dropdown-outside')
 
       'onInput': (value) ->
