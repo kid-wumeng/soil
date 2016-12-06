@@ -1,6 +1,7 @@
 <template lang="jade">
 
   input.write-area(
+    :value="value",
     @input="onInput"
   )
 
@@ -11,6 +12,11 @@
 <script lang="coffee">
 
   module.exports =
+
+    props:
+      'value':
+        type: String
+        default: ''
 
     methods:
       'onInput': (event) ->
