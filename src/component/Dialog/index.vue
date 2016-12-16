@@ -6,7 +6,7 @@
       :style="styleObject",
       @click.native.self="onClickMask"
     )
-      panel
+      panel(:button-close="buttonClose", @close="$emit('close')")
         slot
 </template>
 
@@ -26,6 +26,9 @@
         type: Number
         default: 0.4
       'reset':
+        type: Boolean
+        default: false
+      'buttonClose':
         type: Boolean
         default: false
 
