@@ -2,7 +2,8 @@
 
   input.write-area(
     :value="value",
-    @input="onInput"
+    @input="onInput",
+    @keydown="onKeyDown"
   )
 
 </template>
@@ -21,7 +22,9 @@
     methods:
       'onInput': (event) ->
         @$emit('input', event.target.value)
-
+      'onKeyDown': (event) ->
+        if event.keyCode is 13
+          @$emit('key-enter')
 </script>
 
 

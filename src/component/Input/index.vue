@@ -12,6 +12,7 @@
       :type="nativeType",
       :disabled="nativeDisabled",
       @input="onInput",
+      @key-enter="$emit('key-enter')"
     )
 
     dropdown-area(v-if="display.dropdown")
@@ -110,7 +111,6 @@
 
       'focus': ->
         @$refs['write-area'].$el.focus()
-
 </script>
 
 
